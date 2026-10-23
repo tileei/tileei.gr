@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ!</title>
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#123a8c">
+<meta name="apple-mobile-web-app-title" content="Πετάμε!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<meta name="description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
+<meta property="og:title" content="ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ! – Τα μίλια σου γίνονται ταξίδια">
+<meta property="og:description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tileei.gr/">
+<meta property="og:image" content="https://tileei.gr/assets/icons/icon-512.png">
+<meta property="og:locale" content="el_GR">
+<link rel="canonical" href="https://tileei.gr/">
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <button type="button" class="backbtn" id="backbtn" hidden aria-label="Πίσω"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span>Πίσω</span></button>
+    <a class="brand" href="#home" aria-label="ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ! – αρχική">
+      <img src="assets/header-logo.svg" width="1040" height="560" alt="Τι Λέει; Πετάμε!">
+    </a>
+    <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mainnav" aria-label="Μενού">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path class="b1" d="M4 7h16" /><path class="b2" d="M4 12h16"/><path class="b3" d="M4 17h16"/></svg>
+    </button>
+    <nav class="mainnav" id="mainnav" aria-label="Κύριο μενού"></nav>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="Εργαλεία" hidden></nav>
+
+<main>
+
+  <!-- ΑΡΧΙΚΗ -->
+  <section id="home" class="panel" data-title="Αρχική">
+    <div class="hero-band">
+      <div class="hero-in">
+        <div class="hero-txt">
+          <h1 class="wordmark"><img src="assets/wordmark.svg" width="1040" height="700" alt="Τι Λέει; Πετάμε! Τα μίλια σου γίνονται ταξίδια."></h1>
+          <p class="sub">Υπολόγισε πόσα μίλια κερδίζεις, μετέτρεψε πόντους σε μίλια και δες πόσο αξίζουν. Κάθε κανόνας έχει πηγή και ημερομηνία ελέγχου.</p>
+          <a class="cta" href="#calc" id="h_cta">Ξεκίνα τώρα δωρεάν <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="stage" aria-hidden="true">
+          <div class="globe-wrap">
+            <canvas class="globe" id="globe"></canvas>
+            <span class="gpin" id="gpin"></span>
+          </div>
+          <img class="hplane" src="assets/plane.svg" alt="">
+          <p class="slogan">Περισσότερα ταξίδια για όλους!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qcard">
+      <div class="qtabs" role="tablist" aria-label="Γρήγορος υπολογισμός">
+        <button type="button" role="tab" id="qt_buy" aria-selected="true" aria-controls="q_buy">Αγορά</button>
+        <button type="button" role="tab" id="qt_conv" aria-selected="false" aria-controls="q_conv">Μετατροπή</button>
+        <button type="button" role="tab" id="qt_val" aria-selected="false" aria-controls="q_val">Αξία μιλίων</button>
+      </div>
+      <form class="qform" id="q_buy" role="tabpanel" aria-labelledby="qt_buy">
+        <div class="field"><label for="q_bank">Τράπεζα</label><select id="q_bank"></select></div>
+        <div class="field"><label for="q_card">Κάρτα</label><select id="q_card"></select></div>
+        <div class="field"><label for="q_pcat">Κατηγορία</label><select id="q_pcat"></select></div>
+        <div class="field"><label for="q_partner">Συνεργάτης</label><select id="q_partner"></select></div>
+        <div class="field" id="q_nights_box" hidden><label for="q_nights">Νύχτες</label><input id="q_nights" type="number" inputmode="numeric" min="1" step="1" value="3"></div>
+        <div class="field"><label for="q_amount" id="q_amount_lbl">Ποσό (€)</label><input id="q_amount" type="number" inputmode="decimal" min="0" step="0.01" value="50"></div>
+        <button type="submit" class="primary">Υπολογισμός</button>
+      </form>
+      <form class="qform" id="q_conv" role="tabpanel" aria-labelledby="qt_conv" hidden>
+        <div class="field"><label for="q_rule">Πρόγραμμα προέλευσης</label><select id="q_rule"></select></div>
+        <div class="field"><label for="q_points">Διαθέσιμοι πόντοι</label><input id="q_points" type="number" inputmode="numeric" min="0" step="1" value="7500"></div>
+        <button type="submit" class="primary">Υπολογισμός</button>
+      </form>
+      <form class="qform" id="q_val" role="tabpanel" aria-labelledby="qt_val" hidden>
+        <div class="field"><label for="q_price">Τιμή με χρήματα (€)</label><input id="q_price" type="number" inputmode="decimal" min="0" step="0.01"></div>
+        <div class="field"><label for="q_miles">Απαιτούμενα μίλια</label><input id="q_miles" type="number" inputmode="numeric" min="0" step="1"></div>
+        <div class="field"><label for="q_taxes">Φόροι και τέλη (€)</label><input id="q_taxes" type="number" inputmode="decimal" min="0" step="0.01" value="0"></div>
+        <button type="submit" class="primary">Υπολογισμός</button>
+      </form>
+    </div>
+
+    <h2 class="sec">🔥 Τρέχουσες προσφορές <a class="more-link" href="#offers">Όλες οι προσφορές →</a></h2>
+    <div class="hoffers" id="h_offers"></div>
+
+    <h2 class="sec">Δημοφιλείς συνεργάτες για μίλια <a class="more-link" href="#partners">Δες όλους τους συνεργάτες →</a></h2>
+    <div class="tiles" id="h_partners"></div>
+
+    <h2 class="sec">Οδηγοί <a class="more-link" href="#guides">Όλοι οι οδηγοί →</a></h2>
+    <div class="dests gcards" id="h_news"></div>
+
+    <!-- Newsletter: κρυφό μέχρι να συνδεθεί υπηρεσία αποστολής (Brevo/Mailchimp). Ξεχωριστό έργο. -->
+    <form class="newsband" id="nl_form" autocomplete="off" hidden>
+      <svg class="nl-ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="11" width="38" height="28" rx="4"/><path d="M6 13l18 14 18-14"/></svg>
+      <div class="nl-txt">
+        <h2>Μείνε ενημερωμένος για τις καλύτερες προσφορές</h2>
+        <p>Νέες προσφορές μιλίων και οδηγοί, μόνο όταν έχουν επίσημη πηγή.</p>
+      </div>
+      <div class="nl-form">
+        <label for="nl_email" class="sr">Το email σου</label>
+        <input id="nl_email" type="email" inputmode="email" placeholder="Το email σου" required>
+        <button type="submit" class="primary">Εγγραφή</button>
+      </div>
+      <p class="nl-msg" id="nl_msg" role="status" hidden></p>
+    </form>
+  </section>
+
+  <!-- ΟΔΗΓΟΙ -->
+  <section id="guides" class="panel" data-title="Οδηγοί">
+    <h1>Οδηγοί</h1>
+    <p class="lede">Σύντομες εξηγήσεις βασισμένες στους κανόνες του καταλόγου, με πηγή και ημερομηνία ελέγχου.</p>
+    <div id="gd_out" class="list"></div>
+  </section>
+
+  <!-- ΑΡΧΙΚΗ: υπολογιστής μιλίων ανά αγορά -->
+  <section id="calc" class="panel" data-title="Αγορά">
+    <h1>Πόσα μίλια κερδίζω;</h1>
+    <p class="lede">Διάλεξε τράπεζα και κάρτα, μετά κατηγορία και συνεργάτη, και βάλε το ποσό. Τα μίλια Miles+Bonus, οι πόντοι Alpha Bonus και οι πόντοι προγραμμάτων όπως το BPme εμφανίζονται χωριστά.</p>
+    <div class="form">
+      <div class="field"><label for="c_bank">Τράπεζα</label><select id="c_bank"></select></div>
+      <div class="field"><label for="c_card">Κάρτα</label><select id="c_card"></select></div>
+      <div class="field"><label for="c_pcat">Κατηγορία</label><select id="c_pcat"></select></div>
+      <div class="field"><label for="c_partner">Συνεργάτης</label><select id="c_partner"></select></div>
+      <div class="field" id="c_nights_box" hidden><label for="c_nights">Πόσες νύχτες μένεις;</label><input id="c_nights" type="number" inputmode="numeric" min="1" step="1" value="3">
+        <p class="hint" id="c_nights_hint" style="margin-top:2px"></p></div>
+      <div class="field"><label for="c_amount" id="c_amount_lbl">Ποσό αγοράς (€)</label><input id="c_amount" type="number" inputmode="decimal" min="0" step="0.01" value="50"></div>
+      <div id="c_fuel" class="fuelbox" hidden>
+        <div class="field"><label for="c_fkind">Τι αγοράζεις;</label>
+          <select id="c_fkind"><option value="fuel">Καύσιμο</option><option value="shop">Προϊόντα από το κατάστημα του πρατηρίου</option></select></div>
+        <div id="c_fuelonly" class="fuelonly">
+          <div class="field"><label for="c_grade">Καύσιμο</label>
+            <select id="c_grade"></select></div>
+          <div class="field"><label for="c_ppl">Τιμή λίτρου (€)</label><input id="c_ppl" type="number" inputmode="decimal" min="0" step="0.001">
+            <p class="hint" id="c_ppl_hint" style="margin-top:2px"></p></div>
+          <div class="field"><label for="c_litres" id="c_litres_lbl">Λίτρα</label><input id="c_litres" type="number" inputmode="decimal" min="0" step="0.01" value="25"></div>
+          <label class="check offer-check" id="c_promo_box"><input id="c_promo" type="checkbox"> <span id="c_promo_lbl"></span></label>
+        </div>
+      </div>
+      <div id="c_koffer"></div>
+      <details class="more" id="c_odet"><summary>Έχεις άλλη προσφορά; (προαιρετικό)</summary>
+        <div class="field"><label for="c_otype">Τι δίνει η προσφορά;</label><select id="c_otype">
+          <option value="">Καμία προσφορά</option>
+          <option value="ppe">Πόντους Alpha Bonus ανά 1 € (π.χ. «1€ = 100 πόντοι»)</option>
+          <option value="mult">Πολλαπλάσια μίλια Miles+Bonus από τον συνεργάτη (π.χ. «διπλά μίλια» = 2)</option>
+        </select></div>
+        <div class="field" id="c_oval_box" hidden><label for="c_oval" id="c_oval_lbl">Τιμή</label><input id="c_oval" type="number" inputmode="decimal" min="1" step="1"></div>
+        <p class="hint">Βάλ’ τη μόνο αν οι όροι της προσφοράς καλύπτουν αυτή την αγορά. Το αποτέλεσμα δείχνεται χωριστά και δεν μπαίνει στο επιβεβαιωμένο σύνολο.</p>
+      </details>
+    </div>
+    <div id="c_out" aria-live="polite"></div>
+    <p class="hint">Οι αριθμοί προέρχονται από τους κανόνες της ενότητας «Συνεργάτες». Ό,τι είναι «προς έλεγχο» δεν μπαίνει στο σύνολο.</p>
+  </section>
+
+  <!-- ΜΕΤΑΤΡΟΠΗ -->
+  <section id="convert" class="panel" data-title="Μετατροπή">
+    <h1>Μετατροπή πόντων σε μίλια</h1>
+    <p class="lede">Πόντοι κάρτας ή προγράμματος καυσίμων που γίνονται μίλια Miles+Bonus. Κάθε κανόνας έχει δική του αναλογία, πακέτα και όρια.</p>
+    <div class="form">
+      <div class="field"><label for="v_rule">Πρόγραμμα προέλευσης</label><select id="v_rule"></select></div>
+      <div class="field"><label for="v_points">Διαθέσιμοι πόντοι</label><input id="v_points" type="number" inputmode="numeric" min="0" step="1" value="7500"></div>
+      <details class="more"><summary>Bonus μετατροπής (προαιρετικό)</summary>
+        <div class="field"><label for="v_bonus">Bonus %</label><input id="v_bonus" type="number" inputmode="decimal" min="0" step="1" placeholder="0"></div>
+        <div class="field"><label for="v_bonusend">Λήξη bonus</label><input id="v_bonusend" type="date"></div>
+        <p class="hint">Δεν υπάρχει επιβεβαιωμένο bonus μετατροπής στη βάση. Αν γνωρίζεις ενεργό bonus, εισήγαγέ το με την επίσημη πηγή του.</p>
+      </details>
+    </div>
+    <div id="v_out" aria-live="polite"></div>
+  </section>
+
+  <!-- ΑΞΙΑ -->
+  <section id="value" class="panel" data-title="Αξία μιλίων">
+    <h1>Πόσο αξίζουν τα μίλια μου;</h1>
+    <p class="lede">Δες αν συμφέρει να πληρώσεις ένα εισιτήριο με μίλια ή με χρήματα.</p>
+    <div class="steps-ae">
+      <p><b>1.</b> Στην AEGEAN, ψάξε την πτήση σου με «Εξαργύρωση μιλίων». Θα δεις <b>μίλια</b> και <b>φόρους</b>.</p>
+      <p><b>2.</b> Ψάξε την ίδια πτήση και με χρήματα. Θα δεις την <b>τιμή</b>.</p>
+      <p><b>3.</b> Γράψε τα τρία νούμερα εδώ.</p>
+      <a class="btn" href="https://el.aegeanair.com/" target="_blank" rel="noopener">Άνοιξε την AEGEAN →</a>
+    </div>
+    <div class="form">
+      <div class="field"><label for="a_miles">Μίλια που ζητάει (σύνολο διαδρομής)</label><input id="a_miles" type="number" inputmode="numeric" min="0" step="1" placeholder="π.χ. 50000"></div>
+      <div class="field"><label for="a_taxes">Φόροι για το εισιτήριο με μίλια (€)</label><input id="a_taxes" type="number" inputmode="decimal" min="0" step="0.01" placeholder="π.χ. 126,83"></div>
+      <div class="field"><label for="a_price">Τιμή του ίδιου εισιτηρίου με χρήματα (€)</label><input id="a_price" type="number" inputmode="decimal" min="0" step="0.01" placeholder="π.χ. 320"></div>
+      <div class="field"><label for="a_trav">Ταξιδιώτες</label><input id="a_trav" type="number" inputmode="numeric" min="1" step="1" value="1"></div>
+      <input id="a_fees" type="hidden" value="0">
+      <button type="button" class="ghost" id="a_demo">Δες υποθετικό παράδειγμα (180€ / 12.000 μίλια / 45€)</button>
+    </div>
+    <div id="a_out" aria-live="polite"></div>
+    <div class="savebox" id="a_savebox" hidden>
+      <div class="field"><label for="a_name">Δώσε ένα όνομα σε αυτό το ταξίδι</label><input id="a_name" maxlength="60" placeholder="π.χ. Ρώμη, Μάρτιος"></div>
+      <button type="button" class="primary" id="a_save">➕ Κράτα το για σύγκριση</button>
+    </div>
+    <div id="a_cmp" aria-live="polite"></div>
+    <p class="hint">Η αξία των μιλίων δεν είναι σταθερή. Αλλάζει με τον προορισμό, την ημερομηνία και τους φόρους. Τα νούμερα τα βάζεις εσύ από την AEGEAN· εμείς κάνουμε μόνο τον λογαριασμό.</p>
+  </section>
+
+  <!-- ΣΥΓΚΡΙΣΗ -->
+
+
+  <!-- ΣΤΟΧΟΣ -->
+  <section id="goal" class="panel" data-title="Στόχος">
+    <h1>Ταξιδιωτικός στόχος</h1>
+    <p class="lede">Πες μας τι θες και πόσα ξοδεύεις, και σου λέμε σε πόσο καιρό φτάνεις εκεί και πώς να φτάσεις πιο γρήγορα.</p>
+    <div class="form">
+      <div class="field"><label for="g_name">Ο στόχος σου</label><input id="g_name" placeholder="π.χ. Νέα Υόρκη"></div>
+      <div class="two">
+        <div class="field"><label for="g_have">Μίλια που έχεις</label><input id="g_have" type="number" inputmode="numeric" min="0" step="1" placeholder="π.χ. 12000"></div>
+        <div class="field"><label for="g_need">Μίλια που χρειάζεσαι</label><input id="g_need" type="number" inputmode="numeric" min="0" step="1" placeholder="από την AEGEAN"></div>
+      </div>
+      <div class="field"><label for="g_card">Η κάρτα σου</label><select id="g_card"></select></div>
+      <div class="two">
+        <div class="field"><label for="g_spend">Αγορές με την κάρτα τον μήνα (€, χωρίς καύσιμα)</label><input id="g_spend" type="number" inputmode="decimal" min="0" step="10" placeholder="π.χ. 800"></div>
+        <div class="field"><label for="g_big">Από αυτές, σε «μεγάλους» συνεργάτες (€)</label><input id="g_big" type="number" inputmode="decimal" min="0" step="10" placeholder="π.χ. 200"></div>
+      </div>
+      <p class="hint" style="margin-top:-4px">«Μεγάλοι» συνεργάτες Alpha Bonus (4 πόντοι/€): AEGEAN, AB, Vodafone, Κωτσόβολος, attica, Hondos Center, Hertz, BOX, Φυσικό Αέριο, Generali.</p>
+      <div class="two">
+        <div class="field"><label for="g_fuel">Καύσιμα τον μήνα (€)</label><input id="g_fuel" type="number" inputmode="decimal" min="0" step="10" placeholder="π.χ. 150"></div>
+        <div class="field"><label for="g_fbrand">Πού βάζεις;</label><select id="g_fbrand"><option value="bp">bp</option><option value="eko">EKO</option><option value="">Αλλού</option></select></div>
+      </div>
+      <input id="g_tax" type="hidden">
+    </div>
+    <div id="g_out" aria-live="polite"></div>
+  </section>
+
+  <!-- ΠΡΟΣΦΟΡΕΣ -->
+  <section id="offers" class="panel" data-title="Προσφορές">
+    <h1>Προσφορές μιλίων</h1>
+    <p class="lede">Η λήξη υπολογίζεται αυτόματα με βάση την ημερομηνία της συσκευής σου. Οι ληγμένες φεύγουν από τις ενεργές και μένουν στο ιστορικό.</p>
+    <div id="o_out"></div>
+    <details class="more addoffer"><summary>Πρόσθεσε δική σου προσφορά</summary>
+      <form class="form" id="o_form" autocomplete="off">
+        <div class="field"><label for="o_title">Τίτλος</label><input id="o_title" required></div>
+        <div class="field"><label for="o_partner">Συνεργάτης</label><input id="o_partner"></div>
+        <div class="field"><label for="o_bonus">Bonus μιλίων ή έκπτωση εξαργύρωσης</label><input id="o_bonus" placeholder="π.χ. +25% μίλια"></div>
+        <div class="two">
+          <div class="field"><label for="o_start">Έναρξη</label><input id="o_start" type="date"></div>
+          <div class="field"><label for="o_end">Λήξη</label><input id="o_end" type="date"></div>
+        </div>
+        <div class="field"><label for="o_src">Επίσημη πηγή (σύνδεσμος)</label><input id="o_src" type="url" inputmode="url" placeholder="https://…"></div>
+        <button type="submit" class="primary">Αποθήκευση</button>
+        <p class="hint">Χωρίς σύνδεσμο πηγής η προσφορά εμφανίζεται ως «προς επιβεβαίωση». Η εφαρμογή δεν ελέγχει μόνη της τους επίσημους ιστότοπους.</p>
+      </form>
+    </details>
+  </section>
+
+  <!-- ΣΥΝΕΡΓΑΤΕΣ -->
+  <section id="partners" class="panel" data-title="Συνεργάτες">
+    <h1>Κατάλογος συνεργατών</h1>
+    <p class="lede">Όλοι οι συνεργάτες της επίσημης λίστας Miles+Bonus, με το πόσα μίλια δίνουν, πώς εξαργυρώνεις και πόσους πόντους Alpha Bonus παίρνεις. Κάθε κανόνας έχει πηγή και ημερομηνία ελέγχου.</p>
+    <h2 class="sec">Αεροπορικές εταιρείες: μαζεύεις και εξαργυρώνεις μίλια</h2>
+    <div class="airlines-wrap">
+      <button type="button" class="arw" id="al_prev" aria-label="Προηγούμενες">‹</button>
+      <div class="airlines" id="h_airlines" tabindex="0" aria-label="Αεροπορικές της επίσημης λίστας συνεργατών"></div>
+      <button type="button" class="arw" id="al_next" aria-label="Επόμενες">›</button>
+    </div>
+    <p class="hint" id="h_airlines_note"></p>
+    <div class="ptiles" id="p_cats" role="group" aria-label="Κατηγορίες συνεργατών"></div>
+    <div class="pfilters">
+      <div class="field"><label for="p_q">Αναζήτηση</label><input id="p_q" type="search" placeholder="π.χ. Hertz, Ρόδος, καφές"></div>
+      <div class="field"><label for="p_sort">Ταξινόμηση</label><select id="p_sort"><option value="miles">Περισσότερα μίλια πρώτα</option><option value="name">Αλφαβητικά</option></select></div>
+    </div>
+    <div class="segs" id="p_type" role="group" aria-label="Τι δίνει ο συνεργάτης"></div>
+    <div class="segs areas" id="p_area" role="group" aria-label="Περιοχή ξενοδοχείου" hidden></div>
+    <label class="check pcheck"><input id="p_only" type="checkbox"> Μόνο επιβεβαιωμένοι κανόνες</label>
+    <div id="p_out"></div>
+  </section>
+
+  <!-- ΚΑΤΑΣΤΑΣΗ -->
+  <section id="status" class="panel" data-title="Πηγές και έλεγχοι">
+    <h1>Πηγές και έλεγχοι</h1>
+    <p class="lede">Από πού βγαίνουν τα νούμερα του site και πότε τα ελέγξαμε τελευταία φορά.</p>
+    <div id="s_out"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Το «ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ!» είναι ανεξάρτητο και δεν συνδέεται με την AEGEAN, την Alpha Bank ή τους συνεργάτες τους. Τα ονόματα ανήκουν στους κατόχους τους. Οι υπολογισμοί είναι ενδεικτικοί: ισχύουν πάντα οι επίσημοι όροι.</p>
+  <p>Εικόνα Γης: <a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener noreferrer">Solar System Scope</a> (CC BY 4.0), βάσει δεδομένων NASA. Χάρτες: Natural Earth.</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/world.js"></script>
+<script src="js/globe.js"></script>
+<script src="js/calc.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
