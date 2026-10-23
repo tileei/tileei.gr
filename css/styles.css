@@ -531,3 +531,4 @@ th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line
 .koffers { display: grid; gap: 8px; margin-top: 12px; }
 .koffers .koffer { margin-top: 0; }
 .koffer.none { background: transparent; border-style: dashed; font-weight: 400; }
+@media (max-width: 480px) { .qtabs button { flex: 1 1 0; padding: 8px 6px; font-size: 0.9rem; white-space: normal; line-height: 1.2; } }
