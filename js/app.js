@@ -793,7 +793,7 @@
     $('h_partners').innerHTML = top.map((p) => `<a class="tile" href="#calc" data-partner="p:${esc(p.id)}"><h3>${esc(p.name.split(' – ')[0].split(' (')[0])}</h3><span class="rate">${fmt(p.rate)} <small>μίλια ανά €</small></span><span class="tmeta">${esc(p.cat)}</span><span class="go" aria-hidden="true">→</span></a>`).join('');
     $('h_news').innerHTML = GUIDES.map((g, i) => guideCard(g, i)).join('');
   }
-  $('h_cta').addEventListener('click', (e) => { const q = document.querySelector('.qcard'); if (q && window.innerWidth < 860) { e.preventDefault(); q.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
+  /* «Ξεκίνα τώρα»: απλός σύνδεσμος στο #calc (ο υπολογιστής). Το scroll μέσα στην εφαρμογή Claude δεν δούλευε. */
   $('h_news').addEventListener('click', (e) => { const a = e.target.closest('[data-g]'); if (a) setTimeout(() => { const el = document.getElementById('guide-' + a.dataset.g); if (el) el.scrollIntoView({ block: 'start' }); }, 80); });
   $('al_prev').addEventListener('click', () => $('h_airlines').scrollBy({ left: -260 }));
   $('al_next').addEventListener('click', () => $('h_airlines').scrollBy({ left: 260 }));
