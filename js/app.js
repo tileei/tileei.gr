@@ -797,11 +797,7 @@
   $('h_news').addEventListener('click', (e) => { const a = e.target.closest('[data-g]'); if (a) setTimeout(() => { const el = document.getElementById('guide-' + a.dataset.g); if (el) el.scrollIntoView({ block: 'start' }); }, 80); });
   $('al_prev').addEventListener('click', () => $('h_airlines').scrollBy({ left: -260 }));
   $('al_next').addEventListener('click', () => $('h_airlines').scrollBy({ left: 260 }));
-  $('nl_form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const m = $('nl_msg'); m.hidden = false;
-    m.textContent = 'Η λίστα ενημερώσεων δεν έχει ανοίξει ακόμα, οπότε το email σου δεν αποθηκεύτηκε. Θα ενεργοποιηθεί μόλις συνδεθεί υπηρεσία αποστολής.';
-  });
+  /* «Θέλω ειδοποιήσεις»: απλός σύνδεσμος προς ξεχωριστή φόρμα/λίστα Brevo (όχι το newsletter). */
   $('h_partners').addEventListener('click', (e) => { const a = e.target.closest('[data-partner]'); if (a) { pickPartner('c', a.dataset.partner); setSel('c_bank', 'alpha'); setSel('c_card', 'premium'); } });
 
   /* ================= ΟΔΗΓΟΙ (από επαληθευμένα δεδομένα) ================= */

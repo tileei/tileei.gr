@@ -144,6 +144,7 @@ input[type="checkbox"] { width: 22px; min-height: 22px; height: 22px; flex: none
 .fuelbox { display: grid; gap: 12px; padding: 12px; background: var(--surface-2); border: 1px dashed var(--line); border-radius: 12px; }
 button { font: inherit; font-weight: 800; font-family: var(--font-display); min-height: 48px; padding: 10px 16px; border-radius: 12px; border: 1.5px solid transparent; cursor: pointer; }
 .primary { background: var(--sun); color: var(--sun-ink); }
+.btnlink { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 10px 16px; border-radius: 12px; font-weight: 800; font-family: var(--font-display); text-decoration: none; }
 .ghost { background: transparent; color: var(--brand); border-color: var(--line); }
 .linkbtn { min-height: 36px; padding: 4px 10px; background: transparent; color: var(--bad); border-color: var(--line); font-size: 0.88rem; }
 details.more { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 4px 12px; }
@@ -319,6 +320,10 @@ th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line
 
 /* Newsletter */
 .newsband { margin-top: 26px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px 16px; align-items: center; padding: 18px; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--line); }
+.alertband { margin-top: 26px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px 16px; align-items: center; padding: 18px; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--line); }
+.alertband h2 { font-size: 1.1rem; }
+.alertband p { margin: 4px 0 0; color: var(--muted); }
+@media (min-width: 860px) { .alertband { grid-template-columns: auto minmax(0, 1fr) auto; } .alertband .nl-form { grid-column: auto; } }
 .newsband h2 { font-size: 1.1rem; }
 .newsband p { margin: 4px 0 0; color: var(--muted); }
 .nl-ico { width: 52px; height: 52px; fill: none; stroke: var(--brand); stroke-width: 2.4; stroke-linejoin: round; }

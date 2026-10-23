@@ -99,20 +99,30 @@
     <h2 class="sec">Οδηγοί <a class="more-link" href="#guides">Όλοι οι οδηγοί →</a></h2>
     <div class="dests gcards" id="h_news"></div>
 
-    <!-- Newsletter: κρυφό μέχρι να συνδεθεί υπηρεσία αποστολής (Brevo/Mailchimp). Ξεχωριστό έργο. -->
-    <form class="newsband" id="nl_form" autocomplete="off" hidden>
-      <svg class="nl-ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="11" width="38" height="28" rx="4"/><path d="M6 13l18 14 18-14"/></svg>
+    <!-- Ενδιαφέρον για προσωπικές ειδοποιήσεις: δεν υπάρχει ακόμα υπηρεσία, δεν υπόσχεται ημερομηνία ή τιμή. -->
+    <section class="alertband" id="alert_band" aria-labelledby="alert_h">
+      <svg class="nl-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6a12 12 0 0 0-12 12v8l-4 6h32l-4-6v-8A12 12 0 0 0 24 6Z"/><path d="M19 38a5 5 0 0 0 10 0"/></svg>
       <div class="nl-txt">
-        <h2>Μείνε ενημερωμένος για τις καλύτερες προσφορές</h2>
-        <p>Νέες προσφορές μιλίων και οδηγοί, μόνο όταν έχουν επίσημη πηγή.</p>
+        <h2 id="alert_h">Ειδοποιήσεις για προσφορές που σε αφορούν</h2>
+        <p>Δουλεύουμε σε προσωπικές ειδοποιήσεις: μήνυμα μόλις ανοίξει προσφορά που ταιριάζει στην κάρτα και στους συνεργάτες σου. Δεν υπάρχουν ακόμα και δεν πληρώνεις τίποτα. Αν σε ενδιαφέρουν, πάτα το κουμπί: έτσι θα ξέρουμε ότι αξίζει να τις φτιάξουμε.</p>
       </div>
       <div class="nl-form">
-        <label for="nl_email" class="sr">Το email σου</label>
-        <input id="nl_email" type="email" inputmode="email" placeholder="Το email σου" required>
-        <button type="submit" class="primary">Εγγραφή</button>
+        <a class="primary btnlink" id="alert_btn" href="https://54914687.sibforms.com/serve/MUIFALAVbUh3xB0Iq5pGamMcaktV4lClqGgdZJ4Zdgh_OV1C90dj28BudmnyV0w3QgW7Q-yTled8_VjWFgs9S9W8t-uYeOkBbu9t5fSZ_ssCMwH-WVjJrW6KoeXPb9waQh5MhTpIsVuFxriRRJb1CFY7IoX-feaadXGrGP-b-DkgIZZQV7aDuHL8gVM1Aeko_cLTujM_CcuuTBe-Kw==" target="_blank" rel="noopener noreferrer">Θέλω ειδοποιήσεις</a>
       </div>
-      <p class="nl-msg" id="nl_msg" role="status" hidden></p>
-    </form>
+      <p class="nl-msg" id="alert_msg" role="status">Οι ειδοποιήσεις δεν υπάρχουν ακόμα. Αν αφήσεις το email σου, το χρησιμοποιούμε μόνο για να μετρήσουμε αν αξίζει να τις φτιάξουμε και για να σε ειδοποιήσουμε αν ανοίξουν. Η εγγραφή γίνεται μέσω Brevo, με επιβεβαίωση στο email σου, και μπορείς να διαγραφείς όποτε θέλεις.</p>
+    </section>
+
+    <!-- Newsletter (εβδομαδιαίο email): χωριστή λίστα και φόρμα από τις «προσωπικές ειδοποιήσεις». -->
+    <section class="newsband" id="nl_band" aria-labelledby="nl_h">
+      <svg class="nl-ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="11" width="38" height="28" rx="4"/><path d="M6 13l18 14 18-14"/></svg>
+      <div class="nl-txt">
+        <h2 id="nl_h">Newsletter: μία φορά την εβδομάδα</h2>
+        <p>Νέες προσφορές μιλίων και αλλαγές κανόνων, μόνο όταν έχουν επίσημη πηγή. Η εγγραφή γίνεται με το email σου μέσω της υπηρεσίας Brevo και επιβεβαιώνεται με email. Μπορείς να διαγραφείς όποτε θέλεις.</p>
+      </div>
+      <div class="nl-form">
+        <a class="primary btnlink" id="nl_btn" href="https://54914687.sibforms.com/serve/MUIFAN72yRDcIxaYvBpF7AZ0sZ-RzGZuyOQmgeixCl3oDcYdeJjcHMK5TxPC0a6eobY2kv9M_SJ0a7wgzL2jwMUVNU9jnACXt33EjDwT_r3VC_mk6V1Btai9Hzkj754Q9ccCC9SE5vakmE9_K39kKcLTKQUz9Squ3GcMcBv3pHjeyGI8GM9zmZZdV199bp7k-dtUWiKHnb_DD3zVmA==" target="_blank" rel="noopener noreferrer">Εγγραφή στο newsletter</a>
+      </div>
+    </section>
   </section>
 
   <!-- ΟΔΗΓΟΙ -->
