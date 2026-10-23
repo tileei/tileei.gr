@@ -118,15 +118,16 @@
   const pOpt = (p) => new Option(`${p.name} · ${shortEarn(p)}${p.status === 'confirmed' ? '' : ' (προς έλεγχο)'}`, 'p:' + p.id);
   const PCATS = D.partnerCats.map((c) => ({ id: c.name, name: c.name, list: D.partners.filter((p) => p.cat === c.name && isCalc(p)), alpha: D.alphaPartners.filter((p) => p.tier === 2 && p.cat === c.name) }))
     .filter((c) => c.list.length || c.alpha.length)
-    .concat([{ id: '__fuel', name: `Καύσιμα (${D.fuels.map((f) => f.name.split(' ')[0]).join(', ')})` },
+    .concat([{ id: '__aegean', name: 'Εισιτήρια AEGEAN / Olympic Air' }, { id: '__fuel', name: `Καύσιμα (${D.fuels.map((f) => f.name.split(' ')[0]).join(', ')})` },
       { id: '__alpha4', name: `Alpha Bonus · μεγάλοι συνεργάτες, 4 πόντοι/€ (${D.alphaPartners.filter((p) => p.tier === 4).length})` }]);
   const alphaRec = (key) => D.alphaPartners.find((p) => 'a:' + p.id === key);
-  const catOfKey = (key) => (key.startsWith('fuel:') ? '__fuel' : key.startsWith('a:') ? ((alphaRec(key) || {}).tier === 2 ? alphaRec(key).cat : '__alpha4') : (D.partners.find((p) => 'p:' + p.id === key) || {}).cat);
+  const catOfKey = (key) => (key === 'a:aegean' ? '__aegean' : key.startsWith('fuel:') ? '__fuel' : key.startsWith('a:') ? ((alphaRec(key) || {}).tier === 2 ? alphaRec(key).cat : '__alpha4') : (D.partners.find((p) => 'p:' + p.id === key) || {}).cat);
   function fillPCats(sel) { sel.innerHTML = ''; PCATS.forEach((c) => sel.add(new Option(c.list ? `${c.name} (${c.list.length + c.alpha.length})` : c.name, c.id))); }
   function fillPartners(catSel, pSel, keep) {
     const c = PCATS.find((x) => x.id === catSel.value) || PCATS[0];
     pSel.innerHTML = '';
     if (c.id === '__fuel') D.fuels.forEach((f) => pSel.add(new Option(`${f.name} · πόντοι ${D.programs[f.program].name} ανά λίτρο`, 'fuel:' + f.id)));
+    else if (c.id === '__aegean') pSel.add(new Option('AEGEAN / Olympic Air · αγορά εισιτηρίου με την κάρτα', 'a:aegean'));
     else if (c.id === '__alpha4') D.alphaPartners.filter((p) => p.tier === 4).forEach((p) => pSel.add(new Option(`${p.name} · 4 πόντοι Bonus/€`, 'a:' + p.id)));
     else {
       const grp = (label) => { const g = document.createElement('optgroup'); g.label = label; pSel.appendChild(g); return g; };
@@ -235,7 +236,9 @@
       alRes = C.alphaPoints({ amount, card, tier, tierStatus });
       if (alRes.ok) alMiles = C.alphaToMiles({ points: alRes.points, card });
     } else if (model === 'direct') {
-      dRes = C.earnMiles({ amount, rate: card.earn.perEuro, status: card.status });
+      const aeNet = key === 'a:aegean' && card.earn.aegeanPerEuro;
+      dRes = C.earnMiles({ amount, rate: aeNet ? card.earn.aegeanPerEuro : card.earn.perEuro, status: card.status });
+      dRes.aeNet = !!aeNet;
     }
     const cardOk = model === 'alpha' ? alRes.ok : model === 'direct' ? dRes.ok : !(parseFloat(amount) < 0) && amount !== '';
 
@@ -265,7 +268,8 @@
       const prog = D.programs[card.earn.program], isMb = card.earn.program === 'mb';
       out.push(flow(isMb ? 'Μίλια Miles+Bonus από την κάρτα' : `Μίλια ${esc(prog.name)} από την κάρτα (άλλο πρόγραμμα)`, isMb ? 't-alpha' : 't-ext',
         `${fmt(dRes.total)} <small>${isMb ? 'μίλια' : esc(prog.unit)}</small>`,
-        `<div class="formula">Τύπος: <code>${esc(dRes.formula)}</code> (ποσό × μίλια ανά €)</div>` +
+        `<div class="formula">Τύπος: <code>${esc(dRes.formula)}</code> (ποσό × μίλια ανά €${dRes.aeNet ? ', δίκτυο AEGEAN' : ''})</div>` +
+        (card.excl ? `<div class="formula">${esc(card.excl)}</div>` : '') +
         (isMb ? '' : `<div class="formula"><b>Δεν είναι μίλια Miles+Bonus</b> και δεν προστίθενται στο σύνολο. Πιστώνονται στο ${esc(prog.name)}.</div>`) +
         `<div class="formula">${esc(card.notes)}</div>`,
         `<div class="meta">${confBadge(dRes.confidence)}</div>` + cardMeta));

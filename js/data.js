@@ -57,6 +57,7 @@
     'ae-hellasdirect': { t: 'Miles+Bonus – Hellas Direct', url: AE + 'insurance-program/hellas-direct/', pub: 'AEGEAN' },
     'piraeus-mm':    { t: 'Τράπεζα Πειραιώς – Miles & More Visa', url: 'https://www.piraeusbank.gr/el/idiwtes/proionta-upiresies/kartes/pistwtikes/miles-and-more-visa', pub: 'Τράπεζα Πειραιώς' },
     'piraeus-mm-gold': { t: 'Τράπεζα Πειραιώς – Miles & More Visa Gold', url: 'https://www.piraeusbank.gr/el/idiwtes/proionta-upiresies/kartes/pistwtikes/miles-more-visa-gold', pub: 'Τράπεζα Πειραιώς' },
+    'boc-terms': { t: 'Bank of Cyprus – Όροι Aegean Mastercard (PDF)', url: 'https://www.bankofcyprus.com/contentassets/76a50f07680242e691ea71d5a5e1a136/terms-aegean-scheme-en-final.pdf', pub: 'Bank of Cyprus' },
     'ae-boc':        { t: 'Miles+Bonus – Bank of Cyprus', url: AE + 'payment-cards/bank-of-cyprus/', pub: 'AEGEAN' },
     'alpha-credit':  { t: 'Alpha Bank – Aegean Bonus Visa (πιστωτική)', url: 'https://www.alpha.gr/en/personal/cards/pistotikes-kartes/pistotiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
     'alpha-debit':   { t: 'Alpha Bank – Aegean Bonus Visa Debit', url: 'https://www.alpha.gr/en/personal/cards/xreostikes-kartes/xreostiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
@@ -141,15 +142,17 @@
     },
     {
       id: 'boc-aegean', bank: 'boc', model: 'direct', name: 'Aegean Mastercard', status: 'confirmed', check: 'reread', checked: '2026-10-22',
-      earn: { program: 'mb', perEuro: 0.5 },
-      notes: 'Από 08/10/2025: 1 μίλι ανά 2€ σε Κύπρο και εξωτερικό · 3 μίλια ανά 1€ στο δίκτυο της AEGEAN (δεν αφορά τους συνεργάτες του υπολογιστή) · συνδρομή 5€/μήνα.',
-      sources: ['ae-boc']
+      earn: { program: 'mb', perEuro: 0.5, aegeanPerEuro: 3 }, annualCapMiles: 100000,
+      notes: 'Από 08/10/2025: 1 μίλι ανά 2€ σε Κύπρο και εξωτερικό · 3 μίλια ανά 1€ σε αγορές στο δίκτυο της AEGEAN · 3.000 μίλια καλωσορίσματος · έως 100.000 μίλια τον χρόνο ανά λογαριασμό κάρτας · συνδρομή 5€/μήνα. Η τράπεζα ΔΕΝ έχει δικό της πρόγραμμα συνεργατών.',
+      excl: 'Δεν δίνουν μίλια: αναλήψεις, καταθέσεις, πάγιες εντολές, τραπεζικές χρεώσεις, φόροι και πληρωμές Δημοσίου, λογαριασμοί κοινής ωφέλειας, τυχερά παιχνίδια, μεταφορές χρημάτων.',
+      sources: ['ae-boc', 'boc-terms'], checked: '2026-10-23'
     },
     {
       id: 'boc-aegean-business', bank: 'boc', model: 'direct', name: 'Aegean Mastercard Business', status: 'confirmed', check: 'reread', checked: '2026-10-22',
-      earn: { program: 'mb', perEuro: 1 },
-      notes: 'Από 08/10/2025: 1 μίλι ανά 1€ σε Κύπρο και εξωτερικό · 4 μίλια ανά 1€ στο δίκτυο της AEGEAN (δεν αφορά τους συνεργάτες του υπολογιστή) · συνδρομή 8€/μήνα.',
-      sources: ['ae-boc']
+      earn: { program: 'mb', perEuro: 1, aegeanPerEuro: 4 }, annualCapMiles: 100000,
+      notes: 'Από 08/10/2025: 1 μίλι ανά 1€ σε Κύπρο και εξωτερικό · 4 μίλια ανά 1€ σε αγορές στο δίκτυο της AEGEAN · 4.000 μίλια καλωσορίσματος · έως 100.000 μίλια τον χρόνο ανά κάτοχο · συνδρομή 8€/μήνα. Η τράπεζα ΔΕΝ έχει δικό της πρόγραμμα συνεργατών.',
+      excl: 'Δεν δίνουν μίλια: αναλήψεις, καταθέσεις, πάγιες εντολές, τραπεζικές χρεώσεις, φόροι και πληρωμές Δημοσίου, λογαριασμοί κοινής ωφέλειας, τυχερά παιχνίδια, μεταφορές χρημάτων.',
+      sources: ['ae-boc', 'boc-terms'], checked: '2026-10-23'
     },
     /* model 'none': κάρτα χωρίς επιβεβαιωμένο κανόνα μιλίων. Μετρούν μόνο τα μίλια του συνεργάτη. */
     {
