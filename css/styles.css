@@ -600,3 +600,7 @@ th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line
 .hero-txt .lvl-card span { color: #4a5873; }
 .hero-txt .lvl-now { color: rgba(255,255,255,.85); text-align: left; }
 .hero-txt .lvl-chg { color: #fff; }
+
+.foot .social{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-weight:700}
+.foot .social a{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;border-radius:50%;background:rgba(127,127,127,.15);color:inherit}
+.foot .social a:hover{background:#ff9a14;color:#2a1a00}
