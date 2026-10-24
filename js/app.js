@@ -35,6 +35,7 @@
   const mainNav = $('mainnav'), tabsEl = $('tabs'), burger = $('burger');
   /* Μενού: στο κινητό είναι λίστα με εικονίδια, ομάδες και σύντομη περιγραφή· στον υπολογιστή μένει οριζόντιο (μόνο τα κύρια). */
   const IC = {
+    start: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
     home: '<path d="M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-6h4v6"/>',
     calc: '<rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8 7h8M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/>',
     convert: '<path d="M17 4l3 3-3 3M20 7H8a4 4 0 0 0-4 4M7 20l-3-3 3-3M4 17h12a4 4 0 0 0 4-4"/>',
@@ -47,6 +48,7 @@
   };
   const NAV = [
     { id: 'home', t: 'Αρχική', top: 1 },
+    { id: 'start', t: 'Πρώτη φορά εδώ;', d: 'Τι είναι τα μίλια, σε 2 λεπτά' },
     { g: 'Εργαλεία' },
     { id: 'calc', t: 'Πόσα μίλια κερδίζω', d: 'Αγορές, καύσιμα, ξενοδοχεία', desk: 'Υπολογιστής', top: 1 },
     { id: 'convert', t: 'Μετατροπή πόντων', d: 'Πόντοι Bonus, BPme, Smile → μίλια' },
@@ -826,6 +828,8 @@
       `Παράδειγμα από πραγματική προσφορά: στην προσφορά EKO του Οκτωβρίου 2026, ${fmt(eko.miles, 0)} μίλια δίνουν κουπόνι ${fmt(eko.voucherEur, 0)} €, δηλαδή ${eur(ekoV.valuePer1000)} ανά 1.000 μίλια, με χρήση μόνο σε υπηρεσίες EKO.`,
       'Η αξία δεν είναι σταθερή: αλλάζει με τον προορισμό, την ημερομηνία, τη διαθεσιμότητα και τα πρόσθετα κόστη, γι’ αυτό το εργαλείο «Αξία μιλίων» την υπολογίζει κάθε φορά για τα δικά σου στοιχεία.'] }
   ];
+  /* Πηγές στη σελίδα «Πρώτη φορά εδώ;» */
+  document.querySelectorAll('[data-src]').forEach((el) => { el.innerHTML = srcLinks(el.dataset.src.split(',')); });
   function renderGuides() {
     $('gd_out').innerHTML = GUIDES.map((g, i) => `<article class="article" id="guide-${i}"><img class="gimg" src="assets/dest/${GCITY[i % GCITY.length]}.svg" width="480" height="300" alt="" loading="lazy"><h2>${esc(g.title)}</h2>${g.body.map((t) => `<p>${esc(t)}</p>`).join('')}<div class="meta"><span>Έλεγχος ${dmy(D.rulesChecked)}</span><span>Πηγές: ${srcLinks(g.src)}</span></div></article>`).join('');
   }

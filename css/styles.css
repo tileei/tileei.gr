@@ -563,3 +563,17 @@ th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line
 .su-small { margin: 0; font-size: .82rem; color: var(--muted); }
 .su-err { margin: 0; color: #b42318; font-weight: 600; }
 .su-x { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; color: var(--muted); font-size: 18px; cursor: pointer; }
+
+/* «Πρώτη φορά εδώ;» */
+.startlink { display: inline-block; margin-top: 12px; font-weight: 700; color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.st-list { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 14px; }
+.st-step { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 16px; border-radius: 16px; background: var(--surface-2); border: 1px solid var(--line); }
+.st-step h2 { font-size: 1.1rem; margin: 4px 0 6px; }
+.st-step p { margin: 0 0 8px; }
+.st-step ul.plain { margin: 0 0 8px; padding: 0; list-style: none; display: grid; gap: 6px; }
+.st-n { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--sun); color: var(--sun-ink); font-weight: 900; font-family: var(--font-display); }
+.st-src { font-size: .82rem; color: var(--muted); margin: 0 !important; }
+.st-go { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 10px 0 16px; }
+.st-card { display: grid; gap: 4px; padding: 14px 16px; border-radius: 14px; border: 2px solid var(--line); text-decoration: none; color: inherit; background: var(--surface-2); }
+.st-card b { color: var(--brand); font-family: var(--font-display); }
+.st-card span { color: var(--muted); font-size: .92rem; }
