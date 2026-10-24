@@ -897,6 +897,14 @@
     const x = box.querySelector('.su-x');
     if (x) x.addEventListener('click', () => { box.hidden = true; store.set(SU_KEY, { dismissed: true }); });
   });
+  /* Όποιος έχει γραφτεί (ή έφτασε στις σελίδες επιβεβαίωσης από το email) δεν ξαναβλέπει το κουτί, ούτε στην αρχική. */
+  function suSync() {
+    if (/^#welcome/.test(location.hash)) store.set(SU_KEY, { done: true });
+    const st = store.get(SU_KEY, {});
+    if (st.done && $('su_home') && $('su_home').querySelector('form') && !$('su_home').querySelector('form').hidden) $('su_home').hidden = true;
+  }
+  suSync();
+  window.addEventListener('hashchange', suSync);
   /* Στα εργαλεία: εμφάνιση μετά τον πρώτο υπολογισμό, αν δεν έχει ήδη γραφτεί ή κλείσει το κουτί. */
   [['calc', 'calc'], ['convert', 'convert'], ['value', 'value'], ['goal', 'goal']].forEach(([panel, ctx]) => {
     const sec = $(panel), box = $('su_' + ctx);
