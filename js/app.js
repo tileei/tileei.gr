@@ -830,6 +830,36 @@
       `Παράδειγμα από πραγματική προσφορά: στην προσφορά EKO του Οκτωβρίου 2026, ${fmt(eko.miles, 0)} μίλια δίνουν κουπόνι ${fmt(eko.voucherEur, 0)} €, δηλαδή ${eur(ekoV.valuePer1000)} ανά 1.000 μίλια, με χρήση μόνο σε υπηρεσίες EKO.`,
       'Η αξία δεν είναι σταθερή: αλλάζει με τον προορισμό, την ημερομηνία, τη διαθεσιμότητα και τα πρόσθετα κόστη, γι’ αυτό το εργαλείο «Αξία μιλίων» την υπολογίζει κάθε φορά για τα δικά σου στοιχεία.'] }
   ];
+  /* «Πόσο καλά ξέρεις τα μίλια;»: μία ερώτηση στην αρχική, που προσαρμόζει το site.
+     new = αρχάριος (οδηγός πρώτα + μικρές εξηγήσεις στα εργαλεία), pro = τα ξέρει (χωρίς εξηγήσεις),
+     young = 18–25 (σαν αρχάριος + κάρτα genAIRation). Μένει μόνο στη συσκευή. */
+  const LVL_KEY = 'tlp.level.v1';
+  const LVL = {
+    new: { ico: '🧭', t: 'Τώρα ξεκινάω' },
+    pro: { ico: '✈️', t: 'Τα ξέρω' },
+    young: { ico: '🎓', t: 'Είμαι 18–25' }
+  };
+  function renderLevel() {
+    const lv = store.get(LVL_KEY, null), box = $('lvl');
+    if (!box) return;
+    if (!lv || !LVL[lv]) {
+      box.innerHTML = `<p class="lvl-q">Πόσο καλά ξέρεις τα μίλια;</p><div class="lvl-btns">${Object.entries(LVL).map(([k, v]) => `<button type="button" class="lvl-b" data-lv="${k}"><span aria-hidden="true">${v.ico}</span> ${v.t}</button>`).join('')}</div>`;
+    } else {
+      const card = lv === 'pro' ? '' : lv === 'young'
+        ? `<a class="st-card lvl-card" href="#youth"><b>🎓 Είσαι 18–25; Δες το genAIRation</b><span>−15% στις πτήσεις, 2 δωρεάν βαλίτσες τον χρόνο, +50% μίλια στον αγαπημένο σου προορισμό.</span></a><a class="st-card lvl-card" href="#start"><b>🧭 Τι είναι τα μίλια;</b><span>Ο οδηγός για αρχάριους σε 2 λεπτά.</span></a>`
+        : `<a class="st-card lvl-card" href="#start"><b>🧭 Ξεκίνα από εδώ: τι είναι τα μίλια;</b><span>5 μικρά βήματα: εγγραφή (δωρεάν, 1.000 μίλια), πώς μαζεύεις, πόντοι Bonus, τι κάνεις με τα μίλια.</span></a>`;
+      box.innerHTML = `${card}<p class="lvl-now">Προφίλ: ${LVL[lv].ico} ${LVL[lv].t} · <button type="button" class="lvl-chg">αλλαγή</button></p>`;
+    }
+    const beginner = lv === 'new' || lv === 'young';
+    document.querySelectorAll('[data-newbie]').forEach((el) => { el.hidden = !beginner; });
+    const sl = document.querySelector('.startlink'); if (sl) sl.hidden = lv === 'pro';
+  }
+  $('lvl') && $('lvl').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-lv]');
+    if (b) { store.set(LVL_KEY, b.dataset.lv); renderLevel(); return; }
+    if (e.target.closest('.lvl-chg')) { store.set(LVL_KEY, null); renderLevel(); }
+  });
+  renderLevel();
   /* Πηγές στη σελίδα «Πρώτη φορά εδώ;» */
   document.querySelectorAll('[data-src]').forEach((el) => { el.innerHTML = srcLinks(el.dataset.src.split(',')); });
   function renderGuides() {

@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Source+Sans+3:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=d629f9cc">
+<link rel="stylesheet" href="css/styles.css?v=497eb3aa">
 <meta name="description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
 <meta property="og:title" content="ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ! – Τα μίλια σου γίνονται ταξίδια">
 <meta property="og:description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
@@ -91,6 +91,9 @@
       </form>
     </div>
 
+    <!-- «Πόσο καλά ξέρεις τα μίλια;»: το περιεχόμενο το φτιάχνει το app.js -->
+    <div class="lvl" id="lvl"></div>
+
     <h2 class="sec">🔥 Τρέχουσες προσφορές <a class="more-link" href="#offers">Όλες οι προσφορές →</a></h2>
     <div class="hoffers" id="h_offers"></div>
 
@@ -164,6 +167,7 @@
   <section id="calc" class="panel" data-title="Μαζεύω μίλια">
     <h1>Πόσα μίλια κερδίζω;</h1>
     <p class="lede">Διάλεξε τράπεζα και κάρτα, μετά κατηγορία και συνεργάτη, και βάλε το ποσό. Τα μίλια Miles+Bonus, οι πόντοι Alpha Bonus και οι πόντοι προγραμμάτων όπως το BPme εμφανίζονται χωριστά.</p>
+    <div class="newbie" data-newbie hidden><b>🧭 Νέος στα μίλια;</b> Εδώ βλέπεις πόσα μίλια παίρνεις από μια αγορά. Τα <b>μίλια Miles+Bonus</b> τα δίνει ο συνεργάτης της AEGEAN. Οι <b>πόντοι Bonus</b> τα δίνει η κάρτα της Alpha Bank και, με κάρτα Aegean Bonus Visa, γίνονται κι αυτοί μίλια. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
     <div class="form">
       <div class="field"><label for="c_bank">Τράπεζα</label><select autocomplete="off" id="c_bank"></select></div>
       <div class="field"><label for="c_card">Κάρτα</label><select autocomplete="off" id="c_card"></select></div>
@@ -204,6 +208,7 @@
   <section id="convert" class="panel" data-title="Μετατροπή">
     <h1>Μετατροπή πόντων σε μίλια</h1>
     <p class="lede">Πόντοι κάρτας ή προγράμματος καυσίμων που γίνονται μίλια Miles+Bonus. Κάθε κανόνας έχει δική του αναλογία, πακέτα και όρια.</p>
+    <div class="newbie" data-newbie hidden><b>🧭 Νέος στα μίλια;</b> Οι πόντοι της κάρτας ή των καυσίμων <b>δεν είναι ακόμα μίλια</b>. Εδώ βλέπεις πόσα μίλια γίνονται όταν τους μετατρέψεις. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
     <div class="form">
       <div class="field"><label for="v_rule">Πρόγραμμα προέλευσης</label><select autocomplete="off" id="v_rule"></select></div>
       <div class="field"><label for="v_points">Διαθέσιμοι πόντοι</label><input autocomplete="off" id="v_points" type="number" inputmode="numeric" min="0" step="1" value="7500"></div>
@@ -221,6 +226,7 @@
   <section id="value" class="panel" data-title="Αξία μιλίων">
     <h1>Πόσο αξίζουν τα μίλια μου;</h1>
     <p class="lede">Δες αν συμφέρει να πληρώσεις ένα εισιτήριο με μίλια ή με χρήματα.</p>
+    <div class="newbie" data-newbie hidden><b>🧭 Νέος στα μίλια;</b> Όταν κλείνεις εισιτήριο με μίλια, δεν πληρώνεις το εισιτήριο αλλά πληρώνεις <b>φόρους</b>. Εδώ βλέπεις αν σε συμφέρει ή αν είναι καλύτερα να πληρώσεις με χρήματα. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
     <div class="steps-ae">
       <p><b>1.</b> Στην AEGEAN, ψάξε την πτήση σου με «Εξαργύρωση μιλίων». Θα δεις <b>μίλια</b> και <b>φόρους</b>.</p>
       <p><b>2.</b> Ψάξε την ίδια πτήση και με χρήματα. Θα δεις την <b>τιμή</b>.</p>
@@ -252,6 +258,7 @@
   <section id="goal" class="panel" data-title="Στόχος">
     <h1>Ταξιδιωτικός στόχος</h1>
     <p class="lede">Πες μας τι θες και πόσα ξοδεύεις, και σου λέμε σε πόσο καιρό φτάνεις εκεί και πώς να φτάσεις πιο γρήγορα.</p>
+    <div class="newbie" data-newbie hidden><b>🧭 Νέος στα μίλια;</b> Πόσα μίλια χρειάζεσαι το βλέπεις στην AEGEAN, ψάχνοντας την πτήση με «Εξαργύρωση μιλίων». Γράψ’ τα εδώ και δες σε πόσο καιρό τα μαζεύεις. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
     <div class="form">
       <div class="field"><label for="g_name">Ο στόχος σου</label><input autocomplete="off" id="g_name" placeholder="π.χ. Νέα Υόρκη"></div>
       <div class="two">
@@ -390,6 +397,6 @@
 <script src="js/world.js?v=e0926296"></script>
 <script src="js/globe.js?v=d2dc1403"></script>
 <script src="js/calc.js?v=631b88f9"></script>
-<script src="js/app.js?v=2200bbe4"></script>
+<script src="js/app.js?v=c63689c1"></script>
 </body>
 </html>
