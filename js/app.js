@@ -832,4 +832,13 @@
 
   /* ---- εκκίνηση ---- */
   showTab(); renderHome(); renderGuides(); renderCalc(); renderConvert(); renderValue(); renderCompare(); renderGoal(); renderOffers(); renderPartners(); renderStatus();
+  /* Ο browser μπορεί να «θυμηθεί» παλιές επιλογές (πίσω/επαναφόρτωση καρτέλας) χωρίς να στείλει events.
+     Ξαναγεμίζουμε συνεργάτες/κάρτες για τις τρέχουσες τιμές και ξαναζωγραφίζουμε. */
+  function resync() {
+    [['c_bank', cardSel, 'c'], ['q_bank', $('q_card'), 'q']].forEach(([b, cs]) => { const keep = cs.value; fillCards($(b), cs); if ([...cs.options].some((o) => o.value === keep)) cs.value = keep; });
+    [['c_pcat', partnerSel], ['q_pcat', $('q_partner')]].forEach(([c, ps]) => { const keep = ps.value; fillPartners($(c), ps, [...ps.options].some((o) => o.value === keep) ? keep : undefined); });
+    hotelMode('q', val('q_pcat') === 'Ξενοδοχεία');
+    renderCalc(); renderConvert(); renderValue(); renderGoal();
+  }
+  window.addEventListener('pageshow', () => setTimeout(resync, 0));
 })();
