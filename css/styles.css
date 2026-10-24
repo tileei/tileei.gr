@@ -590,3 +590,13 @@ th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line
 .lvl-chg { background: none; border: 0; padding: 0; color: var(--brand); text-decoration: underline; font: inherit; cursor: pointer; }
 .newbie { margin: 4px 0 14px; padding: 12px 14px; border-radius: 12px; background: var(--surface-2); border-left: 4px solid var(--sun); font-size: .95rem; line-height: 1.45; }
 .newbie a { font-weight: 700; white-space: nowrap; }
+/* Η ερώτηση επιπέδου μέσα στο σκούρο hero */
+.hero-txt .lvl { margin: 14px 0 16px; }
+.hero-txt .lvl-q { color: #fff; text-align: left; }
+.hero-txt .lvl-b { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.4); color: #fff; }
+.hero-txt .lvl-b:hover, .hero-txt .lvl-b:focus-visible { background: rgba(255,255,255,.22); border-color: var(--sun); }
+.hero-txt .lvl-card { background: #fff; color: var(--ink); text-align: left; }
+.hero-txt .lvl-card b { color: #123a8c; }
+.hero-txt .lvl-card span { color: #4a5873; }
+.hero-txt .lvl-now { color: rgba(255,255,255,.85); text-align: left; }
+.hero-txt .lvl-chg { color: #fff; }
