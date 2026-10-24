@@ -841,4 +841,15 @@
     renderCalc(); renderConvert(); renderValue(); renderGoal();
   }
   window.addEventListener('pageshow', () => setTimeout(resync, 0));
+  /* Εγγραφή newsletter / ειδοποιήσεων μέσα στο site: η φόρμα στέλνεται στο Brevo σε κρυφό iframe,
+     οπότε ο χρήστης μένει στο tileei.gr. Το Brevo στέλνει μετά το email επιβεβαίωσης. */
+  document.querySelectorAll('form.sibform').forEach((f) => f.addEventListener('submit', () => {
+    const ok = $(f.dataset.msg), btn = f.querySelector('button');
+    if (btn) btn.disabled = true;
+    setTimeout(() => {
+      f.hidden = true;
+      ok.textContent = 'Σχεδόν έτοιμο! Σου στείλαμε email για να επιβεβαιώσεις την εγγραφή (δες και στα ανεπιθύμητα). Αν είσαι ήδη γραμμένος, δεν χρειάζεται να κάνεις τίποτα.';
+      ok.hidden = false;
+    }, 600);
+  }));
 })();

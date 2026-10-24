@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Source+Sans+3:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=234d4f0b">
+<link rel="stylesheet" href="css/styles.css?v=87a34231">
 <meta name="description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
 <meta property="og:title" content="ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ! – Τα μίλια σου γίνονται ταξίδια">
 <meta property="og:description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
@@ -107,9 +107,10 @@
         <p>Δουλεύουμε σε προσωπικές ειδοποιήσεις: μήνυμα μόλις ανοίξει προσφορά που ταιριάζει στην κάρτα και στους συνεργάτες σου. Δεν υπάρχουν ακόμα και δεν πληρώνεις τίποτα. Αν σε ενδιαφέρουν, πάτα το κουμπί: έτσι θα ξέρουμε ότι αξίζει να τις φτιάξουμε.</p>
       </div>
       <div class="nl-form">
-        <a class="primary btnlink" id="alert_btn" href="https://54914687.sibforms.com/serve/MUIFALAVbUh3xB0Iq5pGamMcaktV4lClqGgdZJ4Zdgh_OV1C90dj28BudmnyV0w3QgW7Q-yTled8_VjWFgs9S9W8t-uYeOkBbu9t5fSZ_ssCMwH-WVjJrW6KoeXPb9waQh5MhTpIsVuFxriRRJb1CFY7IoX-feaadXGrGP-b-DkgIZZQV7aDuHL8gVM1Aeko_cLTujM_CcuuTBe-Kw==" target="_blank" rel="noopener noreferrer">Θέλω ειδοποιήσεις</a>
+        <form class="sibform" id="alert_btn_form" action="https://54914687.sibforms.com/serve/MUIFALAVbUh3xB0Iq5pGamMcaktV4lClqGgdZJ4Zdgh_OV1C90dj28BudmnyV0w3QgW7Q-yTled8_VjWFgs9S9W8t-uYeOkBbu9t5fSZ_ssCMwH-WVjJrW6KoeXPb9waQh5MhTpIsVuFxriRRJb1CFY7IoX-feaadXGrGP-b-DkgIZZQV7aDuHL8gVM1Aeko_cLTujM_CcuuTBe-Kw==" method="POST" target="sib_sink" data-msg="alert_ok"><label class="sr-only" for="alert_btn_email">Το email σου</label><input autocomplete="email" id="alert_btn_email" name="EMAIL" type="email" inputmode="email" required placeholder="Το email σου"><input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only"><input type="hidden" name="locale" value="el"><button type="submit" class="primary">Θέλω ειδοποιήσεις</button></form>
       </div>
-      <p class="nl-msg" id="alert_msg" role="status">Οι ειδοποιήσεις δεν υπάρχουν ακόμα. Αν αφήσεις το email σου, το χρησιμοποιούμε μόνο για να μετρήσουμε αν αξίζει να τις φτιάξουμε και για να σε ειδοποιήσουμε αν ανοίξουν. Η εγγραφή γίνεται μέσω Brevo, με επιβεβαίωση στο email σου, και μπορείς να διαγραφείς όποτε θέλεις. <a href="#privacy">Πολιτική απορρήτου</a></p>
+      <p class="nl-ok" id="alert_ok" role="status" hidden></p>
+      <p class="nl-msg" id="alert_msg">Οι ειδοποιήσεις δεν υπάρχουν ακόμα. Αν αφήσεις το email σου, το χρησιμοποιούμε μόνο για να μετρήσουμε αν αξίζει να τις φτιάξουμε και για να σε ειδοποιήσουμε αν ανοίξουν. Η εγγραφή γίνεται μέσω Brevo, με επιβεβαίωση στο email σου, και μπορείς να διαγραφείς όποτε θέλεις. <a href="#privacy">Πολιτική απορρήτου</a></p>
     </section>
 
     <!-- Newsletter (εβδομαδιαίο email): χωριστή λίστα και φόρμα από τις «προσωπικές ειδοποιήσεις». -->
@@ -120,8 +121,9 @@
         <p>Νέες προσφορές μιλίων και αλλαγές κανόνων, μόνο όταν έχουν επίσημη πηγή. Η εγγραφή γίνεται με το email σου μέσω της υπηρεσίας Brevo και επιβεβαιώνεται με email. Μπορείς να διαγραφείς όποτε θέλεις. <a href="#privacy">Πολιτική απορρήτου</a></p>
       </div>
       <div class="nl-form">
-        <a class="primary btnlink" id="nl_btn" href="https://54914687.sibforms.com/serve/MUIFAN72yRDcIxaYvBpF7AZ0sZ-RzGZuyOQmgeixCl3oDcYdeJjcHMK5TxPC0a6eobY2kv9M_SJ0a7wgzL2jwMUVNU9jnACXt33EjDwT_r3VC_mk6V1Btai9Hzkj754Q9ccCC9SE5vakmE9_K39kKcLTKQUz9Squ3GcMcBv3pHjeyGI8GM9zmZZdV199bp7k-dtUWiKHnb_DD3zVmA==" target="_blank" rel="noopener noreferrer">Εγγραφή στο newsletter</a>
+        <form class="sibform" id="nl_btn_form" action="https://54914687.sibforms.com/serve/MUIFAN72yRDcIxaYvBpF7AZ0sZ-RzGZuyOQmgeixCl3oDcYdeJjcHMK5TxPC0a6eobY2kv9M_SJ0a7wgzL2jwMUVNU9jnACXt33EjDwT_r3VC_mk6V1Btai9Hzkj754Q9ccCC9SE5vakmE9_K39kKcLTKQUz9Squ3GcMcBv3pHjeyGI8GM9zmZZdV199bp7k-dtUWiKHnb_DD3zVmA==" method="POST" target="sib_sink" data-msg="nl_ok"><label class="sr-only" for="nl_btn_email">Το email σου</label><input autocomplete="email" id="nl_btn_email" name="EMAIL" type="email" inputmode="email" required placeholder="Το email σου"><input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only"><input type="hidden" name="locale" value="el"><button type="submit" class="primary">Εγγραφή</button></form>
       </div>
+    <p class="nl-ok" id="nl_ok" role="status" hidden></p>
     </section>
   </section>
 
@@ -347,6 +349,7 @@
   </section>
 </main>
 
+<iframe name="sib_sink" title="" hidden></iframe>
 <footer class="foot">
   <p>Το «ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ!» είναι ανεξάρτητο και δεν συνδέεται με την AEGEAN, την Alpha Bank ή τους συνεργάτες τους. Τα ονόματα ανήκουν στους κατόχους τους. Οι υπολογισμοί είναι ενδεικτικοί: ισχύουν πάντα οι επίσημοι όροι.</p>
   <p><a href="#privacy">Πολιτική απορρήτου</a> · <a href="#status">Πηγές και έλεγχοι</a></p>
@@ -357,6 +360,6 @@
 <script src="js/world.js?v=e0926296"></script>
 <script src="js/globe.js?v=d2dc1403"></script>
 <script src="js/calc.js?v=631b88f9"></script>
-<script src="js/app.js?v=15a1a93d"></script>
+<script src="js/app.js?v=fb0f27a1"></script>
 </body>
 </html>
