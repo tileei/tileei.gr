@@ -841,15 +841,69 @@
     renderCalc(); renderConvert(); renderValue(); renderGoal();
   }
   window.addEventListener('pageshow', () => setTimeout(resync, 0));
-  /* Εγγραφή newsletter / ειδοποιήσεων μέσα στο site: η φόρμα στέλνεται στο Brevo σε κρυφό iframe,
-     οπότε ο χρήστης μένει στο tileei.gr. Το Brevo στέλνει μετά το email επιβεβαίωσης. */
-  document.querySelectorAll('form.sibform').forEach((f) => f.addEventListener('submit', () => {
-    const ok = $(f.dataset.msg), btn = f.querySelector('button');
-    if (btn) btn.disabled = true;
-    setTimeout(() => {
-      f.hidden = true;
-      ok.textContent = 'Σχεδόν έτοιμο! Σου στείλαμε email για να επιβεβαιώσεις την εγγραφή (δες και στα ανεπιθύμητα). Αν είσαι ήδη γραμμένος, δεν χρειάζεται να κάνεις τίποτα.';
-      ok.hidden = false;
-    }, 600);
-  }));
+  /* Εγγραφή newsletter (+ προαιρετικά «Θέλω ειδοποιήσεις») μέσα στο site.
+     Η φόρμα στέλνεται στο Brevo σε κρυφό iframe (ένα ανά λίστα), οπότε ο χρήστης μένει στο tileei.gr.
+     Στην αρχική φαίνεται πάντα· στα εργαλεία εμφανίζεται κάτω από το αποτέλεσμα μετά τον πρώτο υπολογισμό. */
+  const SIB = {
+    nl: ['sib_nl', 'https://54914687.sibforms.com/serve/MUIFAN72yRDcIxaYvBpF7AZ0sZ-RzGZuyOQmgeixCl3oDcYdeJjcHMK5TxPC0a6eobY2kv9M_SJ0a7wgzL2jwMUVNU9jnACXt33EjDwT_r3VC_mk6V1Btai9Hzkj754Q9ccCC9SE5vakmE9_K39kKcLTKQUz9Squ3GcMcBv3pHjeyGI8GM9zmZZdV199bp7k-dtUWiKHnb_DD3zVmA=='],
+    al: ['sib_al', 'https://54914687.sibforms.com/serve/MUIFALAVbUh3xB0Iq5pGamMcaktV4lClqGgdZJ4Zdgh_OV1C90dj28BudmnyV0w3QgW7Q-yTled8_VjWFgs9S9W8t-uYeOkBbu9t5fSZ_ssCMwH-WVjJrW6KoeXPb9waQh5MhTpIsVuFxriRRJb1CFY7IoX-feaadXGrGP-b-DkgIZZQV7aDuHL8gVM1Aeko_cLTujM_CcuuTBe-Kw==']
+  };
+  const SU_TITLE = {
+    home: 'Μην χάνεις καμία προσφορά μιλίων ✈️',
+    convert: 'Μην χάνεις καμία προσφορά μιλίων ✈️',
+    calc: 'Θες να μαθαίνεις όταν ένας συνεργάτης δίνει διπλά μίλια;',
+    value: 'Θες να μαθαίνεις πότε συμφέρει να εξαργυρώσεις;',
+    goal: 'Θες βοήθεια να φτάσεις πιο γρήγορα στον στόχο σου;'
+  };
+  const SU_KEY = 'tlp.signup.v1';
+  function sibPost(which, email) {
+    const [target, url] = SIB[which];
+    const f = document.createElement('form');
+    f.method = 'POST'; f.action = url; f.target = target; f.hidden = true;
+    [['EMAIL', email], ['email_address_check', ''], ['locale', 'el']].forEach(([n, v]) => { const i = document.createElement('input'); i.type = 'hidden'; i.name = n; i.value = v; f.appendChild(i); });
+    document.body.appendChild(f); f.submit(); f.remove();
+  }
+  document.querySelectorAll('.signup').forEach((box) => {
+    const ctx = box.dataset.ctx, id = box.id, home = ctx === 'home';
+    box.innerHTML = `${home ? '' : `<button type="button" class="su-x" aria-label="Κλείσιμο">✕</button>`}
+      <h2 class="su-h">${SU_TITLE[ctx]}</h2>
+      <p class="su-p">Ένα email την εβδομάδα με νέες προσφορές και αλλαγές κανόνων, μόνο από επίσημες πηγές.</p>
+      <form class="su-form" novalidate>
+        <div class="su-row"><label class="sr-only" for="${id}_e">Το email σου</label>
+          <input id="${id}_e" type="email" inputmode="email" autocomplete="email" required placeholder="Το email σου">
+          <button type="submit" class="primary">${home ? 'Γράψου' : 'Θέλω'}</button></div>
+        <label class="check su-al"><input type="checkbox" id="${id}_al"><span>🔔 Θέλω και <b>προσωπικές ειδοποιήσεις</b> για προσφορές που ταιριάζουν στην κάρτα μου, όταν ανοίξουν <span class="muted">(δεν υπάρχουν ακόμα· έτσι μας δείχνεις ότι αξίζει να τις φτιάξουμε)</span></span></label>
+        <p class="su-err" role="alert" hidden>Γράψε ένα σωστό email.</p>
+      </form>
+      <p class="su-small">Η εγγραφή επιβεβαιώνεται με email (Brevo). Διαγραφή όποτε θέλεις · <a href="#privacy">Πολιτική απορρήτου</a></p>
+      <p class="nl-ok" role="status" hidden></p>`;
+    const form = box.querySelector('form'), email = box.querySelector('input[type=email]'), err = box.querySelector('.su-err'), ok = box.querySelector('.nl-ok');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const v = email.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { err.hidden = false; email.focus(); return; }
+      err.hidden = true;
+      const al = $(id + '_al').checked;
+      form.querySelector('button').disabled = true;
+      sibPost('nl', v);
+      if (al) setTimeout(() => sibPost('al', v), 400);
+      setTimeout(() => {
+        form.hidden = true;
+        ok.textContent = 'Σχεδόν έτοιμο! Σου στείλαμε ' + (al ? 'δύο email (ένα για το newsletter και ένα για τις ειδοποιήσεις)' : 'email') + ' για να επιβεβαιώσεις την εγγραφή. Δες και στα ανεπιθύμητα. Αν είσαι ήδη γραμμένος, δεν χρειάζεται να κάνεις τίποτα.';
+        ok.hidden = false;
+        store.set(SU_KEY, { done: true });
+      }, 700);
+    });
+    const x = box.querySelector('.su-x');
+    if (x) x.addEventListener('click', () => { box.hidden = true; store.set(SU_KEY, { dismissed: true }); });
+  });
+  /* Στα εργαλεία: εμφάνιση μετά τον πρώτο υπολογισμό, αν δεν έχει ήδη γραφτεί ή κλείσει το κουτί. */
+  [['calc', 'calc'], ['convert', 'convert'], ['value', 'value'], ['goal', 'goal']].forEach(([panel, ctx]) => {
+    const sec = $(panel), box = $('su_' + ctx);
+    if (!sec || !box) return;
+    sec.querySelector('.form').addEventListener('input', () => {
+      const st = store.get(SU_KEY, {});
+      if (!st.done && !st.dismissed) box.hidden = false;
+    });
+  });
 })();

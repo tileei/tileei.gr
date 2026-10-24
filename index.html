@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Source+Sans+3:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=87a34231">
+<link rel="stylesheet" href="css/styles.css?v=c92c4621">
 <meta name="description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
 <meta property="og:title" content="ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ! – Τα μίλια σου γίνονται ταξίδια">
 <meta property="og:description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
@@ -93,38 +93,14 @@
     <h2 class="sec">🔥 Τρέχουσες προσφορές <a class="more-link" href="#offers">Όλες οι προσφορές →</a></h2>
     <div class="hoffers" id="h_offers"></div>
 
+    <!-- Εγγραφή newsletter (+ προαιρετικά ειδοποιήσεις): το περιεχόμενο το φτιάχνει το app.js -->
+    <div class="signup" data-ctx="home" id="su_home"></div>
+
     <h2 class="sec">Δημοφιλείς συνεργάτες για μίλια <a class="more-link" href="#partners">Δες όλους τους συνεργάτες →</a></h2>
     <div class="tiles" id="h_partners"></div>
 
     <h2 class="sec">Οδηγοί <a class="more-link" href="#guides">Όλοι οι οδηγοί →</a></h2>
     <div class="dests gcards" id="h_news"></div>
-
-    <!-- Ενδιαφέρον για προσωπικές ειδοποιήσεις: δεν υπάρχει ακόμα υπηρεσία, δεν υπόσχεται ημερομηνία ή τιμή. -->
-    <section class="alertband" id="alert_band" aria-labelledby="alert_h">
-      <svg class="nl-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6a12 12 0 0 0-12 12v8l-4 6h32l-4-6v-8A12 12 0 0 0 24 6Z"/><path d="M19 38a5 5 0 0 0 10 0"/></svg>
-      <div class="nl-txt">
-        <h2 id="alert_h">Ειδοποιήσεις για προσφορές που σε αφορούν</h2>
-        <p>Δουλεύουμε σε προσωπικές ειδοποιήσεις: μήνυμα μόλις ανοίξει προσφορά που ταιριάζει στην κάρτα και στους συνεργάτες σου. Δεν υπάρχουν ακόμα και δεν πληρώνεις τίποτα. Αν σε ενδιαφέρουν, πάτα το κουμπί: έτσι θα ξέρουμε ότι αξίζει να τις φτιάξουμε.</p>
-      </div>
-      <div class="nl-form">
-        <form class="sibform" id="alert_btn_form" action="https://54914687.sibforms.com/serve/MUIFALAVbUh3xB0Iq5pGamMcaktV4lClqGgdZJ4Zdgh_OV1C90dj28BudmnyV0w3QgW7Q-yTled8_VjWFgs9S9W8t-uYeOkBbu9t5fSZ_ssCMwH-WVjJrW6KoeXPb9waQh5MhTpIsVuFxriRRJb1CFY7IoX-feaadXGrGP-b-DkgIZZQV7aDuHL8gVM1Aeko_cLTujM_CcuuTBe-Kw==" method="POST" target="sib_sink" data-msg="alert_ok"><label class="sr-only" for="alert_btn_email">Το email σου</label><input autocomplete="email" id="alert_btn_email" name="EMAIL" type="email" inputmode="email" required placeholder="Το email σου"><input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only"><input type="hidden" name="locale" value="el"><button type="submit" class="primary">Θέλω ειδοποιήσεις</button></form>
-      </div>
-      <p class="nl-ok" id="alert_ok" role="status" hidden></p>
-      <p class="nl-msg" id="alert_msg">Οι ειδοποιήσεις δεν υπάρχουν ακόμα. Αν αφήσεις το email σου, το χρησιμοποιούμε μόνο για να μετρήσουμε αν αξίζει να τις φτιάξουμε και για να σε ειδοποιήσουμε αν ανοίξουν. Η εγγραφή γίνεται μέσω Brevo, με επιβεβαίωση στο email σου, και μπορείς να διαγραφείς όποτε θέλεις. <a href="#privacy">Πολιτική απορρήτου</a></p>
-    </section>
-
-    <!-- Newsletter (εβδομαδιαίο email): χωριστή λίστα και φόρμα από τις «προσωπικές ειδοποιήσεις». -->
-    <section class="newsband" id="nl_band" aria-labelledby="nl_h">
-      <svg class="nl-ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="11" width="38" height="28" rx="4"/><path d="M6 13l18 14 18-14"/></svg>
-      <div class="nl-txt">
-        <h2 id="nl_h">Newsletter: μία φορά την εβδομάδα</h2>
-        <p>Νέες προσφορές μιλίων και αλλαγές κανόνων, μόνο όταν έχουν επίσημη πηγή. Η εγγραφή γίνεται με το email σου μέσω της υπηρεσίας Brevo και επιβεβαιώνεται με email. Μπορείς να διαγραφείς όποτε θέλεις. <a href="#privacy">Πολιτική απορρήτου</a></p>
-      </div>
-      <div class="nl-form">
-        <form class="sibform" id="nl_btn_form" action="https://54914687.sibforms.com/serve/MUIFAN72yRDcIxaYvBpF7AZ0sZ-RzGZuyOQmgeixCl3oDcYdeJjcHMK5TxPC0a6eobY2kv9M_SJ0a7wgzL2jwMUVNU9jnACXt33EjDwT_r3VC_mk6V1Btai9Hzkj754Q9ccCC9SE5vakmE9_K39kKcLTKQUz9Squ3GcMcBv3pHjeyGI8GM9zmZZdV199bp7k-dtUWiKHnb_DD3zVmA==" method="POST" target="sib_sink" data-msg="nl_ok"><label class="sr-only" for="nl_btn_email">Το email σου</label><input autocomplete="email" id="nl_btn_email" name="EMAIL" type="email" inputmode="email" required placeholder="Το email σου"><input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only"><input type="hidden" name="locale" value="el"><button type="submit" class="primary">Εγγραφή</button></form>
-      </div>
-    <p class="nl-ok" id="nl_ok" role="status" hidden></p>
-    </section>
   </section>
 
   <!-- ΟΔΗΓΟΙ -->
@@ -170,6 +146,7 @@
       </details>
     </div>
     <div id="c_out" aria-live="polite"></div>
+    <div class="signup" data-ctx="calc" id="su_calc" hidden></div>
     <p class="hint">Οι αριθμοί προέρχονται από τους κανόνες της ενότητας «Συνεργάτες». Ό,τι είναι «προς έλεγχο» δεν μπαίνει στο σύνολο.</p>
   </section>
 
@@ -187,6 +164,7 @@
       </details>
     </div>
     <div id="v_out" aria-live="polite"></div>
+    <div class="signup" data-ctx="convert" id="su_convert" hidden></div>
   </section>
 
   <!-- ΑΞΙΑ -->
@@ -208,6 +186,7 @@
       <button type="button" class="ghost" id="a_demo">Δες υποθετικό παράδειγμα (180€ / 12.000 μίλια / 45€)</button>
     </div>
     <div id="a_out" aria-live="polite"></div>
+    <div class="signup" data-ctx="value" id="su_value" hidden></div>
     <div class="savebox" id="a_savebox" hidden>
       <div class="field"><label for="a_name">Δώσε ένα όνομα σε αυτό το ταξίδι</label><input autocomplete="off" id="a_name" maxlength="60" placeholder="π.χ. Ρώμη, Μάρτιος"></div>
       <button type="button" class="primary" id="a_save">➕ Κράτα το για σύγκριση</button>
@@ -242,6 +221,7 @@
       <input autocomplete="off" id="g_tax" type="hidden">
     </div>
     <div id="g_out" aria-live="polite"></div>
+    <div class="signup" data-ctx="goal" id="su_goal" hidden></div>
   </section>
 
   <!-- ΠΡΟΣΦΟΡΕΣ -->
@@ -349,7 +329,7 @@
   </section>
 </main>
 
-<iframe name="sib_sink" title="" hidden></iframe>
+<iframe name="sib_nl" title="" hidden></iframe><iframe name="sib_al" title="" hidden></iframe>
 <footer class="foot">
   <p>Το «ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ!» είναι ανεξάρτητο και δεν συνδέεται με την AEGEAN, την Alpha Bank ή τους συνεργάτες τους. Τα ονόματα ανήκουν στους κατόχους τους. Οι υπολογισμοί είναι ενδεικτικοί: ισχύουν πάντα οι επίσημοι όροι.</p>
   <p><a href="#privacy">Πολιτική απορρήτου</a> · <a href="#status">Πηγές και έλεγχοι</a></p>
@@ -360,6 +340,6 @@
 <script src="js/world.js?v=e0926296"></script>
 <script src="js/globe.js?v=d2dc1403"></script>
 <script src="js/calc.js?v=631b88f9"></script>
-<script src="js/app.js?v=fb0f27a1"></script>
+<script src="js/app.js?v=67e604cb"></script>
 </body>
 </html>
