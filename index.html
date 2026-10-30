@@ -374,7 +374,8 @@
         <ul class="plain"><li>Το site φιλοξενείται στο <b>GitHub Pages</b>, που, όπως κάθε server, καταγράφει τεχνικά στοιχεία επίσκεψης (π.χ. διεύθυνση IP) για ασφάλεια.</li>
         <li>Οι γραμματοσειρές φορτώνονται από το ίδιο το site, όχι από τη Google ή άλλον τρίτο.</li>
         <li>Οι φόρμες εγγραφής ανοίγουν στη σελίδα του Brevo, με τους δικούς του όρους.</li>
-        <li>Μετράμε ανώνυμα τις επισκέψεις με το <b>GoatCounter</b> (<a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener noreferrer">πολιτική του</a>): ποια σελίδα ανοίχτηκε, από ποιο site ήρθες, τύπο συσκευής και χώρα. Δεν χρησιμοποιεί cookies και δεν αποθηκεύει τη διεύθυνση IP σου.</li></ul></article>
+        <li>Μετράμε ανώνυμα τις επισκέψεις με το <b>GoatCounter</b> (<a href="https://www.goatcounter.com/help/privacy" target="_blank" rel="noopener noreferrer">πολιτική του</a>): ποια σελίδα ανοίχτηκε, από ποιο site ήρθες, τύπο συσκευής και χώρα. Δεν χρησιμοποιεί cookies και δεν αποθηκεύει τη διεύθυνση IP σου.</li>
+        <li>Χρησιμοποιούμε επίσης την <b>Umami</b> (<a href="https://umami.is/blog/gdpr-compliant-website-analytics" target="_blank" rel="noopener noreferrer">πληροφορίες της</a>) για τον ίδιο σκοπό. Σύμφωνα με την Umami, δεν χρησιμοποιεί cookies και δεν συλλέγει προσωπικά στοιχεία.</li></ul></article>
       <article class="article"><h2>Τα δικαιώματά σου</h2>
         <p>Μπορείς να ζητήσεις να δεις, να διορθώσεις ή να σβήσεις τα στοιχεία σου και να ανακαλέσεις τη συγκατάθεσή σου όποτε θες, γράφοντάς μας στο <a href="mailto:tileei.news@gmail.com">tileei.news@gmail.com</a>. Αν θεωρείς ότι δεν τα χειριστήκαμε σωστά, μπορείς να απευθυνθείς στην <a href="https://www.dpa.gr/" target="_blank" rel="noopener noreferrer">Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα</a>.</p></article>
       <article class="article"><h2>Αλλαγές</h2>
@@ -406,6 +407,13 @@ window.goatcounter = { no_onload: true };
   s.setAttribute('data-goatcounter', 'https://tileei-petame.goatcounter.com/count'); s.onload = hit;
   document.body.appendChild(s);
 })();
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f91bb90e-51d0-4eda-bcfb-5ebacf5d234f"></script>
+<script>
+// Umami (χωρίς cookies): μετρά και τις αλλαγές καρτέλας (hash).
+window.addEventListener('hashchange', function(){
+  if (window.umami && typeof window.umami.track === 'function') window.umami.track(function(p){ return Object.assign({}, p, { url: location.pathname + location.hash }); });
+});
 </script>
 </body>
 </html>
