@@ -611,3 +611,18 @@ th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line
 .foot .social{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-weight:700}
 .foot .social a{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;border-radius:50%;background:rgba(127,127,127,.15);color:inherit}
 .foot .social a:hover{background:#ff9a14;color:#2a1a00}
+
+
+/* ---------- Μίλης (μασκότ) ---------- */
+.miles-hero { position: absolute; right: max(4px, env(safe-area-inset-right, 0px)); bottom: 64px; z-index: 1; width: 98px; pointer-events: none; }
+.miles-hero img { display: block; width: 100%; height: auto; filter: drop-shadow(0 8px 10px rgba(4, 16, 50, .45)); }
+.miles-say { position: absolute; right: 0; bottom: calc(100% + 4px); margin: 0; width: 112px; padding: 7px 10px; border-radius: 14px 14px 4px 14px; text-align: center; background: #ffffff; color: #0d1f4a; font: 700 .82rem/1.3 var(--font-display); box-shadow: 0 8px 18px rgba(4, 16, 50, .35); }
+.miles-say::after { content: ""; position: absolute; right: 30px; bottom: -7px; border: 7px solid transparent; border-top-color: #ffffff; border-bottom: 0; }
+@media (min-width: 860px) {
+  .miles-hero { width: 190px; right: 4%; bottom: 8px; }
+  .miles-say { right: 10%; width: 190px; font-size: .95rem; }
+}
+.miles-row { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px; align-items: end; margin: 8px 0 16px; }
+.miles-row img { width: 84px; height: auto; display: block; filter: drop-shadow(0 6px 8px rgba(6, 22, 65, .25)); }
+.miles-bubble { position: relative; margin: 0; max-width: none; padding: 12px 14px; border-radius: 16px 16px 16px 4px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); box-shadow: 0 6px 16px rgba(6, 22, 65, .12); }
+@media (min-width: 720px) { .miles-row { grid-template-columns: 120px minmax(0, 1fr); } .miles-row img { width: 120px; } }
