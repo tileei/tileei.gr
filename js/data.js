@@ -406,7 +406,9 @@
         'Pharma24.gr', 'Pharmacy 295', 'Sephora', 'Styloptic', 'Vardavas (οπτικά)', 'Φαρμακεία Αρσλάνογλου', 'Advance Pharmacies – Φαρμακεία Σύρου (Ανδριωτάκη-Πιτσικάκη)', 'Φαρμακείο Χρήστου Ποντική'],
       'Άλλα': ['Φιλανθρωπικά Ιδρύματα', 'The Green City (ανακύκλωση)']
     }).flatMap(([cat, names]) => names.map((name) => ({ cat, name })))
-      .map((p, i) => Object.assign(p, { id: 'b2-' + i, tier: 2, tierStatus: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['alpha-partners', 'alpha-premium'] })));
+      .map((p, i) => Object.assign(p, { id: 'b2-' + i, tier: 2, tierStatus: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['alpha-partners', 'alpha-premium'] })))
+    /* Προστέθηκε 05/11/2026 από τον ημερήσιο έλεγχο (καταχώριση Alpha 26/10/2026): ΠΡΟΣ ΕΠΙΒΕΒΑΙΩΣΗ, δεν μπαίνει στα σύνολα. */
+    .concat([{ id: 'tlivv-inn', name: 'T-Livv Inn', cat: 'Κρατήσεις διαμονής', tier: 2, tierStatus: 'unconfirmed', check: 'search', checked: '2026-11-05', sources: ['alpha-partners'] }]);
   /* Κατηγορίες των συνεργατών Alpha: από την περιγραφή της σελίδας τους στο alpha.gr όπου ήταν ασαφής, αλλιώς από τη γνωστή δραστηριότητα της επιχείρησης. */
   const alphaNote = 'Η Alpha δίνει 4 πόντους/€ στους 11 μεγάλους συνεργάτες, 2 πόντους/€ στους άλλους συνεργάτες Bonus (λίστα 100 επιχειρήσεων) και 1 πόντο/€ παντού αλλού. Από τους συνεργάτες Miles+Bonus, στη λίστα Bonus βρέθηκαν μόνο Hertz, attica, bp (4), IKEA, Cellier και Anatolia (2). Οι υπόλοιποι, και η EKO, δεν είναι στη λίστα, άρα 1 πόντος/€ (έλεγχος 23/10/2026). Η κατηγορία 2 πόντων ισχύει για όλους τους «άλλους συνεργάτες» σύμφωνα με τη σελίδα της κάρτας.';
 
