@@ -1,5 +1,6 @@
 /* ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ! — Μοντέλο δεδομένων (schema v1)
  *
+ * Οι τιμές καυσίμων ενημερώνονται αυτόματα από τον πρωινό έλεγχο (repo ti-leei-petame → GitHub Actions).
  * Κάθε κανόνας έχει: πηγή (sources[]), ημερομηνία ελέγχου (checked) και κατάσταση (status).
  *   status: 'confirmed'  = επιβεβαιωμένος από επίσημη πηγή, μπαίνει στα σύνολα
  *           'to_verify'  = προς έλεγχο, εμφανίζεται αλλά ΔΕΝ μπαίνει στα σύνολα
@@ -38,10 +39,12 @@
     'alpha-fysiko': { t: 'Alpha Bank Bonus – Φυσικό Αέριο', url: 'https://www.alpha.gr/el/idiotes/bonus/megaloi-sunergates/fysiko-aerio-elliniki-etaireia-energeias', pub: 'Alpha Bank' },
     'alpha-box': { t: 'Alpha Bank Bonus – BOX', url: 'https://www.alpha.gr/el/idiotes/bonus/megaloi-sunergates/box-delivery', pub: 'Alpha Bank' },
     'alpha-attica': { t: 'Alpha Bank Bonus – attica', url: 'https://www.alpha.gr/el/idiotes/bonus/megaloi-sunergates/attica', pub: 'Alpha Bank' },
+    'alpha-vodafone-bf': { t: 'Alpha Bank – 1€ ίσον 20 Bonus πόντοι με αγορές στη Vodafone', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/ena-euro-ison-eikosi-bonus-pontoi-me-agores-sti-vodafone', pub: 'Alpha Bank' },
     'alpha-news': { t: 'Alpha Bank – Νέα του Bonus', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news', pub: 'Alpha Bank' },
     'alpha-new-premium': { t: 'Alpha Bank – Νέα Aegean Bonus Visa Premium: 8.000 μίλια', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/bonus-pontoi-me-nea-xrusi-bonus-visa-i-aegean-bonus-visa-premium', pub: 'Alpha Bank' },
     'alpha-new-credit': { t: 'Alpha Bank – Νέα Aegean Bonus Visa: 5.000 μίλια', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/bonus-pontoi-me-nea-bonus-visa-i-aegean-bonus-visa', pub: 'Alpha Bank' },
     'alpha-intersport': { t: 'Alpha Bank – Διπλά Bonus στην INTERSPORT', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/kerdiste-dipla-me-bonus-stin-intersport', pub: 'Alpha Bank' },
+    'alpha-bonus-app-kotsovolos-aeg': { t: 'Alpha Bonus app – Κωτσόβολος 1€ = 50 Bonus πόντοι με AEG και Electrolux (στιγμιότυπο 30/10/2026)', url: 'https://alphab.gr/4dyTH2e', pub: 'Alpha Bank' },
     'alpha-kotsovolos-jun26': { t: 'Alpha Bank – Κωτσόβολος 1€ = 100 πόντοι Bonus (Ιούν 2026)', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/kotsovolos-weekendbomb-june26', pub: 'Alpha Bank' },
     'ae-eko-promo':  { t: 'Miles+Bonus – Προσφορά EKO Οκτ 2026', url: 'https://en.aegeanair.com/milesandbonus/news/2026/eko_promo_oct26/', pub: 'AEGEAN' },
     'ikea':          { t: 'IKEA Ελλάδας – Miles+Bonus', url: 'https://www.ikea.gr/en/ikea-partners-with-aegean-miles-bonus/', pub: 'IKEA' },
@@ -61,12 +64,23 @@
     'ae-boc':        { t: 'Miles+Bonus – Bank of Cyprus', url: AE + 'payment-cards/bank-of-cyprus/', pub: 'AEGEAN' },
     'alpha-credit':  { t: 'Alpha Bank – Aegean Bonus Visa (πιστωτική)', url: 'https://www.alpha.gr/en/personal/cards/pistotikes-kartes/pistotiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
     'alpha-debit':   { t: 'Alpha Bank – Aegean Bonus Visa Debit', url: 'https://www.alpha.gr/en/personal/cards/xreostikes-kartes/xreostiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
+    'alpha-mp-aegean': { t: 'Alpha Bank – Μεγάλος συνεργάτης AEGEAN (αναλογίες μετατροπής)', url: 'https://www.alpha.gr/en/retail/bonus/MajorPartners/aegean', pub: 'Alpha Bank' },
     'ae-buy-miles': { t: 'Miles+Bonus – Αγορά μιλίων', url: 'https://en.aegeanair.com/milesandbonus/how-to-earn/purchase-award-miles/', pub: 'AEGEAN' },
     'ae-search-2026-10-23': { t: 'Αναζήτηση εξαργύρωσης στην εφαρμογή AEGEAN (στιγμιότυπα 23/10/2026)', url: 'https://el.aegeanair.com/', pub: 'AEGEAN' },
     'ae-united-award': { t: 'Miles+Bonus – Εξαργύρωση σε πτήσεις United Airlines', url: AE + 'airlines/united_airlines/', pub: 'AEGEAN' },
     'ae-aegean-award': { t: 'Miles+Bonus – Εξαργύρωση σε πτήσεις AEGEAN', url: AE + 'airlines/aegean/', pub: 'AEGEAN' },
+    'ae-overview':   { t: 'Miles+Bonus – Επισκόπηση προγράμματος', url: 'https://en.aegeanair.com/milesandbonus/', pub: 'AEGEAN' },
+    'ae-enroll':     { t: 'Miles+Bonus – Εγγραφή μέλους', url: 'https://en.aegeanair.com/milesandbonus/member/enroll/', pub: 'AEGEAN' },
+    'ae-miles':      { t: 'Miles+Bonus – Τα μίλια με μια ματιά', url: 'https://en.aegeanair.com/milesandbonus/about-the-program/miles/', pub: 'AEGEAN' },
+    'ae-spend':      { t: 'Miles+Bonus – Πώς εξαργυρώνεις', url: 'https://en.aegeanair.com/milesandbonus/how-to-spend/', pub: 'AEGEAN' },
+    'ae-genairation':  { t: 'AEGEAN genAIRation – Επισκόπηση', url: 'https://el.aegeanair.com/genairation/', pub: 'AEGEAN' },
+    'ae-genair-benefits': { t: 'AEGEAN genAIRation – Οφέλη', url: 'https://el.aegeanair.com/genairation/benefits/', pub: 'AEGEAN' },
+    'ae-genair-15':   { t: 'genAIRation – 15% έκπτωση στις πτήσεις', url: 'https://el.aegeanair.com/genairation/15_discount/', pub: 'AEGEAN' },
+    'ae-genair-coupons': { t: 'genAIRation – Τα κουπόνια μου', url: 'https://el.aegeanair.com/genairation/coupons/', pub: 'AEGEAN' },
+    'ae-genair-wifi': { t: 'genAIRation – Wi-Fi στην πτήση', url: 'https://el.aegeanair.com/genairation/wifi_on_board/', pub: 'AEGEAN' },
+    'ae-genair-fav':  { t: 'genAIRation – Αγαπημένος προορισμός', url: 'https://el.aegeanair.com/genairation/favourite-destination/', pub: 'AEGEAN' },
     'ae-terms':      { t: 'Miles+Bonus – Όροι προγράμματος', url: 'https://en.aegeanair.com/conditions-notices/milesbonus-terms-and-conditions/', pub: 'AEGEAN' },
-    'fuelprices-daily': { t: 'Παρατηρητήριο Τιμών Υγρών Καυσίμων – Ημερήσιο δελτίο 22/10/2026', url: 'https://www.fuelprices.gr/files/deltia/IMERISIO_DELTIO_PANELLINIO_22_10_2026.pdf', pub: 'Υπουργείο Ανάπτυξης' },
+    'fuelprices-daily': { t: 'Παρατηρητήριο Τιμών Υγρών Καυσίμων – Ημερήσιο δελτίο 05/11/2026', url: 'https://www.fuelprices.gr/files/deltia/IMERISIO_DELTIO_PANELLINIO_05_11_2026.pdf', pub: 'Υπουργείο Ανάπτυξης' },
     'eko-terms':     { t: 'EKO – Όροι EKO SMILE (16/03/2026)', url: 'https://www.eko.gr/wp-content/uploads/2026/03/Terms-and-Conditions-GR-2026.03.16.pdf', pub: 'EKO' },
     'alpha-major':   { t: 'Alpha Bank Bonus – Μεγάλοι συνεργάτες (4 πόντοι/€)', url: 'https://www.alpha.gr/en/personal/bonus/MajorPartners', pub: 'Alpha Bank' },
     'alpha-partners': { t: 'Alpha Bank Bonus – Συνεργάτες (2 πόντοι/€)', url: 'https://www.alpha.gr/en/personal/bonus/partners', pub: 'Alpha Bank' },
@@ -125,7 +139,7 @@
       convert: { points: 4, miles: 2, multipleOf: 4 },
       annualCapPoints: 50000, capPeriod: '1/11/2026 – 31/10/2027',
       notes: 'Στις υπόλοιπες αγορές δίνει 1 πόντο ανά 2 €. Όσοι είχαν το παλιό όριο των 15.000 πόντων το κρατούν έως 31/10/2026.',
-      sources: ['alpha-debit']
+      sources: ['alpha-debit', 'alpha-mp-aegean']
     },
     /* model 'direct': η κάρτα δίνει απευθείας μίλια ανά € σε ένα πρόγραμμα (earn.program). */
     {
@@ -393,7 +407,9 @@
         'Pharma24.gr', 'Pharmacy 295', 'Sephora', 'Styloptic', 'Vardavas (οπτικά)', 'Φαρμακεία Αρσλάνογλου', 'Advance Pharmacies – Φαρμακεία Σύρου (Ανδριωτάκη-Πιτσικάκη)', 'Φαρμακείο Χρήστου Ποντική'],
       'Άλλα': ['Φιλανθρωπικά Ιδρύματα', 'The Green City (ανακύκλωση)']
     }).flatMap(([cat, names]) => names.map((name) => ({ cat, name })))
-      .map((p, i) => Object.assign(p, { id: 'b2-' + i, tier: 2, tierStatus: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['alpha-partners', 'alpha-premium'] })));
+      .map((p, i) => Object.assign(p, { id: 'b2-' + i, tier: 2, tierStatus: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['alpha-partners', 'alpha-premium'] })))
+    /* Προστέθηκε 05/11/2026 από τον ημερήσιο έλεγχο (καταχώριση Alpha 26/10/2026): ΠΡΟΣ ΕΠΙΒΕΒΑΙΩΣΗ, δεν μπαίνει στα σύνολα. */
+    .concat([{ id: 'tlivv-inn', name: 'T-Livv Inn', cat: 'Κρατήσεις διαμονής', tier: 2, tierStatus: 'unconfirmed', check: 'search', checked: '2026-11-05', sources: ['alpha-partners'] }]);
   /* Κατηγορίες των συνεργατών Alpha: από την περιγραφή της σελίδας τους στο alpha.gr όπου ήταν ασαφής, αλλιώς από τη γνωστή δραστηριότητα της επιχείρησης. */
   const alphaNote = 'Η Alpha δίνει 4 πόντους/€ στους 11 μεγάλους συνεργάτες, 2 πόντους/€ στους άλλους συνεργάτες Bonus (λίστα 100 επιχειρήσεων) και 1 πόντο/€ παντού αλλού. Από τους συνεργάτες Miles+Bonus, στη λίστα Bonus βρέθηκαν μόνο Hertz, attica, bp (4), IKEA, Cellier και Anatolia (2). Οι υπόλοιποι, και η EKO, δεν είναι στη λίστα, άρα 1 πόντος/€ (έλεγχος 23/10/2026). Η κατηγορία 2 πόντων ισχύει για όλους τους «άλλους συνεργάτες» σύμφωνα με τη σελίδα της κάρτας.';
 
@@ -492,8 +508,8 @@
   /* Πανελλαδικές μέσες τιμές λιανικής (€/λίτρο, με ΦΠΑ), ημερήσιο δελτίο του Παρατηρητηρίου Τιμών Υγρών Καυσίμων.
    * Το δελτίο δεν δίνει τιμές για 98 οκτανίων ή premium diesel· εκεί ο χρήστης βάζει την τιμή της αντλίας. */
   const fuelPrices = {
-    date: '2026-10-22', sources: ['fuelprices-daily'], checked: '2026-10-24',
-    prices: { u95: 2.168, u100: 2.435, diesel: 2.125, lpg: 1.192 },
+    date: '2026-11-05', sources: ['fuelprices-daily'], checked: '2026-11-07',
+    prices: { u95: 2.100, u100: 2.380, diesel: 2.132, lpg: 1.244 },
     labels: { u95: 'Αμόλυβδη 95', u100: 'Αμόλυβδη 100', diesel: 'Diesel κίνησης', lpg: 'Υγραέριο κίνησης' },
     /* Εκτιμήσεις ΔΙΚΕΣ ΜΑΣ (όχι επίσημες) για καύσιμα που δεν έχει το δελτίο. Απόφαση Νίκου 23/10/2026.
        98: μέσος όρος 95 και 100. Ενισχυμένο diesel: diesel + η μισή διαφορά 95→100. Πάντα «εκτίμηση», ο χρήστης τη διορθώνει. */
@@ -511,7 +527,7 @@
     { id: 'alpha-credit', from: 'Alpha Bank Bonus – Aegean Bonus Visa (πιστωτική)', to: 'mb', basePoints: 4, baseMiles: 4, multipleOf: 4, min: 4, max: null,
       annualCap: '100.000 πόντοι ανά περίοδο 1 Νοε – 31 Οκτ', status: 'confirmed', check: 'reread', checked: '2026-10-23', sources: ['alpha-credit'], note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων, μόνο για πόντους των τελευταίων 12 μηνών.' },
     { id: 'alpha-debit', from: 'Alpha Bank Bonus – Aegean Bonus Visa Debit', to: 'mb', basePoints: 4, baseMiles: 2, multipleOf: 4, min: 4, max: null,
-      annualCap: '50.000 πόντοι για 1/11/2026 – 31/10/2027 (το παλιό όριο 15.000 ισχύει έως 31/10/2026)', status: 'confirmed', check: 'reread', checked: '2026-10-23', sources: ['alpha-debit'], note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων.' },
+      annualCap: '50.000 πόντοι για 1/11/2026 – 31/10/2027 (το παλιό όριο 15.000 ισχύει έως 31/10/2026)', status: 'confirmed', check: 'reread', checked: '2026-10-25', sources: ['alpha-debit', 'alpha-mp-aegean'], note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων.' },
     { id: 'bpme', from: 'BPme', to: 'mb', basePoints: 1, baseMiles: 1, multipleOf: 1, packages: [2000, 3000, 5000, 10000], min: 2000, max: null,
       annualCap: 'Δεν αναφέρεται στη σελίδα για αυτή την κατεύθυνση', status: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['ae-bp'],
       note: 'Διαθέσιμα πακέτα 2.000 / 3.000 / 5.000 / 10.000 πόντων. Το όριο των 45.000 μιλίων/έτος αφορά τη μετατροπή μιλίων σε κουπόνι.' },
@@ -538,13 +554,13 @@
       start: null, end: '2026-11-30', endNote: 'Αίτηση έως 30/11/2026 · έκδοση κάρτας έως 7/12/2026',
       action: 'Αίτηση online ή σε κατάστημα της Alpha Bank, έκδοση έως 7/12/2026 και ενεργοποίηση.',
       limits: 'Οι 3.000 πόντοι Bonus πιστώνονται έως 20/12/2026 και δεν γίνονται μίλια. Η σελίδα δεν αναφέρει ελάχιστες αγορές.',
-      status: 'confirmed', check: 'reread', checked: '2026-10-23', sources: ['alpha-new-premium'] },
+      status: 'confirmed', check: 'reread', checked: '2026-10-24', sources: ['alpha-new-premium'] },
     { id: 'alpha-new-credit-26', title: 'Νέα Aegean Bonus Visa: 5.000 μίλια με την ενεργοποίηση', partner: 'Alpha Bank · AEGEAN Miles+Bonus', kind: 'card_welcome', cardId: 'credit', miles: 5000,
       desc: 'Αν βγάλεις νέα πιστωτική Aegean Bonus Visa, παίρνεις 5.000 μίλια Miles+Bonus με την ενεργοποίηση, και επιπλέον 3.000 πόντους Bonus. Οι 3.000 πόντοι ΔΕΝ μετατρέπονται σε μίλια.',
       start: null, end: '2026-11-30', endNote: 'Αίτηση έως 30/11/2026 · έκδοση κάρτας έως 7/12/2026',
       action: 'Αίτηση online ή σε κατάστημα της Alpha Bank, έκδοση έως 7/12/2026 και ενεργοποίηση.',
       limits: 'Οι 3.000 πόντοι Bonus πιστώνονται έως 20/12/2026 και δεν γίνονται μίλια.',
-      status: 'confirmed', check: 'reread', checked: '2026-10-23', sources: ['alpha-new-credit'] },
+      status: 'confirmed', check: 'reread', checked: '2026-10-24', sources: ['alpha-new-credit'] },
     { id: 'intersport-x2-oct26', title: 'INTERSPORT: διπλοί πόντοι Bonus στα καταστήματα', partner: 'INTERSPORT · Alpha Bank Bonus', kind: 'alpha_points', alphaPartner: intersportId, pointsPerEuro: 4,
       short: 'Μόνο στα φυσικά καταστήματα, έως 31/10/2026.',
       desc: 'Στα φυσικά καταστήματα INTERSPORT οι πόντοι Bonus γίνονται ×2: 2 × 2 = 4 πόντοι ανά €.',
@@ -579,6 +595,21 @@
       action: 'Αγορά εντοιχιζόμενης συσκευής NEFF με κάρτα Bonus.',
       limits: 'Δεν συνδυάζεται με άλλες παράλληλες προσφορές συλλογής πόντων. Η επιχείρηση μπορεί να αλλάξει ή να ανακαλέσει την προσφορά.',
       status: 'confirmed', check: 'reread', checked: '2026-10-23', sources: ['alpha-kotsovolos'] },
+    { id: 'kotsovolos-aeg-electrolux', title: 'Κωτσόβολος: 1€ = 50 πόντοι σε συσκευές κουζίνας AEG και Electrolux', partner: 'Κωτσόβολος · Alpha Bank Bonus', kind: 'alpha_points', alphaPartner: 'kotsovolos', pointsPerEuro: 50,
+      short: 'Μόνο εντοιχιζόμενες και ελεύθερες συσκευές κουζίνας AEG και Electrolux, 30/10–12/11/2026.',
+      desc: 'Αγορά εντοιχιζόμενης ή ελεύθερης συσκευής κουζίνας AEG ή Electrolux από τον Κωτσόβολο με κάρτα Bonus της Alpha: 50 πόντοι ανά € αντί για 4, με βάση την τιμή που αναγράφεται στο προϊόν. Οι πόντοι πιστώνονται στις 4/12/2026, αρκεί να έχεις παραλάβει το προϊόν έως 26/11/2026.',
+      start: '2026-10-30', end: '2026-11-12', endNote: '30/10–12/11/2026',
+      action: 'Αγορά συσκευής κουζίνας AEG ή Electrolux με κάρτα Bonus.',
+      limits: 'Δεν ισχύει σε επιστροφή προϊόντος ή ακύρωση συναλλαγής. Δεν συνδυάζεται με άλλες προσφορές και οι πόντοι δεν πολλαπλασιάζονται. Η επιχείρηση μπορεί να αλλάξει ή να ανακαλέσει την προσφορά.',
+      status: 'confirmed', check: 'reread', checked: '2026-10-30', sources: ['alpha-bonus-app-kotsovolos-aeg'] },
+    /* Προστέθηκε 07/11/2026 από τον ημερήσιο έλεγχο (νέα του Bonus, Alpha). ΠΡΟΣ ΕΛΕΓΧΟ οι ακριβείς όροι· δεν μπαίνει στα σύνολα. */
+    { id: 'vodafone-bf-nov26', title: 'Vodafone Black Friday: 20 πόντοι Bonus ανά €', partner: 'Vodafone · Alpha Bank Bonus', kind: 'alpha_points', alphaPartner: 'vodafone', pointsPerEuro: 20,
+      short: 'Μόνο φυσικά καταστήματα Vodafone, προϊόντα αξίας 300–3.000 €, 06/11–27/11/2026.',
+      desc: 'Σε προϊόντα αξίας 300 έως 3.000 € στα φυσικά καταστήματα Vodafone, με οποιαδήποτε κάρτα Bonus της Alpha, 1 € δίνει 20 πόντους Bonus αντί για 4. Είναι πόντοι Alpha Bonus, όχι μίλια Miles+Bonus. Με κάρτα Aegean Bonus, οι πόντοι μετατρέπονται σε μίλια με τον κανόνα της κάρτας.',
+      start: '2026-11-06', end: '2026-11-27', endNote: '06/11–27/11/2026',
+      action: 'Αγορά προϊόντων αξίας 300–3.000 € σε φυσικό κατάστημα Vodafone με κάρτα Bonus.',
+      limits: 'Δεν ισχύει για πληρωμές λογαριασμών και δεν αναφέρονται online αγορές. Δεν συνδυάζεται με άλλες προσφορές και οι πόντοι δεν πολλαπλασιάζονται. Η σελίδα δεν λέει πότε πιστώνονται οι πόντοι, ποια προϊόντα ισχύουν ούτε αν το εύρος 300–3.000 € είναι ανά συναλλαγή.',
+      status: 'confirmed', check: 'reread', checked: '2026-11-07', sources: ['alpha-vodafone-bf'] },
     { id: 'generali-health', title: 'Generali: 10.000 πόντοι Bonus με ασφάλεια υγείας', partner: 'Generali · Alpha Bank Bonus', kind: 'alpha_points', alphaPartner: 'generali', fixedPoints: 10000,
       short: 'Online αγορά του προγράμματος Health Care, έως 31/10.',
       desc: 'Αν αγοράσεις online το πρόγραμμα υγείας Health Care της Generali και το πληρώσεις με κάρτα Bonus, παίρνεις 10.000 πόντους Bonus.',
