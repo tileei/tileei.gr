@@ -22,6 +22,7 @@
 
   const sources = {
     'ae-partners':   { t: 'AEGEAN Miles+Bonus – Συνεργάτες', url: AE, pub: 'AEGEAN' },
+    'ae-asiana':     { t: 'AEGEAN – Η Asiana φεύγει από τη Star Alliance (ανακοίνωση 9/10/2026)', url: 'https://en.aegeanair.com/milesandbonus/news/2026/asiana_airlines_exit/', pub: 'AEGEAN' },
     'alpha-bonus-terms': { t: 'Alpha Bank – Όροι προγράμματος Bonus (PDF)', url: 'https://www.alpha.gr/-/media/AlphaGr/pdf-files/bonus/Bonus_TC_GR.pdf', pub: 'Alpha Bank' },
     'alpha-bp': { t: 'Alpha Bank Bonus – bp (μεγάλος συνεργάτης)', url: 'https://www.alpha.gr/en/retail/Bonus/MajorPartners/bp', pub: 'Alpha Bank' },
     'alpha-premium': { t: 'Alpha Bank – Aegean Bonus Visa Premium', url: ALPHA, pub: 'Alpha Bank' },
@@ -374,8 +375,8 @@
       'Singapore Airlines', 'All Nippon Airways', 'Emirates', 'TAP Air Portugal', 'ITA Airways', 'LOT', 'Croatia Airlines', 'Air China',
       'Air India', 'Air New Zealand', 'Asiana', 'Avianca', 'Copa Airlines', 'EgyptAir', 'Ethiopian Airlines', 'EVA Air', 'Shenzhen Airlines',
       'South African Airways', 'THAI'],
-    status: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['ae-partners'],
-    note: 'Εμφανίζονται στην επίσημη λίστα συνεργατών. Οι κανόνες συγκέντρωσης και εξαργύρωσης ανά εταιρεία δεν έχουν προστεθεί ακόμα στο εργαλείο.'
+    status: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['ae-partners', 'ae-asiana'],
+    note: 'Εμφανίζονται στην επίσημη λίστα συνεργατών. Οι κανόνες συγκέντρωσης και εξαργύρωσης ανά εταιρεία δεν έχουν προστεθεί ακόμα στο εργαλείο. Προσοχή: η Asiana φεύγει από τη Star Alliance στις 16/12/2026. Η AEGEAN γράφει ότι μίλια συγκεντρώνονται μόνο για πτήσεις Asiana που αναχώρησαν έως 15/10/2026 και ότι η εξαργύρωση ισχύει για ταξίδια που ολοκληρώνονται έως 16/12/2026 (ανακοίνωση 9/10/2026, ξαναδιαβάστηκε 9/11/2026). Για την Air China η AEGEAN ανακοίνωσε αλλαγές στη συγκέντρωση από 12/10/2026, χωρίς να διαβάστηκαν οι λεπτομέρειες: προς έλεγχο.'
   };
 
   /* Ροή 2: συνεργάτες μόνο Alpha Bonus (δεν υπάρχουν στη λίστα Miles+Bonus). */
