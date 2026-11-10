@@ -128,7 +128,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--amber); outline
 .rows .pt { font: 800 1rem var(--font-display); min-width: 3.2em; text-align: right; }
 .acts { display: flex; gap: 8px; flex-wrap: wrap; }
 .acts button { flex: 1 1 140px; min-height: 48px; border-radius: 999px; border: 1.5px solid var(--brand); background: transparent; color: var(--brand); font: 800 1rem var(--font-display); cursor: pointer; }
-.acts button.fill { background: var(--brand); color: var(--brand-ink); }
+.acts button.fill, #shr[hidden] ~ #again { background: var(--brand); color: var(--brand-ink); }
 .share { width: 100%; min-height: 6.6em; resize: none; border: 1.5px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); font: 600 .95rem/1.4 var(--font-body); padding: 8px 10px; }
 .note { margin: 0; color: var(--muted); font-size: .9rem; }
 .foot { margin: 0; color: var(--muted); font-size: .82rem; text-align: center; }
@@ -189,8 +189,9 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--amber); outline
     <ol class="rows" id="rows"></ol>
     <p class="note" id="best"></p>
     <div class="acts">
-      <button type="button" class="fill" id="again">Παίξε ξανά</button>
-      <button type="button" id="copy">Αντιγραφή για κοινοποίηση</button>
+      <button type="button" class="fill" id="shr" hidden>Κοινοποίηση</button>
+      <button type="button" id="copy">Αντιγραφή</button>
+      <button type="button" id="again">Παίξε ξανά</button>
     </div>
     <textarea class="share" id="share" readonly aria-label="Το σκορ σου για κοινοποίηση"></textarea>
   </section>
@@ -385,7 +386,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--amber); outline
   function shareText() {
     var sq = st.results.map(function (r) { return { g: '🟩', m: '🟨', b: '🟥' }[tier(r.pts)]; }).join('');
     var d = today().split('-');
-    return 'Πού πετάμε; ' + MAP.name + ' · ' + (st.mode === 'daily' ? d[2] + '/' + d[1] : 'Ελεύθερο') + '\n' + fmt(total()) + ' / ' + fmt(ROUNDS * 1000) + ' πόντοι\n' + sq + '\nΤι Λέει; Πετάμε!';
+    return 'Πού πετάμε; ' + MAP.name + ' · ' + (st.mode === 'daily' ? d[2] + '/' + d[1] : 'Ελεύθερο') + '\n' + fmt(total()) + ' / ' + fmt(ROUNDS * 1000) + ' πόντοι\n' + sq + '\nΠαίξε κι εσύ: tileei.gr/paixnidi';
   }
   function finish() {
     st.done = true;
@@ -407,7 +408,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--amber); outline
     }
     $('best').textContent = note;
     $('share').value = shareText();
-    $('copy').textContent = 'Αντιγραφή για κοινοποίηση';
+    $('copy').textContent = 'Αντιγραφή';
     dots(); setView(0, 0, W);
   }
 
@@ -490,6 +491,11 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--amber); outline
     var ta = $('share');
     function fallback() { ta.focus(); ta.select(); $('copy').textContent = 'Επιλέχθηκε: αντίγραψέ το'; }
     try { navigator.clipboard.writeText(ta.value).then(function () { $('copy').textContent = 'Αντιγράφηκε'; }, fallback); } catch (e) { fallback(); }
+  });
+  if (navigator.share) $('shr').hidden = false;
+  $('shr').addEventListener('click', function () {
+    // Μενού κοινοποίησης του κινητού· αν ο χρήστης το κλείσει ή αποτύχει, δεν γίνεται τίποτα άλλο.
+    try { navigator.share({ text: $('share').value }).catch(function () {}); } catch (e) { /* αγνοείται */ }
   });
   window.addEventListener('resize', draw);
 
