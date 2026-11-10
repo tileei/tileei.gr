@@ -45,6 +45,7 @@
     offers: '<path d="M12 3c1 3 4.5 4.5 4.5 9a4.5 4.5 0 0 1-9 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1.5-5 .5-8z"/>',
     partners: '<path d="M8 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2 20c.6-3.4 3-5.5 6-5.5s5.4 2.1 6 5.5M16 11a3 3 0 1 0 0-6M17 14.6c2.6.4 4.4 2.3 5 5.4"/>',
     guides: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20M8 7h8M8 11h6"/>',
+    paixnidi: '<path d="M21 3L3 10.5l7 2.5 2.5 7z"/><path d="M10 13l11-10"/>',
     status: '<path d="M9 12l2 2 4-4"/><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.2-7.5 9.5-4.3-1.3-7.5-5-7.5-9.5V6z"/>'
   };
   const NAV = [
@@ -59,6 +60,7 @@
     { id: 'offers', t: 'Προσφορές', d: 'Ενεργές και επαναλαμβανόμενες', top: 1, badge: true },
     { id: 'partners', t: 'Συνεργάτες', d: 'Πού μαζεύεις μίλια', top: 1 },
     { id: 'guides', t: 'Οδηγοί', d: 'Απλές εξηγήσεις και κόλπα', top: 1 },
+    { id: 'paixnidi', href: 'paixnidi/', t: 'Πού πετάμε;', d: 'Παιχνίδι γεωγραφίας: Ελλάδα και Ευρώπη' },
     { id: 'youth', t: 'Νέοι 18–25', d: 'genAIRation: −15% και δωρεάν βαλίτσα' },
     { id: 'status', t: 'Πηγές και έλεγχοι', d: 'Τι επαληθεύτηκε και πότε', desk: 'Πηγές', top: 1, foot: 1 }
   ];
@@ -66,7 +68,7 @@
   function buildNav() {
     const nOff = D.offers.filter((o) => ['active', 'recurring'].includes(C.offerStatus(o, today()))).length;
     mainNav.innerHTML = NAV.map((n) => n.g ? `<div class="ngroup mob">${esc(n.g)}</div>`
-      : `<a href="#${n.id}" data-t="${n.id}" class="${n.top ? 'ntop' : 'mob'}${n.foot ? ' nfoot' : ''}">${navIcon(n.id)}<span class="nt"><span class="nl"><span class="mobt">${esc(n.t)}</span><span class="deskt">${esc(n.desk || n.t)}</span>${n.badge && nOff ? `<span class="nbadge">${nOff}</span>` : ''}</span>${n.d ? `<small>${esc(n.d)}</small>` : ''}</span></a>`).join('');
+      : `<a href="${n.href || '#' + n.id}" data-t="${n.id}" class="${n.top ? 'ntop' : 'mob'}${n.foot ? ' nfoot' : ''}">${navIcon(n.id)}<span class="nt"><span class="nl"><span class="mobt">${esc(n.t)}</span><span class="deskt">${esc(n.desk || n.t)}</span>${n.badge && nOff ? `<span class="nbadge">${nOff}</span>` : ''}</span>${n.d ? `<small>${esc(n.d)}</small>` : ''}</span></a>`).join('');
   }
   buildNav();
   tabsEl.innerHTML = TOOLS.map((id) => `<a href="#${id}" data-t="${id}">${esc(document.getElementById(id).dataset.title)}</a>`).join('');
