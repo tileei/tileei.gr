@@ -42,6 +42,7 @@
     'alpha-attica': { t: 'Alpha Bank Bonus – attica', url: 'https://www.alpha.gr/el/idiotes/bonus/megaloi-sunergates/attica', pub: 'Alpha Bank' },
     'alpha-fysiko-diplasioi': { t: 'Alpha Bank – Διπλάσιοι Bonus πόντοι στο Φυσικό Αέριο Ελληνική Εταιρεία Ενέργειας', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/diplasioi-bonus-pontoi-sto-fusiko-aerio-elliniki-etaireia-energeias', pub: 'Alpha Bank' },
     'alpha-vodafone-bf': { t: 'Alpha Bank – 1€ ίσον 20 Bonus πόντοι με αγορές στη Vodafone', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/ena-euro-ison-eikosi-bonus-pontoi-me-agores-sti-vodafone', pub: 'Alpha Bank' },
+    'alpha-kotsovolos-40': { t: 'Alpha Bank – 1€ ίσον 40 Bonus πόντοι με αγορές στον Κωτσόβολο', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/ena-euro-ison-saranta-bonus-pontoi-me-agores-ston-kotsovolo', pub: 'Alpha Bank' },
     'alpha-news': { t: 'Alpha Bank – Νέα του Bonus', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news', pub: 'Alpha Bank' },
     'alpha-new-premium': { t: 'Alpha Bank – Νέα Aegean Bonus Visa Premium: 8.000 μίλια', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/bonus-pontoi-me-nea-xrusi-bonus-visa-i-aegean-bonus-visa-premium', pub: 'Alpha Bank' },
     'alpha-new-credit': { t: 'Alpha Bank – Νέα Aegean Bonus Visa: 5.000 μίλια', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/bonus-pontoi-me-nea-bonus-visa-i-aegean-bonus-visa', pub: 'Alpha Bank' },
@@ -604,6 +605,14 @@
       action: 'Αγορά συσκευής κουζίνας AEG ή Electrolux με κάρτα Bonus.',
       limits: 'Δεν ισχύει σε επιστροφή προϊόντος ή ακύρωση συναλλαγής. Δεν συνδυάζεται με άλλες προσφορές και οι πόντοι δεν πολλαπλασιάζονται. Η επιχείρηση μπορεί να αλλάξει ή να ανακαλέσει την προσφορά.',
       status: 'confirmed', check: 'reread', checked: '2026-10-30', sources: ['alpha-bonus-app-kotsovolos-aeg'] },
+    /* Προστέθηκε 11/11/2026 με έγκριση Νίκου, από τη σελίδα της Alpha (διαβάστηκε 11/11/2026). */
+    { id: 'kotsovolos-40-nov26', title: 'Κωτσόβολος: 1€ = 40 πόντοι Bonus σε οικιακά και τεχνολογία', partner: 'Κωτσόβολος · Alpha Bank Bonus', kind: 'alpha_points', alphaPartner: 'kotsovolos', pointsPerEuro: 40,
+      short: 'Οικιακά και τεχνολογία, σε καταστήματα, online και τηλεφωνικά, από Τετάρτη 11/11 (10:00) έως Κυριακή 15/11/2026 (23:59).',
+      desc: 'Για αγορές οικιακών και προϊόντων τεχνολογίας στον Κωτσόβολο με οποιαδήποτε κάρτα Bonus της Alpha, 1 € δίνει 40 πόντους Bonus αντί για 4. Ισχύει στα φυσικά καταστήματα, στο kotsovolos.gr, τηλεφωνικά (210 289 9999) και για επαγγελματίες (b2b.kotsovolos.gr, 210 289 9800). Είναι πόντοι Alpha Bonus, όχι μίλια Miles+Bonus. Με κάρτα Aegean Bonus, οι πόντοι μετατρέπονται σε μίλια με τον κανόνα της κάρτας.',
+      start: '2026-11-11', end: '2026-11-15', endNote: '11/11 (10:00) – 15/11/2026 (23:59)',
+      action: 'Αγορά οικιακών ή προϊόντων τεχνολογίας στον Κωτσόβολο με κάρτα Bonus, μέσα στις ημέρες της προσφοράς.',
+      limits: 'Δεν συνδυάζεται με άλλες προσφορές συλλογής πόντων Bonus και οι πόντοι δεν πολλαπλασιάζονται. Η σελίδα δεν γράφει ελάχιστο ή μέγιστο ποσό, ούτε πότε πιστώνονται οι πόντοι. Η επιχείρηση μπορεί να αλλάξει ή να ανακαλέσει την προσφορά.',
+      status: 'confirmed', check: 'reread', checked: '2026-11-11', sources: ['alpha-kotsovolos-40'] },
     /* Προστέθηκε 07/11/2026 από τον ημερήσιο έλεγχο (νέα του Bonus, Alpha). ΠΡΟΣ ΕΛΕΓΧΟ οι ακριβείς όροι· δεν μπαίνει στα σύνολα. */
     { id: 'vodafone-bf-nov26', title: 'Vodafone Black Friday: 20 πόντοι Bonus ανά €', partner: 'Vodafone · Alpha Bank Bonus', kind: 'alpha_points', alphaPartner: 'vodafone', pointsPerEuro: 20,
       short: 'Μόνο φυσικά καταστήματα Vodafone, προϊόντα αξίας 300–3.000 €, 06/11–27/11/2026.',
