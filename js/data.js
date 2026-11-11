@@ -43,6 +43,7 @@
     'alpha-fysiko-diplasioi': { t: 'Alpha Bank – Διπλάσιοι Bonus πόντοι στο Φυσικό Αέριο Ελληνική Εταιρεία Ενέργειας', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/diplasioi-bonus-pontoi-sto-fusiko-aerio-elliniki-etaireia-energeias', pub: 'Alpha Bank' },
     'alpha-vodafone-bf': { t: 'Alpha Bank – 1€ ίσον 20 Bonus πόντοι με αγορές στη Vodafone', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/ena-euro-ison-eikosi-bonus-pontoi-me-agores-sti-vodafone', pub: 'Alpha Bank' },
     'alpha-kotsovolos-40': { t: 'Alpha Bank – 1€ ίσον 40 Bonus πόντοι με αγορές στον Κωτσόβολο', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/ena-euro-ison-saranta-bonus-pontoi-me-agores-ston-kotsovolo', pub: 'Alpha Bank' },
+    'alpha-lili-drogerie': { t: 'Alpha Bank – Η Lili Drogerie είναι στο Bonus', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/i-lili-drogerie-einai-sto-bonus', pub: 'Alpha Bank' },
     'alpha-news': { t: 'Alpha Bank – Νέα του Bonus', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news', pub: 'Alpha Bank' },
     'alpha-new-premium': { t: 'Alpha Bank – Νέα Aegean Bonus Visa Premium: 8.000 μίλια', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/bonus-pontoi-me-nea-xrusi-bonus-visa-i-aegean-bonus-visa-premium', pub: 'Alpha Bank' },
     'alpha-new-credit': { t: 'Alpha Bank – Νέα Aegean Bonus Visa: 5.000 μίλια', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/bonus-pontoi-me-nea-bonus-visa-i-aegean-bonus-visa', pub: 'Alpha Bank' },
@@ -412,7 +413,9 @@
     }).flatMap(([cat, names]) => names.map((name) => ({ cat, name })))
       .map((p, i) => Object.assign(p, { id: 'b2-' + i, tier: 2, tierStatus: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['alpha-partners', 'alpha-premium'] })))
     /* Προστέθηκε 05/11/2026 από τον ημερήσιο έλεγχο (καταχώριση Alpha 26/10/2026): ΠΡΟΣ ΕΠΙΒΕΒΑΙΩΣΗ, δεν μπαίνει στα σύνολα. */
-    .concat([{ id: 'tlivv-inn', name: 'T-Livv Inn', cat: 'Κρατήσεις διαμονής', tier: 2, tierStatus: 'unconfirmed', check: 'search', checked: '2026-11-05', sources: ['alpha-partners'] }]);
+    .concat([{ id: 'tlivv-inn', name: 'T-Livv Inn', cat: 'Κρατήσεις διαμονής', tier: 2, tierStatus: 'unconfirmed', check: 'search', checked: '2026-11-05', sources: ['alpha-partners'] },
+      /* Προστέθηκε 11/11/2026 με έγκριση Νίκου: σελίδα της Alpha «Η Lili Drogerie είναι στο Bonus», 2 πόντοι/€, μόνο φυσικά καταστήματα. */
+      { id: 'lili-drogerie', name: 'Lili Drogerie', cat: 'Υγεία, ομορφιά, ευεξία', tier: 2, tierStatus: 'confirmed', check: 'reread', checked: '2026-11-11', sources: ['alpha-lili-drogerie'] }]);
   /* Κατηγορίες των συνεργατών Alpha: από την περιγραφή της σελίδας τους στο alpha.gr όπου ήταν ασαφής, αλλιώς από τη γνωστή δραστηριότητα της επιχείρησης. */
   const alphaNote = 'Η Alpha δίνει 4 πόντους/€ στους 11 μεγάλους συνεργάτες, 2 πόντους/€ στους άλλους συνεργάτες Bonus (λίστα 100 επιχειρήσεων) και 1 πόντο/€ παντού αλλού. Από τους συνεργάτες Miles+Bonus, στη λίστα Bonus βρέθηκαν μόνο Hertz, attica, bp (4), IKEA, Cellier και Anatolia (2). Οι υπόλοιποι, και η EKO, δεν είναι στη λίστα, άρα 1 πόντος/€ (έλεγχος 23/10/2026). Η κατηγορία 2 πόντων ισχύει για όλους τους «άλλους συνεργάτες» σύμφωνα με τη σελίδα της κάρτας.';
 
