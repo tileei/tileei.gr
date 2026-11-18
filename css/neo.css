@@ -64,3 +64,6 @@ label.check, .check, .signup label { text-transform:none; letter-spacing:0; font
 a.linkbtn { display: inline-flex; align-items: center; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; }
 a.linkbtn.go { color: var(--brand); font-weight: 700; }
 .cmp-act { flex-wrap: wrap; align-items: center; }
+
+/* Οθόνες «Καλώς ήρθες»: νέο στρογγυλό λογότυπο */
+.welcome-logo{width:150px;height:150px;background:none;padding:0;border-radius:50%}
