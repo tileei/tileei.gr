@@ -9,10 +9,11 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#123a8c">
+<meta name="theme-color" content="#0b1a30">
 <meta name="apple-mobile-web-app-title" content="Τι Λέει; Πετάμε!">
 <link rel="preload" href="assets/fonts/source-sans-3.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="css/styles.css?v=bcc7e996">
+<link rel="stylesheet" href="css/neo.css?v=neo1">
 <meta name="description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
 <meta property="og:title" content="ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ! – Τα μίλια σου γίνονται ταξίδια">
 <meta property="og:description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
@@ -27,7 +28,7 @@
   <div class="top-in">
     <button type="button" class="backbtn" id="backbtn" hidden aria-label="Πίσω"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span>Πίσω</span></button>
     <a class="brand" href="#home" aria-label="ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ! – αρχική">
-      <img src="assets/header-logo.svg" width="1040" height="560" alt="Τι Λέει; Πετάμε!">
+      <img src="assets/logo-neo.svg" width="64" height="64" alt="Τι Λέει; Πετάμε!">
     </a>
     <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mainnav" aria-label="Μενού">
       <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path class="b1" d="M4 7h16" /><path class="b2" d="M4 12h16"/><path class="b3" d="M4 17h16"/></svg>
@@ -45,11 +46,11 @@
     <div class="hero-band">
       <div class="hero-in">
         <div class="hero-txt">
-          <h1 class="wordmark"><img src="assets/wordmark.svg" width="1040" height="700" alt="Τι Λέει; Πετάμε! Τα μίλια σου γίνονται ταξίδια."></h1>
+          <p class="hero-eyebrow">Ο ανεξάρτητος οδηγός για τα μίλια σου</p>
+          <h1 class="hero-h">Τα μίλια σου γίνονται ταξίδια.</h1>
           <p class="sub">Υπολόγισε πόσα μίλια κερδίζεις, μετέτρεψε πόντους σε μίλια και δες πόσο αξίζουν. Κάθε κανόνας έχει πηγή και ημερομηνία ελέγχου.</p>
           <!-- «Πόσο καλά ξέρεις τα μίλια;»: το περιεχόμενο το φτιάχνει το app.js -->
           <div class="lvl" id="lvl"></div>
-          <a class="cta" href="#calc" id="h_cta">Ξεκίνα τώρα δωρεάν <span aria-hidden="true">→</span></a>
         </div>
         <div class="stage" aria-hidden="true">
           <div class="globe-wrap">
@@ -94,7 +95,7 @@
       </form>
     </div>
 
-    <h2 class="sec">🔥 Τρέχουσες προσφορές <a class="more-link" href="#offers">Όλες οι προσφορές →</a></h2>
+    <h2 class="sec">Τρέχουσες προσφορές <a class="more-link" href="#offers">Όλες οι προσφορές →</a></h2>
     <div class="hoffers" id="h_offers"></div>
 
     <a class="gamecard" href="paixnidi/">
@@ -121,10 +122,9 @@
 
   <!-- ΠΡΩΤΗ ΦΟΡΑ: οδηγός για αρχάριους (στοιχεία από τις επίσημες σελίδες AEGEAN/Alpha, έλεγχος 24/10/2026) -->
   <section id="start" class="panel" data-title="Πρώτη φορά εδώ;">
-    <h1>Πρώτη φορά εδώ; 🧭</h1>
+    <h1>Πρώτη φορά εδώ;</h1>
     <div class="miles-row">
-      <img src="assets/miles/miles-point.webp" width="365" height="616" alt="Ο Μίλης δείχνει προς τα βήματα" loading="lazy" decoding="async">
-      <p class="lede miles-bubble">Σου αρέσουν τα ταξίδια αλλά δεν ξέρεις τι είναι τα μίλια; <b>Πέντε μικρά βήματα και είσαι έτοιμος.</b> Εγώ είμαι ο Μίλης και θα σε βοηθήσω!</p>
+      <p class="lede miles-bubble">Σου αρέσουν τα ταξίδια αλλά δεν ξέρεις τι είναι τα μίλια; <b>Πέντε μικρά βήματα και είσαι έτοιμος.</b> Θα σε βοηθήσουμε βήμα βήμα.</p>
     </div>
     <ol class="st-list">
       <li class="st-step"><span class="st-n" aria-hidden="true">1</span><div><h2>Τι είναι τα μίλια;</h2><p>Είναι πόντοι που μαζεύεις και μετά τους ανταλλάσσεις με <b>εισιτήρια</b>, αναβάθμιση θέσης ή υπηρεσίες. Το πρόγραμμα της AEGEAN λέγεται <b>Miles+Bonus</b>.</p><p>Υπάρχουν δύο είδη: τα <b>μίλια εξαργύρωσης</b>, που ξοδεύεις, και <b>δεν λήγουν</b>, και τα μίλια βαθμίδας, που μετράνε μόνο για το «επίπεδο» σου (Blue, Silver, Gold) και ισχύουν 12 μήνες. Εδώ μας ενδιαφέρουν τα πρώτα.</p><p class="st-src">Πηγή: <span data-src="ae-miles,ae-terms"></span></p></div></li>
@@ -146,7 +146,7 @@
 
   <!-- ΝΕΟΙ 18–25: AEGEAN genAIRation (επίσημες σελίδες, έλεγχος 24/10/2026) -->
   <section id="youth" class="panel" data-title="Νέοι 18–25">
-    <h1>Είσαι 18–25; Ταξίδεψε πιο φθηνά 🎓</h1>
+    <h1>Είσαι 18–25; Ταξίδεψε πιο φθηνά</h1>
     <p class="lede">Η AEGEAN έχει ειδικό πρόγραμμα για νέους, το <b>genAIRation</b>, που ισχύει μαζί με τα μίλια του Miles+Bonus.</p>
     <ol class="st-list">
       <li class="st-step"><span class="st-n" aria-hidden="true">1</span><div><h2>Τι κερδίζεις</h2><ul class="plain">
@@ -175,7 +175,7 @@
   <section id="calc" class="panel" data-title="Μαζεύω μίλια">
     <h1>Πόσα μίλια κερδίζω;</h1>
     <p class="lede">Διάλεξε τράπεζα και κάρτα, μετά κατηγορία και συνεργάτη, και βάλε το ποσό. Τα μίλια Miles+Bonus, οι πόντοι Alpha Bonus και οι πόντοι προγραμμάτων όπως το BPme εμφανίζονται χωριστά.</p>
-    <div class="newbie" data-newbie hidden><b>🧭 Νέος στα μίλια;</b> Εδώ βλέπεις πόσα μίλια παίρνεις από μια αγορά. Τα <b>μίλια Miles+Bonus</b> τα δίνει ο συνεργάτης της AEGEAN. Οι <b>πόντοι Bonus</b> τα δίνει η κάρτα της Alpha Bank και, με κάρτα Aegean Bonus Visa, γίνονται κι αυτοί μίλια. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
+    <div class="newbie" data-newbie hidden><b>Νέος στα μίλια;</b> Εδώ βλέπεις πόσα μίλια παίρνεις από μια αγορά. Τα <b>μίλια Miles+Bonus</b> τα δίνει ο συνεργάτης της AEGEAN. Οι <b>πόντοι Bonus</b> τα δίνει η κάρτα της Alpha Bank και, με κάρτα Aegean Bonus Visa, γίνονται κι αυτοί μίλια. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
     <div class="form">
       <div class="field"><label for="c_bank">Τράπεζα</label><select autocomplete="off" id="c_bank"></select></div>
       <div class="field"><label for="c_card">Κάρτα</label><select autocomplete="off" id="c_card"></select></div>
@@ -216,7 +216,7 @@
   <section id="convert" class="panel" data-title="Μετατροπή">
     <h1>Μετατροπή πόντων σε μίλια</h1>
     <p class="lede">Πόντοι κάρτας ή προγράμματος καυσίμων που γίνονται μίλια Miles+Bonus. Κάθε κανόνας έχει δική του αναλογία, πακέτα και όρια.</p>
-    <div class="newbie" data-newbie hidden><b>🧭 Νέος στα μίλια;</b> Οι πόντοι της κάρτας ή των καυσίμων <b>δεν είναι ακόμα μίλια</b>. Εδώ βλέπεις πόσα μίλια γίνονται όταν τους μετατρέψεις. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
+    <div class="newbie" data-newbie hidden><b>Νέος στα μίλια;</b> Οι πόντοι της κάρτας ή των καυσίμων <b>δεν είναι ακόμα μίλια</b>. Εδώ βλέπεις πόσα μίλια γίνονται όταν τους μετατρέψεις. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
     <div class="form">
       <div class="field"><label for="v_rule">Πρόγραμμα προέλευσης</label><select autocomplete="off" id="v_rule"></select></div>
       <div class="field"><label for="v_points">Διαθέσιμοι πόντοι</label><input autocomplete="off" id="v_points" type="number" inputmode="numeric" min="0" step="1" value="7500"></div>
@@ -234,7 +234,7 @@
   <section id="value" class="panel" data-title="Αξία μιλίων">
     <h1>Πόσο αξίζουν τα μίλια μου;</h1>
     <p class="lede">Δες αν συμφέρει να πληρώσεις ένα εισιτήριο με μίλια ή με χρήματα.</p>
-    <div class="newbie" data-newbie hidden><b>🧭 Νέος στα μίλια;</b> Όταν κλείνεις εισιτήριο με μίλια, δεν πληρώνεις το εισιτήριο αλλά πληρώνεις <b>φόρους</b>. Εδώ βλέπεις αν σε συμφέρει ή αν είναι καλύτερα να πληρώσεις με χρήματα. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
+    <div class="newbie" data-newbie hidden><b>Νέος στα μίλια;</b> Όταν κλείνεις εισιτήριο με μίλια, δεν πληρώνεις το εισιτήριο αλλά πληρώνεις <b>φόρους</b>. Εδώ βλέπεις αν σε συμφέρει ή αν είναι καλύτερα να πληρώσεις με χρήματα. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
     <div class="steps-ae">
       <p><b>1.</b> Στην AEGEAN, ψάξε την πτήση σου με «Εξαργύρωση μιλίων». Θα δεις <b>μίλια</b> και <b>φόρους</b>.</p>
       <p><b>2.</b> Ψάξε την ίδια πτήση και με χρήματα. Θα δεις την <b>τιμή</b>.</p>
@@ -266,7 +266,7 @@
   <section id="goal" class="panel" data-title="Στόχος">
     <h1>Ταξιδιωτικός στόχος</h1>
     <p class="lede">Πες μας τι θες και πόσα ξοδεύεις, και σου λέμε σε πόσο καιρό φτάνεις εκεί και πώς να φτάσεις πιο γρήγορα.</p>
-    <div class="newbie" data-newbie hidden><b>🧭 Νέος στα μίλια;</b> Πόσα μίλια χρειάζεσαι το βλέπεις στην AEGEAN, ψάχνοντας την πτήση με «Εξαργύρωση μιλίων». Γράψ’ τα εδώ και δες σε πόσο καιρό τα μαζεύεις. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
+    <div class="newbie" data-newbie hidden><b>Νέος στα μίλια;</b> Πόσα μίλια χρειάζεσαι το βλέπεις στην AEGEAN, ψάχνοντας την πτήση με «Εξαργύρωση μιλίων». Γράψ’ τα εδώ και δες σε πόσο καιρό τα μαζεύεις. <a href="#start">Ο οδηγός σε 2 λεπτά →</a></div>
     <div class="form">
       <div class="field"><label for="g_name">Ο στόχος σου</label><input autocomplete="off" id="g_name" placeholder="π.χ. Νέα Υόρκη"></div>
       <div class="two">

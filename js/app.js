@@ -837,9 +837,9 @@
      young = 18–25 (σαν αρχάριος + κάρτα genAIRation). Μένει μόνο στη συσκευή. */
   const LVL_KEY = 'tlp.level.v1';
   const LVL = {
-    new: { ico: '🧭', t: 'Τώρα ξεκινάω' },
-    pro: { ico: '✈️', t: 'Τα ξέρω' },
-    young: { ico: '🎓', t: 'Είμαι 18–25' }
+    new: { ico: '', t: 'Τώρα ξεκινάω' },
+    pro: { ico: '', t: 'Τα ξέρω' },
+    young: { ico: '', t: 'Είμαι 18–25' }
   };
   function renderLevel() {
     const lv = store.get(LVL_KEY, null), box = $('lvl');
@@ -848,9 +848,9 @@
       box.innerHTML = `<p class="lvl-q">Πόσο καλά ξέρεις τα μίλια;</p><div class="lvl-btns">${Object.entries(LVL).map(([k, v]) => `<button type="button" class="lvl-b" data-lv="${k}"><span aria-hidden="true">${v.ico}</span> ${v.t}</button>`).join('')}</div>`;
     } else {
       const card = lv === 'pro' ? '' : lv === 'young'
-        ? `<a class="st-card lvl-card" href="#youth"><b>🎓 Είσαι 18–25; Δες το genAIRation</b><span>−15% στις πτήσεις, 2 δωρεάν βαλίτσες τον χρόνο, +50% μίλια στον αγαπημένο σου προορισμό.</span></a><a class="st-card lvl-card" href="#start"><b>🧭 Τι είναι τα μίλια;</b><span>Ο οδηγός για αρχάριους σε 2 λεπτά.</span></a>`
-        : `<a class="st-card lvl-card" href="#start"><b>🧭 Ξεκίνα από εδώ: τι είναι τα μίλια;</b><span>5 μικρά βήματα: εγγραφή (δωρεάν, 1.000 μίλια), πώς μαζεύεις, πόντοι Bonus, τι κάνεις με τα μίλια.</span></a>`;
-      box.innerHTML = `${card}<p class="lvl-now">Προφίλ: ${LVL[lv].ico} ${LVL[lv].t} · <button type="button" class="lvl-chg">αλλαγή</button></p>`;
+        ? `<a class="st-card lvl-card" href="#youth"><b>Είσαι 18–25; Δες το genAIRation</b><span>−15% στις πτήσεις, 2 δωρεάν βαλίτσες τον χρόνο, +50% μίλια στον αγαπημένο σου προορισμό.</span></a><a class="st-card lvl-card" href="#start"><b>🧭 Τι είναι τα μίλια;</b><span>Ο οδηγός για αρχάριους σε 2 λεπτά.</span></a>`
+        : `<a class="st-card lvl-card" href="#start"><b>Ξεκίνα από εδώ: τι είναι τα μίλια;</b><span>5 μικρά βήματα: εγγραφή (δωρεάν, 1.000 μίλια), πώς μαζεύεις, πόντοι Bonus, τι κάνεις με τα μίλια.</span></a>`;
+      box.innerHTML = `${card}<p class="lvl-now">Προφίλ: ${LVL[lv].t} · <button type="button" class="lvl-chg">αλλαγή</button></p>`;
     }
     const beginner = lv === 'new' || lv === 'young';
     document.querySelectorAll('[data-newbie]').forEach((el) => { el.hidden = !beginner; });

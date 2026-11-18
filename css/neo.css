@@ -1,0 +1,57 @@
+/* Στυλ Δ (navy / κρεμ / χάλκινο) — στρώμα πάνω από το styles.css. Δοκιμαστικό αντίγραφο, όχι ζωντανό. */
+:root, :root:not([data-theme="light"]), :root[data-theme="dark"], :root[data-theme="light"] {
+  --bg:#0b1a30; --surface:#12253f; --surface-2:#0f2038; --ink:#f3eee6; --muted:#9fb0c8; --line:#243a5b;
+  --brand:#f0a357; --brand-ink:#1a1005; --sky:#f0a357; --sun:#e08a3c; --sun-ink:#1a1005; --amber:#f0a357;
+  --mb:#f0a357; --alpha:#7fc7c0; --ext:#e8a06a; --top:#0b1a30;
+  --ok:#6fd0a0; --ok-bg:#10301f; --warn:#f0b45a; --warn-bg:#352408; --bad:#ff8a80; --bad-bg:#3a1613;
+  --font-display: Georgia, 'Times New Roman', serif; --radius:14px; color-scheme: dark;
+}
+body { background: var(--bg); }
+.top { background:#0b1a30; border-bottom:1px solid #1d3354; }
+.brand { width:auto; display:flex; align-items:center; gap:12px; color:#f7f1e6; text-decoration:none; }
+.brand img { width:64px; height:64px; }
+.brand::after { content:"Τι Λέει; Πετάμε!"; font:600 19px/1 Georgia,serif; color:#f7f1e6; }
+.mainnav a { color:#f3eee6; }
+.mainnav .ni { background:rgba(224,138,60,.14); color:#f0a357; }
+h1, h2, h3, .big { font-weight:500; letter-spacing:0; }
+.hero-band { background:#0b1a30; background-image:radial-gradient(ellipse at 80% 0, #14304f 0, #0b1a30 65%); padding:30px max(16px, env(safe-area-inset-left,0px)) 64px; min-height:0; }
+.hero-eyebrow { font:600 12px/1 system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase; color:#e08a3c; margin:0 0 14px; }
+.hero-h { font:500 2rem/1.15 Georgia,serif; color:#f7f1e6; margin:0 0 12px; max-width:16ch; }
+.sub { color:#a9b7cc; text-shadow:none; max-width:44ch; }
+.cta { background:#e08a3c; color:#1a1005; border-radius:10px; font-family:system-ui,sans-serif; }
+.cta:hover { background:#f0a357; }
+.stage, .miles-hero { display:none !important; }
+.hero-trust { display:flex; flex-wrap:wrap; gap:8px 16px; margin:18px 0 0; padding:0; list-style:none; font-size:.85rem; color:#a9b7cc; }
+.hero-trust li::before { content:"✓ "; color:#e08a3c; }
+.qcard { background:#12253f; border:1px solid #243a5b; box-shadow:0 14px 34px rgba(0,0,0,.35); border-radius:16px; margin-top:-34px; }
+.qtabs button { color:#9fb0c8; font-family:system-ui,sans-serif; font-weight:600; }
+.qtabs button[aria-selected="true"] { color:#f7f1e6; border-bottom-color:#e08a3c; }
+button.primary, .primary { background:#e08a3c; color:#1a1005; border-radius:10px; font-family:system-ui,sans-serif; }
+input, select { background:#0f2038; border:1px solid #2a4263; color:#f3eee6; border-radius:10px; }
+label { text-transform:uppercase; letter-spacing:.06em; font-size:.76rem; }
+.tabs a[aria-current="page"] { background:#e08a3c; border-color:#e08a3c; color:#1a1005; }
+.tile, .tile:nth-child(n) { background:#12253f; border:1px solid #243a5b; }
+.tile::before { background:rgba(224,138,60,.10); }
+.tile .go { background:#e08a3c; color:#1a1005; }
+.hoffer { background:#12253f !important; border:1px solid #243a5b; color:#f3eee6 !important; }
+.signup { background:#0f2038; border:1px solid #e08a3c; }
+.gamecard { background:#12253f !important; border:1px solid #243a5b; color:#f3eee6 !important; }
+.offer-check, .koffer { background:#2a2008; border-color:#e08a3c; color:#ffe2a8; }
+a { color:#f0a357; }
+label.check, .check, .signup label { text-transform:none; letter-spacing:0; font-size:.9rem; }
+.gcards img, .dests img, .ncard img { filter:grayscale(.75) brightness(.72) contrast(1.05); }
+.sec { font-family:Georgia,serif; font-weight:500; }
+.more-link { color:#f0a357; }
+.lvl-b span:empty { display:none; }
+.lvl-b { min-height:52px; font-family:system-ui,sans-serif; font-weight:600; background:#12253f; border:1px solid #2a4263; border-radius:10px; color:#f3eee6; }
+.lvl-b:hover, .lvl-b:focus-visible { border-color:#e08a3c; }
+.lvl-q { font:500 1rem Georgia,serif; color:#f7f1e6; }
+.top-in { flex-wrap:nowrap; }
+.brand { min-width:0; }
+.brand::after { white-space:nowrap; }
+.backbtn:not([hidden]) ~ .brand img { width:46px; height:46px; }
+.backbtn:not([hidden]) ~ .brand::after { font-size:15px; }
+.gimg { filter:grayscale(.75) brightness(.72) contrast(1.05); }
+.btn, .btnlink { background:#e08a3c; color:#1a1005; border-radius:10px; font-family:system-ui,sans-serif; }
+.steps-ae .btn, .awardbox .btn { background:#e08a3c; color:#1a1005; border-radius:10px; font-family:system-ui,sans-serif; }
+.miles-row { display:block; }
