@@ -453,9 +453,14 @@
   $('a_save').addEventListener('click', () => {
     const r = C.redemptionValue({ cashPrice: val('a_price'), miles: val('a_miles'), taxes: val('a_taxes'), fees: val('a_fees'), travelers: 1 });
     if (!r.ok) return;
-    opts.push({ id: mkId(), dest: val('a_name').trim() || `Ταξίδι ${opts.length + 1}`, miles: +val('a_miles'), cashPrice: +val('a_price'), taxes: +val('a_taxes') || 0, fees: +val('a_fees') || 0, dates: val('a_dates').trim(), airline: val('a_airline').trim(), link: safeUrl(val('a_link').trim()), checked: today() });
+    const nums = { miles: +val('a_miles'), cashPrice: +val('a_price'), taxes: +val('a_taxes') || 0, fees: +val('a_fees') || 0 };
+    const dest = val('a_name').trim() || `Ταξίδι ${fmt(nums.miles, 0)} μίλια`;
+    const b = $('a_save');
+    const dup = opts.some((o) => o.dest === dest && o.miles === nums.miles && o.cashPrice === nums.cashPrice && o.taxes === nums.taxes && (o.fees || 0) === nums.fees);
+    if (dup) { b.textContent = 'Το έχεις ήδη κρατήσει'; setTimeout(() => { b.textContent = '➕ Κράτα το για σύγκριση'; }, 2000); return; }
+    opts.push({ id: mkId(), dest, ...nums, dates: val('a_dates').trim(), airline: val('a_airline').trim(), link: safeUrl(val('a_link').trim()), checked: today() });
     store.set('tlp.compare.v1', opts); ['a_name', 'a_dates', 'a_airline', 'a_link'].forEach((id) => { $(id).value = ''; }); renderCompare();
-    const b = $('a_save'); b.textContent = '✓ Το κράτησα'; setTimeout(() => { b.textContent = '➕ Κράτα το για σύγκριση'; }, 1500);
+    b.textContent = '✓ Το κράτησα'; setTimeout(() => { b.textContent = '➕ Κράτα το για σύγκριση'; }, 1500);
   });
   $('a_cmp').addEventListener('click', (e) => {
     const t = e.target.closest('button'); if (!t) return;
