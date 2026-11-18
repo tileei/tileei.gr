@@ -29,7 +29,7 @@
 
   /* ---- πλοήγηση: κύριο μενού + υπομενού εργαλείων ---- */
   const panels = [...document.querySelectorAll('.panel')];
-  const TOOLS = ['calc', 'convert', 'value', 'goal'];
+  const TOOLS = ['calc', 'convert', 'value', 'compare', 'goal'];
   const MAIN = [['home', 'Αρχική'], ['calc', 'Υπολογιστής'], ['offers', 'Προσφορές'], ['partners', 'Συνεργάτες'], ['guides', 'Οδηγοί'], ['status', 'Κατάσταση']];
   panels.forEach((p) => { if (TOOLS.includes(p.id)) p.classList.add('tool'); });
   const mainNav = $('mainnav'), tabsEl = $('tabs'), burger = $('burger');
@@ -41,6 +41,7 @@
     calc: '<rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8 7h8M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/>',
     convert: '<path d="M17 4l3 3-3 3M20 7H8a4 4 0 0 0-4 4M7 20l-3-3 3-3M4 17h12a4 4 0 0 0 4-4"/>',
     value: '<circle cx="12" cy="12" r="8.5"/><path d="M14.8 9.2a3 3 0 0 0-2.8-1.7c-1.7 0-2.9 1-2.9 2.3 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-2.9 2.3a3 3 0 0 1-2.9-1.8M12 6v1.5M12 16.5V18"/>',
+    compare: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
     goal: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/>',
     offers: '<path d="M12 3c1 3 4.5 4.5 4.5 9a4.5 4.5 0 0 1-9 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1.5-5 .5-8z"/>',
     partners: '<path d="M8 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2 20c.6-3.4 3-5.5 6-5.5s5.4 2.1 6 5.5M16 11a3 3 0 1 0 0-6M17 14.6c2.6.4 4.4 2.3 5 5.4"/>',
@@ -55,6 +56,7 @@
     { id: 'calc', t: 'Πόσα μίλια κερδίζω', d: 'Αγορές, καύσιμα, ξενοδοχεία', desk: 'Υπολογιστής', top: 1 },
     { id: 'convert', t: 'Μετατροπή πόντων', d: 'Πόντοι Bonus, BPme, Smile → μίλια' },
     { id: 'value', t: 'Αξία μιλίων', d: 'Συμφέρει η εξαργύρωση; Σύγκρινε ταξίδια' },
+    { id: 'compare', t: 'Σύγκριση ταξιδιών', d: 'Βάλε τα ταξίδια σου δίπλα-δίπλα' },
     { id: 'goal', t: 'Στόχος', d: 'Σε πόσο καιρό φτάνω το ταξίδι μου' },
     { g: 'Ανακάλυψε' },
     { id: 'offers', t: 'Προσφορές', d: 'Ενεργές και επαναλαμβανόμενες', top: 1, badge: true },
@@ -76,7 +78,6 @@
   burger.addEventListener('click', () => setMenu(!mainNav.classList.contains('open')));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
   function showTab() {
-    if (location.hash === '#compare') { history.replaceState(null, '', '#value'); }
     const id = panels.some((p) => p.id === location.hash.slice(1)) ? location.hash.slice(1) : 'home';
     const isTool = TOOLS.includes(id);
     panels.forEach((p) => p.classList.toggle('on', p.id === id));
@@ -426,25 +427,34 @@
   let opts = store.get('tlp.compare.v1', []);
   let cmpSort = 'value';
   const mkId = () => 'o' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const STALE_DAYS = 7;
+  const ageDays = (iso) => { const t = Date.parse(iso); return Number.isFinite(t) ? Math.floor((Date.now() - t) / 86400000) : null; };
   function renderCompare() {
     const sorted = C.compareOptions(opts.map((o) => ({ ...o })), cmpSort);
-    if (!sorted.length) { $('a_cmp').innerHTML = ''; return; }
+    const lk = $('a_cmplink'); if (lk) lk.innerHTML = `<a href="#compare">Σύγκριση ταξιδιών${sorted.length ? ' (' + sorted.length + ')' : ''} →</a>`;
+    if (!sorted.length) { $('a_cmp').innerHTML = '<div class="empty">Δεν έχεις κρατήσει ακόμα ταξίδι. Πήγαινε στην <a href="#value">Αξία μιλίων</a>, βάλε τα νούμερα από την AEGEAN και πάτα «Κράτα το για σύγκριση».</div>'; return; }
     const rows = sorted.map((o, i) => {
       const v = o.valid ? C.valueVerdict(o.valuePer1000, D.valueBands) : null;
+      const age = o.checked ? ageDays(o.checked) : null;
+      const stale = age !== null && age >= STALE_DAYS;
+      const meta = [o.dates ? esc(o.dates) : '', o.airline ? esc(o.airline) : ''].filter(Boolean).join(' · ');
+      const link = safeUrl(o.link);
       return `<div class="cmprow${v ? ' v-' + v.key : ''}"><div class="cmp-top"><b>${o.valid && i === 0 && sorted.length > 1 ? '🏆 ' : ''}${esc(o.dest)}</b>` +
         `<span class="cmp-val">${o.valid ? eur(o.valuePer1000) + ' <small>/ 1.000 μίλια</small>' : '—'}</span></div>` +
-        `<div class="cmp-sub">${v ? `<span class="vpill">${esc(v.label)}</span>` : ''}${fmt(o.miles, 0)} μίλια · πληρώνεις ${eur(o.cashRequired)} · γλιτώνεις ${eur(o.netSaving)}${o.demo ? ' · <i>υποθετικό</i>' : ''}</div>` +
-        `<div class="cmp-act"><button class="linkbtn" data-load="${esc(o.id)}">Άνοιξε</button><button class="linkbtn" data-del="${esc(o.id)}" aria-label="Διαγραφή: ${esc(o.dest)}">Διαγραφή</button></div></div>`;
+        (meta ? `<div class="cmp-meta">${meta}</div>` : '') +
+        `<div class="cmp-sub">${v ? `<span class="vpill">${esc(v.label)}</span>` : ''}${fmt(o.miles, 0)} μίλια · φόροι και χρεώσεις ${eur(o.valid ? o.cashRequired : 0)} · τιμή με χρήματα ${eur(o.cashPrice)} · γλιτώνεις ${o.valid ? eur(o.netSaving) : '—'}${o.demo ? ' · <i>υποθετικό</i>' : ''}</div>` +
+        (o.checked ? `<div class="cmp-chk${stale ? ' stale' : ''}">Νούμερα που έβαλες στις ${esc(dmy(o.checked))}${stale ? ` (πριν ${age} ημέρες). Οι τιμές και η διαθεσιμότητα αλλάζουν, έλεγξέ τα ξανά στην εταιρεία.` : '.'}</div>` : '') +
+        `<div class="cmp-act">${link ? `<a class="linkbtn go" href="${esc(link)}" target="_blank" rel="noopener noreferrer">Άνοιγμα κράτησης →</a>` : ''}<button class="linkbtn" data-load="${esc(o.id)}">Άνοιξε</button><button class="linkbtn" data-del="${esc(o.id)}" aria-label="Διαγραφή: ${esc(o.dest)}">Διαγραφή</button></div></div>`;
     }).join('');
-    $('a_cmp').innerHTML = `<h2 style="margin-top:22px">Τα ταξίδια σου (${sorted.length})</h2>` +
-      (sorted.length > 1 ? `<div class="seg" role="group" aria-label="Σειρά"><button type="button" data-sort="value" aria-pressed="${cmpSort === 'value'}">Καλύτερη αξία</button><button type="button" data-sort="cost" aria-pressed="${cmpSort === 'cost'}">Λιγότερα € από την τσέπη</button></div>` : '<p class="hint">Κράτα κι άλλο ταξίδι για να τα συγκρίνεις.</p>') +
-      `<div class="list">${rows}</div><p class="hint">Αποθηκεύονται μόνο σε αυτή τη συσκευή. Είναι δικά σου νούμερα, όχι επιβεβαιωμένες προσφορές.</p>`;
+    $('a_cmp').innerHTML = `<h2 style="margin-top:6px">Τα ταξίδια σου (${sorted.length})</h2>` +
+      (sorted.length > 1 ? `<div class="seg" role="group" aria-label="Σειρά"><button type="button" data-sort="value" aria-pressed="${cmpSort === 'value'}">Καλύτερη αξία</button><button type="button" data-sort="cost" aria-pressed="${cmpSort === 'cost'}">Λιγότερα € από την τσέπη</button></div>` : '') +
+      `<div class="list">${rows}</div>`;
   }
   $('a_save').addEventListener('click', () => {
     const r = C.redemptionValue({ cashPrice: val('a_price'), miles: val('a_miles'), taxes: val('a_taxes'), fees: val('a_fees'), travelers: 1 });
     if (!r.ok) return;
-    opts.push({ id: mkId(), dest: val('a_name').trim() || `Ταξίδι ${opts.length + 1}`, miles: +val('a_miles'), cashPrice: +val('a_price'), taxes: +val('a_taxes') || 0, fees: +val('a_fees') || 0 });
-    store.set('tlp.compare.v1', opts); $('a_name').value = ''; renderCompare();
+    opts.push({ id: mkId(), dest: val('a_name').trim() || `Ταξίδι ${opts.length + 1}`, miles: +val('a_miles'), cashPrice: +val('a_price'), taxes: +val('a_taxes') || 0, fees: +val('a_fees') || 0, dates: val('a_dates').trim(), airline: val('a_airline').trim(), link: safeUrl(val('a_link').trim()), checked: today() });
+    store.set('tlp.compare.v1', opts); ['a_name', 'a_dates', 'a_airline', 'a_link'].forEach((id) => { $(id).value = ''; }); renderCompare();
     const b = $('a_save'); b.textContent = '✓ Το κράτησα'; setTimeout(() => { b.textContent = '➕ Κράτα το για σύγκριση'; }, 1500);
   });
   $('a_cmp').addEventListener('click', (e) => {
@@ -452,7 +462,8 @@
     if (t.dataset.sort) { cmpSort = t.dataset.sort; renderCompare(); return; }
     if (t.dataset.del) { opts = opts.filter((o) => o.id !== t.dataset.del); store.set('tlp.compare.v1', opts); renderCompare(); return; }
     if (t.dataset.load) { const o = opts.find((x) => x.id === t.dataset.load); if (!o) return;
-      $('a_miles').value = o.miles; $('a_taxes').value = o.taxes; $('a_price').value = o.cashPrice; $('a_fees').value = o.fees || 0; $('a_trav').value = 1; $('a_name').value = o.dest; renderValue();
+      $('a_miles').value = o.miles; $('a_taxes').value = o.taxes; $('a_price').value = o.cashPrice; $('a_fees').value = o.fees || 0; $('a_trav').value = 1; $('a_name').value = o.dest; $('a_dates').value = o.dates || ''; $('a_airline').value = o.airline || ''; $('a_link').value = o.link || ''; renderValue();
+      location.hash = '#value';
       try { $('a_miles').scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (er) { /* αγνοείται */ } }
   });
 

@@ -55,3 +55,12 @@ label.check, .check, .signup label { text-transform:none; letter-spacing:0; font
 .btn, .btnlink { background:#e08a3c; color:#1a1005; border-radius:10px; font-family:system-ui,sans-serif; }
 .steps-ae .btn, .awardbox .btn { background:#e08a3c; color:#1a1005; border-radius:10px; font-family:system-ui,sans-serif; }
 .miles-row { display:block; }
+
+/* Σύγκριση ταξιδιών (18/11/2026) */
+.seg button[aria-pressed="true"] { background: var(--sun); border-color: var(--sun); color: #1a1005; }
+.cmp-meta { font-size: .9rem; color: var(--muted); margin-top: 4px; }
+.cmp-chk { font-size: .8rem; color: var(--muted); margin-top: 6px; line-height: 1.35; }
+.cmp-chk.stale { color: #f0b45a; }
+a.linkbtn { display: inline-flex; align-items: center; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; }
+a.linkbtn.go { color: var(--brand); font-weight: 700; }
+.cmp-act { flex-wrap: wrap; align-items: center; }

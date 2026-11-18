@@ -15,7 +15,7 @@
 <meta name="apple-mobile-web-app-title" content="Τι Λέει; Πετάμε!">
 <link rel="preload" href="assets/fonts/source-sans-3.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="css/styles.css?v=bcc7e996">
-<link rel="stylesheet" href="css/neo.css?v=neo2">
+<link rel="stylesheet" href="css/neo.css?v=neo3">
 <meta name="description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
 <meta property="og:title" content="ΤΙ ΛΕΕΙ; ΠΕΤΑΜΕ! – Τα μίλια σου γίνονται ταξίδια">
 <meta property="og:description" content="Υπολόγισε πόσα μίλια AEGEAN Miles+Bonus κερδίζεις από αγορές, κάρτες Alpha Bonus και καύσιμα, μετέτρεψε πόντους σε μίλια και δες αν συμφέρει μια εξαργύρωση. Κανόνες με επίσημη πηγή.">
@@ -256,9 +256,12 @@
     <div class="signup" data-ctx="value" id="su_value" hidden></div>
     <div class="savebox" id="a_savebox" hidden>
       <div class="field"><label for="a_name">Δώσε ένα όνομα σε αυτό το ταξίδι</label><input autocomplete="off" id="a_name" maxlength="60" placeholder="π.χ. Ρώμη, Μάρτιος"></div>
+      <div class="field"><label for="a_dates">Ημερομηνίες ταξιδιού (προαιρετικό)</label><input autocomplete="off" id="a_dates" maxlength="40" placeholder="π.χ. 12–16 Μαρτίου 2027"></div>
+      <div class="field"><label for="a_airline">Εταιρεία και πρόγραμμα (προαιρετικό)</label><input autocomplete="off" id="a_airline" maxlength="40" placeholder="π.χ. AEGEAN · Miles+Bonus"></div>
+      <div class="field"><label for="a_link">Σύνδεσμος κράτησης (προαιρετικό)</label><input autocomplete="off" id="a_link" type="url" inputmode="url" maxlength="300" placeholder="https://…"></div>
       <button type="button" class="primary" id="a_save">➕ Κράτα το για σύγκριση</button>
     </div>
-    <div id="a_cmp" aria-live="polite"></div>
+    <p class="hint" id="a_cmplink"><a href="#compare">Σύγκριση ταξιδιών →</a></p>
     <p class="hint">Η αξία των μιλίων δεν είναι σταθερή. Αλλάζει με τον προορισμό, την ημερομηνία και τους φόρους. Τα νούμερα τα βάζεις εσύ από την AEGEAN· εμείς κάνουμε μόνο τον λογαριασμό.</p>
   </section>
 
@@ -266,6 +269,13 @@
 
 
   <!-- ΣΤΟΧΟΣ -->
+  <section id="compare" class="panel" data-title="Σύγκριση">
+    <h1>Σύγκριση ταξιδιών</h1>
+    <p class="lede">Τα ταξίδια που κράτησες από την «Αξία μιλίων», δίπλα-δίπλα. Σειρά: από την καλύτερη αξία ή από τα λιγότερα € από την τσέπη σου.</p>
+    <div id="a_cmp" aria-live="polite"></div>
+    <p class="hint">Τα νούμερα τα βάζεις εσύ από την AEGEAN ή άλλη εταιρεία. Δεν είναι επιβεβαιωμένες προσφορές ούτε διαθεσιμότητα. Αποθηκεύονται μόνο σε αυτή τη συσκευή.</p>
+  </section>
+
   <section id="goal" class="panel" data-title="Στόχος">
     <h1>Ταξιδιωτικός στόχος</h1>
     <p class="lede">Πες μας τι θες και πόσα ξοδεύεις, και σου λέμε σε πόσο καιρό φτάνεις εκεί και πώς να φτάσεις πιο γρήγορα.</p>
@@ -411,7 +421,7 @@
 <script src="js/world.js?v=e0926296"></script>
 <script src="js/globe.js?v=d2dc1403"></script>
 <script src="js/calc.js?v=631b88f9"></script>
-<script src="js/app.js?v=aa1ff1a0"></script>
+<script src="js/app.js?v=4d216412"></script>
 <script>
 // Ανώνυμα στατιστικά (GoatCounter, χωρίς cookies). Μετρά και τις αλλαγές καρτέλας.
 window.goatcounter = { no_onload: true };
