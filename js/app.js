@@ -6,7 +6,7 @@
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const fmt = (x, d = 2) => (x == null || !Number.isFinite(x) ? '—' : x.toLocaleString('el-GR', { maximumFractionDigits: d }));
-  const eur = (x) => (x == null || !Number.isFinite(x) ? '—' : x.toLocaleString('el-GR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €');
+  const eur = (x) => (x == null || !Number.isFinite(x) ? '—' : x.toLocaleString('el-GR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '\u00a0€');
   const dmy = (iso) => (iso ? iso.split('-').reverse().join('/') : '—');
   const today = () => new Date().toLocaleDateString('sv-SE');
   const safeUrl = (u) => (/^https?:\/\//i.test(String(u || '')) ? String(u) : '');
