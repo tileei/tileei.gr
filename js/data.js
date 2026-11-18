@@ -70,6 +70,7 @@
     'boc-terms': { t: 'Bank of Cyprus – Όροι Aegean Mastercard (PDF)', url: 'https://www.bankofcyprus.com/contentassets/76a50f07680242e691ea71d5a5e1a136/terms-aegean-scheme-en-final.pdf', pub: 'Bank of Cyprus' },
     'ae-boc':        { t: 'Miles+Bonus – Bank of Cyprus', url: AE + 'payment-cards/bank-of-cyprus/', pub: 'AEGEAN' },
     'alpha-credit':  { t: 'Alpha Bank – Aegean Bonus Visa (πιστωτική)', url: 'https://www.alpha.gr/en/personal/cards/pistotikes-kartes/pistotiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
+    'alpha-debit-gr': { t: 'Alpha Bank – Χρεωστική Aegean Bonus Visa (ελληνική σελίδα)', url: 'https://www.alpha.gr/el/idiotes/kartes/xreostikes-kartes/xreostiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
     'alpha-debit':   { t: 'Alpha Bank – Aegean Bonus Visa Debit', url: 'https://www.alpha.gr/en/personal/cards/xreostikes-kartes/xreostiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
     'alpha-mp-aegean': { t: 'Alpha Bank – Μεγάλος συνεργάτης AEGEAN (αναλογίες μετατροπής)', url: 'https://www.alpha.gr/en/retail/bonus/MajorPartners/aegean', pub: 'Alpha Bank' },
     'ae-buy-miles': { t: 'Miles+Bonus – Αγορά μιλίων', url: 'https://en.aegeanair.com/milesandbonus/how-to-earn/purchase-award-miles/', pub: 'AEGEAN' },
@@ -141,12 +142,12 @@
       sources: ['alpha-credit']
     },
     {
-      id: 'debit', bank: 'alpha', model: 'alpha', name: 'Aegean Bonus Visa Debit', status: 'confirmed', check: 'reread', checked: '2026-10-23',
+      id: 'debit', bank: 'alpha', model: 'alpha', name: 'Aegean Bonus Visa Debit', status: 'confirmed', check: 'reread', checked: '2026-11-18',
       pointsPerEuro: { 4: 4, 2: 2, 1: 0.5 },
       convert: { points: 4, miles: 2, multipleOf: 4 },
       annualCapPoints: 50000, capPeriod: '1/11/2026 – 31/10/2027',
       notes: 'Στις υπόλοιπες αγορές δίνει 1 πόντο ανά 2 €. Όσοι είχαν το παλιό όριο των 15.000 πόντων το κρατούν έως 31/10/2026.',
-      sources: ['alpha-debit', 'alpha-mp-aegean']
+      sources: ['alpha-debit-gr', 'alpha-debit', 'alpha-mp-aegean']
     },
     /* model 'direct': η κάρτα δίνει απευθείας μίλια ανά € σε ένα πρόγραμμα (earn.program). */
     {
@@ -536,7 +537,7 @@
     { id: 'alpha-credit', from: 'Alpha Bank Bonus – Aegean Bonus Visa (πιστωτική)', to: 'mb', basePoints: 4, baseMiles: 4, multipleOf: 4, min: 4, max: null,
       annualCap: '100.000 πόντοι ανά περίοδο 1 Νοε – 31 Οκτ', status: 'confirmed', check: 'reread', checked: '2026-10-23', sources: ['alpha-credit'], note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων, μόνο για πόντους των τελευταίων 12 μηνών.' },
     { id: 'alpha-debit', from: 'Alpha Bank Bonus – Aegean Bonus Visa Debit', to: 'mb', basePoints: 4, baseMiles: 2, multipleOf: 4, min: 4, max: null,
-      annualCap: '50.000 πόντοι για 1/11/2026 – 31/10/2027 (το παλιό όριο 15.000 ισχύει έως 31/10/2026)', status: 'confirmed', check: 'reread', checked: '2026-10-25', sources: ['alpha-debit', 'alpha-mp-aegean'], note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων.' },
+      annualCap: '50.000 πόντοι για 1/11/2026 – 31/10/2027 (το παλιό όριο 15.000 ισχύει έως 31/10/2026)', status: 'confirmed', check: 'reread', checked: '2026-11-18', sources: ['alpha-debit-gr', 'alpha-debit', 'alpha-mp-aegean'], note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων.' },
     { id: 'bpme', from: 'BPme', to: 'mb', basePoints: 1, baseMiles: 1, multipleOf: 1, packages: [2000, 3000, 5000, 10000], min: 2000, max: null,
       annualCap: 'Δεν αναφέρεται στη σελίδα για αυτή την κατεύθυνση', status: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['ae-bp'],
       note: 'Διαθέσιμα πακέτα 2.000 / 3.000 / 5.000 / 10.000 πόντων. Το όριο των 45.000 μιλίων/έτος αφορά τη μετατροπή μιλίων σε κουπόνι.' },
@@ -563,13 +564,13 @@
       start: null, end: '2026-11-30', endNote: 'Αίτηση έως 30/11/2026 · έκδοση κάρτας έως 7/12/2026',
       action: 'Αίτηση online ή σε κατάστημα της Alpha Bank, έκδοση έως 7/12/2026 και ενεργοποίηση.',
       limits: 'Οι 3.000 πόντοι Bonus πιστώνονται έως 20/12/2026 και δεν γίνονται μίλια. Η σελίδα δεν αναφέρει ελάχιστες αγορές.',
-      status: 'confirmed', check: 'reread', checked: '2026-10-24', sources: ['alpha-new-premium'] },
+      status: 'confirmed', check: 'reread', checked: '2026-11-18', sources: ['alpha-new-premium'] },
     { id: 'alpha-new-credit-26', title: 'Νέα Aegean Bonus Visa: 5.000 μίλια με την ενεργοποίηση', partner: 'Alpha Bank · AEGEAN Miles+Bonus', kind: 'card_welcome', cardId: 'credit', miles: 5000,
       desc: 'Αν βγάλεις νέα πιστωτική Aegean Bonus Visa, παίρνεις 5.000 μίλια Miles+Bonus με την ενεργοποίηση, και επιπλέον 3.000 πόντους Bonus. Οι 3.000 πόντοι ΔΕΝ μετατρέπονται σε μίλια.',
       start: null, end: '2026-11-30', endNote: 'Αίτηση έως 30/11/2026 · έκδοση κάρτας έως 7/12/2026',
       action: 'Αίτηση online ή σε κατάστημα της Alpha Bank, έκδοση έως 7/12/2026 και ενεργοποίηση.',
       limits: 'Οι 3.000 πόντοι Bonus πιστώνονται έως 20/12/2026 και δεν γίνονται μίλια.',
-      status: 'confirmed', check: 'reread', checked: '2026-10-24', sources: ['alpha-new-credit'] },
+      status: 'confirmed', check: 'reread', checked: '2026-11-18', sources: ['alpha-new-credit'] },
     { id: 'intersport-x2-oct26', title: 'INTERSPORT: διπλοί πόντοι Bonus στα καταστήματα', partner: 'INTERSPORT · Alpha Bank Bonus', kind: 'alpha_points', alphaPartner: intersportId, pointsPerEuro: 4,
       short: 'Μόνο στα φυσικά καταστήματα, έως 31/10/2026.',
       desc: 'Στα φυσικά καταστήματα INTERSPORT οι πόντοι Bonus γίνονται ×2: 2 × 2 = 4 πόντοι ανά €.',
