@@ -46,7 +46,7 @@ label.check, .check, .signup label { text-transform:none; letter-spacing:0; font
 .lvl-b { min-height:52px; font-family:system-ui,sans-serif; font-weight:600; background:#12253f; border:1px solid #2a4263; border-radius:10px; color:#f3eee6; }
 .lvl-b:hover, .lvl-b:focus-visible { border-color:#e08a3c; }
 .lvl-q { font:500 1rem Georgia,serif; color:#f7f1e6; }
-.top-in { flex-wrap:nowrap; }
+.top-in { flex-wrap:wrap; }
 .brand { min-width:0; }
 .brand::after { white-space:nowrap; }
 .backbtn:not([hidden]) ~ .brand img { width:46px; height:46px; }
