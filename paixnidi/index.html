@@ -144,28 +144,48 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--amber); outline
 .note { margin: 0; color: var(--muted); font-size: .9rem; }
 .foot { margin: 0; color: var(--muted); font-size: .82rem; text-align: center; }
 .foot a { color: var(--brand); }
+
+/* Συμπαγής διάταξη: όλο το παιχνίδι σε μία οθόνη κινητού */
+.segs{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.segs .seg{gap:4px;margin:0}
+.segs .seg button{min-height:34px;font-size:.78rem;padding:0 4px}
+.hero{padding-block:8px 10px}
+.hero-in{align-items:center}
+.hero .site{min-height:26px;padding:0 10px;font-size:.72rem;margin-bottom:4px}
+h1{font-size:1.5rem}
+h1::after{height:3px;margin-top:5px}
+.score{padding:4px 12px 5px}.score b{font-size:1.25rem}
+.wrap{padding-top:8px;gap:6px}
+.note{font-size:.72rem;line-height:1.25}
+.ask{min-height:0;gap:8px}
+.ask img{width:44px}
+.bubble{padding:6px 12px 8px;margin-bottom:6px}
+.bubble .eyebrow{font-size:.62rem}
+.bubble .big{font-size:1.2rem;margin:2px 0 0}
+.bubble .sub{font-size:.78rem;margin:2px 0 0}
+.go{min-height:46px;font-size:1rem}
+.mapbox{margin-inline:-10px}
+svg#map{width:min(100%,calc((100dvh - 370px) * 1.1494));min-width:260px;margin-inline:auto}
+.foot{font-size:.7rem;line-height:1.25}
 </style>
 
-<header class="top bleed">
-  <div class="top-in">
-    <a class="site" href="../">← Στο site</a>
-  </div>
-</header>
 <section class="hero bleed">
   <div class="hero-in">
-    <div><small>Παιχνίδι γεωγραφίας</small><h1>Πού πετάμε;</h1></div>
+    <div><a class="site" href="../">← Στο site</a><h1>Πού πετάμε;</h1></div>
     <div class="score"><span>Πόντοι</span><b id="total">0</b></div>
   </div>
 </section>
 
 <div class="wrap" lang="el">
+  <div class="segs">
   <div class="seg" role="group" aria-label="Χάρτης">
     <button type="button" id="map_gr" aria-pressed="true">Ελλάδα</button>
     <button type="button" id="map_eu" aria-pressed="false">Ευρώπη</button>
   </div>
   <div class="seg" role="group" aria-label="Τρόπος παιχνιδιού">
-    <button type="button" id="m_daily" aria-pressed="true">Σημερινή πρόκληση</button>
-    <button type="button" id="m_free" aria-pressed="false">Ελεύθερο παιχνίδι</button>
+    <button type="button" id="m_daily" aria-pressed="true">Σημερινό</button>
+    <button type="button" id="m_free" aria-pressed="false">Ελεύθερο</button>
+  </div>
   </div>
   <p class="note" id="modehelp"></p>
 
