@@ -53,7 +53,7 @@
     const l = num(litres);
     if (bad(l)) return fail('Συμπλήρωσε λίτρα.');
     const whole = fuel.wholeLitresOnly ? Math.floor(l) : l;
-    const promoOn = !!(promo && fuel.promo && fuel.promo.applies.includes(grade));
+    const promoOn = !!(promo && fuel.promo && fuel.promo.status === 'confirmed' && fuel.promo.applies.includes(grade));
     const ppl = promoOn ? fuel.promo.pointsPerLitre : fuel.pointsPerLitre[grade];
     if (ppl === undefined) return fail('Άγνωστος τύπος καυσίμου.');
     const points = whole * ppl;
