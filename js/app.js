@@ -903,7 +903,7 @@
     al: ['sib_al', 'https://54914687.sibforms.com/serve/MUIFALAVbUh3xB0Iq5pGamMcaktV4lClqGgdZJ4Zdgh_OV1C90dj28BudmnyV0w3QgW7Q-yTled8_VjWFgs9S9W8t-uYeOkBbu9t5fSZ_ssCMwH-WVjJrW6KoeXPb9waQh5MhTpIsVuFxriRRJb1CFY7IoX-feaadXGrGP-b-DkgIZZQV7aDuHL8gVM1Aeko_cLTujM_CcuuTBe-Kw==']
   };
   const SU_TITLE = {
-    home: 'Μην χάνεις καμία προσφορά μιλίων ✈️',
+    home: 'Γράψου και πάρε δωρεάν τον Οδηγό μιλίων ✈️',
     convert: 'Μην χάνεις καμία προσφορά μιλίων ✈️',
     calc: 'Θες να μαθαίνεις όταν ένας συνεργάτης δίνει διπλά μίλια;',
     value: 'Θες να μαθαίνεις πότε συμφέρει να εξαργυρώσεις;',
@@ -921,11 +921,11 @@
     const ctx = box.dataset.ctx, id = box.id, home = ctx === 'home';
     box.innerHTML = `${home ? '' : `<button type="button" class="su-x" aria-label="Κλείσιμο">✕</button>`}
       <h2 class="su-h">${SU_TITLE[ctx]}</h2>
-      <p class="su-p">Ένα email την εβδομάδα με νέες προσφορές και αλλαγές κανόνων, μόνο από επίσημες πηγές.</p>
+      <p class="su-p">${home ? 'Επιβεβαιώνεις το email σου και παίρνεις τον οδηγό σε PDF (8 σελίδες, με πραγματικά παραδείγματα). Μετά, ένα email την εβδομάδα με νέες προσφορές και αλλαγές κανόνων, μόνο από επίσημες πηγές.' : 'Ένα email την εβδομάδα με νέες προσφορές και αλλαγές κανόνων, μόνο από επίσημες πηγές.'}</p>
       <form class="su-form" novalidate>
         <div class="su-row"><label class="sr-only" for="${id}_e">Το email σου</label>
           <input id="${id}_e" type="email" inputmode="email" autocomplete="email" required placeholder="Το email σου">
-          <button type="submit" class="primary">${home ? 'Γράψου' : 'Θέλω'}</button></div>
+          <button type="submit" class="primary">${home ? 'Γράψου και πάρε τον οδηγό' : 'Θέλω'}</button></div>
         <label class="check su-al"><input type="checkbox" id="${id}_al"><span>🔔 Θέλω και <b>προσωπικές ειδοποιήσεις</b> για προσφορές που ταιριάζουν στην κάρτα μου, όταν ανοίξουν <span class="muted">(δεν υπάρχουν ακόμα· έτσι μας δείχνεις ότι αξίζει να τις φτιάξουμε)</span></span></label>
         <p class="su-err" role="alert" hidden>Γράψε ένα σωστό email.</p>
       </form>
