@@ -88,7 +88,7 @@
     'ae-genair-wifi': { t: 'genAIRation – Wi-Fi στην πτήση', url: 'https://el.aegeanair.com/genairation/wifi_on_board/', pub: 'AEGEAN' },
     'ae-genair-fav':  { t: 'genAIRation – Αγαπημένος προορισμός', url: 'https://el.aegeanair.com/genairation/favourite-destination/', pub: 'AEGEAN' },
     'ae-terms':      { t: 'Miles+Bonus – Όροι προγράμματος', url: 'https://en.aegeanair.com/conditions-notices/milesbonus-terms-and-conditions/', pub: 'AEGEAN' },
-    'fuelprices-daily': { t: 'Παρατηρητήριο Τιμών Υγρών Καυσίμων – Ημερήσιο δελτίο 16/11/2026', url: 'https://www.fuelprices.gr/files/deltia/IMERISIO_DELTIO_PANELLINIO_16_11_2026.pdf', pub: 'Υπουργείο Ανάπτυξης' },
+    'fuelprices-daily': { t: 'Παρατηρητήριο Τιμών Υγρών Καυσίμων – Ημερήσιο δελτίο 17/11/2026', url: 'https://www.fuelprices.gr/files/deltia/IMERISIO_DELTIO_PANELLINIO_17_11_2026.pdf', pub: 'Υπουργείο Ανάπτυξης' },
     'eko-terms':     { t: 'EKO – Όροι EKO SMILE (16/03/2026)', url: 'https://www.eko.gr/wp-content/uploads/2026/03/Terms-and-Conditions-GR-2026.03.16.pdf', pub: 'EKO' },
     'alpha-major':   { t: 'Alpha Bank Bonus – Μεγάλοι συνεργάτες (4 πόντοι/€)', url: 'https://www.alpha.gr/en/personal/bonus/MajorPartners', pub: 'Alpha Bank' },
     'alpha-partners': { t: 'Alpha Bank Bonus – Συνεργάτες (2 πόντοι/€)', url: 'https://www.alpha.gr/en/personal/bonus/partners', pub: 'Alpha Bank' },
@@ -518,8 +518,8 @@
   /* Πανελλαδικές μέσες τιμές λιανικής (€/λίτρο, με ΦΠΑ), ημερήσιο δελτίο του Παρατηρητηρίου Τιμών Υγρών Καυσίμων.
    * Το δελτίο δεν δίνει τιμές για 98 οκτανίων ή premium diesel· εκεί ο χρήστης βάζει την τιμή της αντλίας. */
   const fuelPrices = {
-    date: '2026-11-16', sources: ['fuelprices-daily'], checked: '2026-11-18',
-    prices: { u95: 1.969, u100: 2.266, diesel: 2.038, lpg: 1.238 },
+    date: '2026-11-17', sources: ['fuelprices-daily'], checked: '2026-11-19',
+    prices: { u95: 1.961, u100: 2.255, diesel: 2.034, lpg: 1.235 },
     labels: { u95: 'Αμόλυβδη 95', u100: 'Αμόλυβδη 100', diesel: 'Diesel κίνησης', lpg: 'Υγραέριο κίνησης' },
     /* Εκτιμήσεις ΔΙΚΕΣ ΜΑΣ (όχι επίσημες) για καύσιμα που δεν έχει το δελτίο. Απόφαση Νίκου 23/10/2026.
        98: μέσος όρος 95 και 100. Ενισχυμένο diesel: diesel + η μισή διαφορά 95→100. Πάντα «εκτίμηση», ο χρήστης τη διορθώνει. */
