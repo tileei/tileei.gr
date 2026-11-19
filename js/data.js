@@ -126,7 +126,7 @@
   /* Κάρτες Aegean Bonus Visa. Μόνο η Premium ξαναδιαβάστηκε στην επίσημη σελίδα της Alpha. Κάθε κάρτα ανήκει σε τράπεζα (bank). */
   const cards = [
     {
-      id: 'premium', bank: 'alpha', model: 'alpha', name: 'Aegean Bonus Visa Premium', status: 'confirmed', check: 'reread', checked: '2026-10-22',
+      id: 'premium', bank: 'alpha', model: 'alpha', name: 'Aegean Bonus Visa Premium', status: 'confirmed', check: 'reread', checked: '2026-11-19',
       pointsPerEuro: { 4: 4, 2: 2, 1: 1 },
       convert: { points: 4, miles: 5, multipleOf: 4 },
       annualCapPoints: 200000, capPeriod: '1 Νοε – 31 Οκτ',
@@ -134,7 +134,7 @@
       sources: ['alpha-premium']
     },
     {
-      id: 'credit', bank: 'alpha', model: 'alpha', name: 'Aegean Bonus Visa (πιστωτική)', status: 'confirmed', check: 'reread', checked: '2026-10-23',
+      id: 'credit', bank: 'alpha', model: 'alpha', name: 'Aegean Bonus Visa (πιστωτική)', status: 'confirmed', check: 'reread', checked: '2026-11-19',
       pointsPerEuro: { 4: 4, 2: 2, 1: 1 },
       convert: { points: 4, miles: 4, multipleOf: 4 },
       annualCapPoints: 100000, capPeriod: '1 Νοε – 31 Οκτ',
@@ -142,7 +142,7 @@
       sources: ['alpha-credit']
     },
     {
-      id: 'debit', bank: 'alpha', model: 'alpha', name: 'Aegean Bonus Visa Debit', status: 'confirmed', check: 'reread', checked: '2026-11-18',
+      id: 'debit', bank: 'alpha', model: 'alpha', name: 'Aegean Bonus Visa Debit', status: 'confirmed', check: 'reread', checked: '2026-11-19',
       pointsPerEuro: { 4: 4, 2: 2, 1: 0.5 },
       convert: { points: 4, miles: 2, multipleOf: 4 },
       annualCapPoints: 50000, capPeriod: '1/11/2026 – 31/10/2027',
@@ -202,7 +202,7 @@
   const T3_NOTE = 'Οι όροι λένε «πάνω από 6 νύχτες» για τα 1.500 μίλια· για ακριβώς 6 νύχτες δεν ορίζουν ποσό.';
   const P = (o) => {
     const r = Object.assign({ channels: '', cond: '', excl: '', redeem: '', place: '', region: 'Ελλάδα',
-      /* Όσοι δεν είναι στη λίστα συνεργατών Bonus της Alpha (100 επιχειρήσεις, έλεγχος 22–23/10/2026) παίρνουν τον κανόνα «παντού αλλού»: 1 πόντος/€ (Debit: 1 ανά 2 €). */
+      /* Όσοι δεν είναι στη λίστα συνεργατών Bonus της Alpha (102 επιχειρήσεις, έλεγχος 22–23/10/2026, ξανά 19/11/2026) παίρνουν τον κανόνα «παντού αλλού»: 1 πόντος/€ (Debit: 1 ανά 2 €). */
       alphaTier: 1, alphaTierStatus: 'confirmed', alphaTierBasis: 'not-in-list', alphaTierChecked: '2026-10-23',
       status: 'confirmed', check: 'reread', checked: '2026-10-22' }, o);
     if (r.page) { sources['ae:' + r.id] = { t: 'Miles+Bonus – ' + r.name.split(' – ')[0], url: AE + r.page, pub: 'AEGEAN' }; }
@@ -397,7 +397,7 @@
     { id: 'fysiko', name: 'Φυσικό Αέριο', alphaCond: 'Η εξόφληση λογαριασμού μέσω ΚΑΣ (αυτόματες πληρωμές) δίνει μόνο 1 πόντο/€.', alphaSrc: 'alpha-fysiko' },
     { id: 'box', name: 'BOX', alphaCond: 'Μόνο παραγγελίες φαγητού ή καφέ μέσω box.gr ή της εφαρμογής BOX. Οι πόντοι πιστώνονται μετά από 2 εργάσιμες.', alphaSrc: 'alpha-box' },
     { id: 'aegean', name: 'AEGEAN / Olympic Air (εισιτήρια)', mbNote: 'Τα μίλια Miles+Bonus της ίδιας της πτήσης δεν υπολογίζονται σε αυτό το εργαλείο· εδώ φαίνονται μόνο οι πόντοι Alpha Bonus της αγοράς εισιτηρίου.' }
-  ].map((p) => Object.assign(p, { tier: 4, tierStatus: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['alpha-major', 'alpha-premium'] }))
+  ].map((p) => Object.assign(p, { tier: 4, tierStatus: 'confirmed', check: 'reread', checked: '2026-11-19', sources: ['alpha-major', 'alpha-premium'] }))
   /* Οι υπόλοιποι συνεργάτες της λίστας Bonus (2 πόντοι/€), εκτός από τους μεγάλους, όσους είναι και συνεργάτες Miles+Bonus (IKEA, Cellier, Anatolia) και την ίδια την Alpha Bank.
    * Κάποια ονόματα στη σελίδα της Alpha φαίνονται μόνο ως λογότυπα· εδώ γράφονται όπως στη διεύθυνση της σελίδας τους. */
     .concat(Object.entries({
@@ -415,13 +415,13 @@
         'Pharma24.gr', 'Pharmacy 295', 'Sephora', 'Styloptic', 'Vardavas (οπτικά)', 'Φαρμακεία Αρσλάνογλου', 'Advance Pharmacies – Φαρμακεία Σύρου (Ανδριωτάκη-Πιτσικάκη)', 'Φαρμακείο Χρήστου Ποντική'],
       'Άλλα': ['Φιλανθρωπικά Ιδρύματα', 'The Green City (ανακύκλωση)']
     }).flatMap(([cat, names]) => names.map((name) => ({ cat, name })))
-      .map((p, i) => Object.assign(p, { id: 'b2-' + i, tier: 2, tierStatus: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['alpha-partners', 'alpha-premium'] })))
-    /* Προστέθηκε 05/11/2026 από τον ημερήσιο έλεγχο (καταχώριση Alpha 26/10/2026): ΠΡΟΣ ΕΠΙΒΕΒΑΙΩΣΗ, δεν μπαίνει στα σύνολα. */
-    .concat([{ id: 'tlivv-inn', name: 'T-Livv Inn', cat: 'Κρατήσεις διαμονής', tier: 2, tierStatus: 'unconfirmed', check: 'search', checked: '2026-11-05', sources: ['alpha-partners'] },
+      .map((p, i) => Object.assign(p, { id: 'b2-' + i, tier: 2, tierStatus: 'confirmed', check: 'reread', checked: '2026-11-19', sources: ['alpha-partners', 'alpha-premium'] })))
+    /* Προστέθηκε 05/11/2026 από τον ημερήσιο έλεγχο· επιβεβαιώθηκε 19/11/2026 στην επίσημη λίστα 102 συνεργατών (T-Livv). */
+    .concat([{ id: 'tlivv-inn', name: 'T-Livv Inn', cat: 'Κρατήσεις διαμονής', tier: 2, tierStatus: 'confirmed', check: 'reread', checked: '2026-11-19', sources: ['alpha-partners'] },
       /* Προστέθηκε 11/11/2026 με έγκριση Νίκου: σελίδα της Alpha «Η Lili Drogerie είναι στο Bonus», 2 πόντοι/€, μόνο φυσικά καταστήματα. */
       { id: 'lili-drogerie', name: 'Lili Drogerie', cat: 'Υγεία, ομορφιά, ευεξία', tier: 2, tierStatus: 'confirmed', check: 'reread', checked: '2026-11-11', sources: ['alpha-lili-drogerie'] }]);
   /* Κατηγορίες των συνεργατών Alpha: από την περιγραφή της σελίδας τους στο alpha.gr όπου ήταν ασαφής, αλλιώς από τη γνωστή δραστηριότητα της επιχείρησης. */
-  const alphaNote = 'Η Alpha δίνει 4 πόντους/€ στους 11 μεγάλους συνεργάτες, 2 πόντους/€ στους άλλους συνεργάτες Bonus (λίστα 100 επιχειρήσεων) και 1 πόντο/€ παντού αλλού. Από τους συνεργάτες Miles+Bonus, στη λίστα Bonus βρέθηκαν μόνο Hertz, attica, bp (4), IKEA, Cellier και Anatolia (2). Οι υπόλοιποι, και η EKO, δεν είναι στη λίστα, άρα 1 πόντος/€ (έλεγχος 23/10/2026). Η κατηγορία 2 πόντων ισχύει για όλους τους «άλλους συνεργάτες» σύμφωνα με τη σελίδα της κάρτας.';
+  const alphaNote = 'Η Alpha δίνει 4 πόντους/€ στους 11 μεγάλους συνεργάτες, 2 πόντους/€ στους άλλους συνεργάτες Bonus (λίστα 102 επιχειρήσεων, έλεγχος 19/11/2026) και 1 πόντο/€ παντού αλλού (Debit: 1 πόντος ανά 2 €). Από τους συνεργάτες Miles+Bonus, στη λίστα Bonus βρέθηκαν μόνο Hertz, attica, bp (4), IKEA, Cellier και Anatolia (2). Οι υπόλοιποι, και η EKO, δεν είναι στη λίστα, άρα 1 πόντος/€ (έλεγχος 23/10/2026). Η κατηγορία 2 πόντων ισχύει για όλους τους «άλλους συνεργάτες» σύμφωνα με τη σελίδα της κάρτας.';
 
   /* Ροή 3: καύσιμα με πόντους εξωτερικού προγράμματος. */
   const fuel = {
@@ -532,12 +532,12 @@
   /* Μετατροπές πόντων άλλων προγραμμάτων σε μίλια Miles+Bonus. */
   const conversions = [
     { id: 'alpha-premium', from: 'Alpha Bank Bonus – Aegean Bonus Visa Premium', to: 'mb', basePoints: 4, baseMiles: 5, multipleOf: 4, min: 4, max: null,
-      annualCap: '200.000 πόντοι ανά περίοδο 1 Νοε – 31 Οκτ', status: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['alpha-premium'],
+      annualCap: '200.000 πόντοι ανά περίοδο 1 Νοε – 31 Οκτ', status: 'confirmed', check: 'reread', checked: '2026-11-19', sources: ['alpha-premium'],
       note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων.' },
     { id: 'alpha-credit', from: 'Alpha Bank Bonus – Aegean Bonus Visa (πιστωτική)', to: 'mb', basePoints: 4, baseMiles: 4, multipleOf: 4, min: 4, max: null,
-      annualCap: '100.000 πόντοι ανά περίοδο 1 Νοε – 31 Οκτ', status: 'confirmed', check: 'reread', checked: '2026-10-23', sources: ['alpha-credit'], note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων, μόνο για πόντους των τελευταίων 12 μηνών.' },
+      annualCap: '100.000 πόντοι ανά περίοδο 1 Νοε – 31 Οκτ', status: 'confirmed', check: 'reread', checked: '2026-11-19', sources: ['alpha-credit'], note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων, μόνο για πόντους των τελευταίων 12 μηνών.' },
     { id: 'alpha-debit', from: 'Alpha Bank Bonus – Aegean Bonus Visa Debit', to: 'mb', basePoints: 4, baseMiles: 2, multipleOf: 4, min: 4, max: null,
-      annualCap: '50.000 πόντοι για 1/11/2026 – 31/10/2027 (το παλιό όριο 15.000 ισχύει έως 31/10/2026)', status: 'confirmed', check: 'reread', checked: '2026-11-18', sources: ['alpha-debit-gr', 'alpha-debit', 'alpha-mp-aegean'], note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων.' },
+      annualCap: '50.000 πόντοι για 1/11/2026 – 31/10/2027 (το παλιό όριο 15.000 ισχύει έως 31/10/2026)', status: 'confirmed', check: 'reread', checked: '2026-11-19', sources: ['alpha-debit-gr', 'alpha-debit', 'alpha-mp-aegean'], note: 'Μετατροπή σε πολλαπλάσια των 4 πόντων.' },
     { id: 'bpme', from: 'BPme', to: 'mb', basePoints: 1, baseMiles: 1, multipleOf: 1, packages: [2000, 3000, 5000, 10000], min: 2000, max: null,
       annualCap: 'Δεν αναφέρεται στη σελίδα για αυτή την κατεύθυνση', status: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['ae-bp'],
       note: 'Διαθέσιμα πακέτα 2.000 / 3.000 / 5.000 / 10.000 πόντων. Το όριο των 45.000 μιλίων/έτος αφορά τη μετατροπή μιλίων σε κουπόνι.' },
