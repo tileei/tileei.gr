@@ -67,3 +67,6 @@ a.linkbtn.go { color: var(--brand); font-weight: 700; }
 
 /* Οθόνες «Καλώς ήρθες»: νέο στρογγυλό λογότυπο */
 .welcome-logo{width:150px;height:150px;background:none;padding:0;border-radius:50%}
+
+.foot .social{gap:12px}
+.foot .social .social-l{flex:0 0 100%;text-align:center}
