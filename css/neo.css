@@ -84,5 +84,5 @@ a.linkbtn.go { color: var(--brand); font-weight: 700; }
   .hero-in { grid-template-columns:minmax(0,1fr); }
   .aplane { position:absolute; right:max(16px, calc((100vw - 1120px)/2 - 40px)); top:38px; width:min(48vw, 600px); margin:0; }
   .aplane figcaption { bottom:-6px; font-size:11px; }
-  .aplane-trail { left:-40%; bottom:28%; width:70%; height:45%; }
+  .aplane-trail { left:-10%; bottom:30%; width:42%; height:40%; }
 }
