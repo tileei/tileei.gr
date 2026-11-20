@@ -70,3 +70,17 @@ a.linkbtn.go { color: var(--brand); font-weight: 700; }
 
 .foot .social{gap:12px}
 .foot .social .social-l{flex:0 0 100%;text-align:center}
+
+/* Αεροπλάνο AI στην αρχική (δείγμα 20/11/2026) */
+.aplane { position:relative; z-index:0; margin:14px -16px -26px auto; width:min(92%, 520px); pointer-events:none; }
+.aplane img { display:block; width:100%; height:auto; filter:drop-shadow(0 18px 22px rgba(0,0,0,.45)); animation:aplane-fly 6s ease-in-out infinite; }
+.aplane-trail { position:absolute; left:-40%; bottom:28%; width:70%; height:45%; }
+.aplane figcaption { position:absolute; right:18px; bottom:-2px; font:11px/1 system-ui,sans-serif; color:#7f90a8; }
+@keyframes aplane-fly { 0%,100% { transform:translate(0,0) rotate(0); } 50% { transform:translate(-1.5%,-5%) rotate(-1.2deg); } }
+@media (prefers-reduced-motion: reduce) { .aplane img { animation:none; } }
+@media (min-width: 860px) {
+  .hero-band { min-height:420px; }
+  .hero-in { grid-template-columns:minmax(0,1fr); }
+  .aplane { position:absolute; right:max(16px, calc((100vw - 1120px)/2 - 40px)); top:38px; width:min(48vw, 600px); margin:0; }
+  .aplane figcaption { bottom:-6px; }
+}
