@@ -44,6 +44,7 @@
     'alpha-fysiko-diplasioi': { t: 'Alpha Bank – Διπλάσιοι Bonus πόντοι στο Φυσικό Αέριο Ελληνική Εταιρεία Ενέργειας', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/diplasioi-bonus-pontoi-sto-fusiko-aerio-elliniki-etaireia-energeias', pub: 'Alpha Bank' },
     'ae-abv-online-25': { t: 'AEGEAN – Μετατροπή πόντων Bonus online: +25% επιπλέον μίλια (16–25/11/2026)', url: 'https://en.aegeanair.com/milesandbonus/news/2026/abv_online_points_conversion_26/', pub: 'AEGEAN' },
     'alpha-samsung-kotsovolos': { t: 'Alpha Bank – Έως 100.000 Bonus πόντοι με τηλεόραση Samsung στον Κωτσόβολο', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/eos-ekato-xiliades-bonus-pontoi-me-samsung-ston-kotsovolo', pub: 'Alpha Bank' },
+    'alpha-hondos-10': { t: 'Alpha Bank – 1€ ίσον 10 Bonus πόντοι με αγορές στα Hondos Center', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/ena-euro-ison-deka-bonus-pontoi-me-agores-sta-hondos-center', pub: 'Alpha Bank' },
     'alpha-vodafone-bf': { t: 'Alpha Bank – 1€ ίσον 20 Bonus πόντοι με αγορές στη Vodafone', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/ena-euro-ison-eikosi-bonus-pontoi-me-agores-sti-vodafone', pub: 'Alpha Bank' },
     'alpha-kotsovolos-40': { t: 'Alpha Bank – 1€ ίσον 40 Bonus πόντοι με αγορές στον Κωτσόβολο', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/ena-euro-ison-saranta-bonus-pontoi-me-agores-ston-kotsovolo', pub: 'Alpha Bank' },
     'alpha-lili-drogerie': { t: 'Alpha Bank – Η Lili Drogerie είναι στο Bonus', url: 'https://www.alpha.gr/el/idiotes/bonus/bonus-news/i-lili-drogerie-einai-sto-bonus', pub: 'Alpha Bank' },
@@ -636,6 +637,14 @@
       action: 'Αγορά τηλεόρασης Samsung σε φυσικό κατάστημα Κωτσόβολος, στο kotsovolos.gr ή τηλεφωνικά (210 289 9999), με κάρτα Bonus.',
       limits: 'Οι πόντοι πιστώνονται στις 18/12/2026, αρκεί να έχεις παραλάβει το προϊόν έως 12/12/2026. Η αξία υπολογίζεται με την τιμή που αναγράφεται στο προϊόν. Δεν ισχύει σε επιστροφή ή ακύρωση, δεν συνδυάζεται με άλλες προσφορές και οι πόντοι δεν πολλαπλασιάζονται. Η σελίδα δεν γράφει ώρες.',
       status: 'confirmed', check: 'reread', checked: '2026-11-16', sources: ['alpha-samsung-kotsovolos'] },
+    /* Προστέθηκε 24/11/2026 από τον ημερήσιο έλεγχο (νέα του Bonus, Alpha), με ΟΚ Νίκου· η σελίδα διαβάστηκε 24/11/2026. */
+    { id: 'hondos-10-nov26', title: 'Hondos Center: 10 πόντοι Bonus ανά €', partner: 'Hondos Center · Alpha Bank Bonus', kind: 'alpha_points', alphaPartner: 'hondos', pointsPerEuro: 10,
+      short: 'Καταστήματα Hondos Center και hondoscenter.com, προϊόντα ομορφιάς και μόδας, 23/11–29/11/2026.',
+      desc: 'Σε προϊόντα ομορφιάς και μόδας στα Hondos Center ή στο hondoscenter.com, με οποιαδήποτε κάρτα Bonus της Alpha, 1 € δίνει 10 πόντους Bonus αντί για 4. Είναι πόντοι Alpha Bonus, όχι μίλια Miles+Bonus· το Hondos Center δεν είναι συνεργάτης Miles+Bonus. Με κάρτα Aegean Bonus, οι πόντοι μετατρέπονται σε μίλια με τον κανόνα της κάρτας.',
+      start: '2026-11-23', end: '2026-11-29', endNote: '23/11–29/11/2026',
+      action: 'Αγορά προϊόντων ομορφιάς ή μόδας στα Hondos Center ή στο hondoscenter.com με κάρτα Bonus.',
+      limits: 'Δεν συνδυάζεται με άλλες ενέργειες συλλογής πόντων Bonus. Η σελίδα δεν αναφέρει ανώτατο όριο ούτε πότε πιστώνονται οι πόντοι.',
+      status: 'confirmed', check: 'reread', checked: '2026-11-24', sources: ['alpha-hondos-10'] },
     /* Προστέθηκε 07/11/2026 από τον ημερήσιο έλεγχο (νέα του Bonus, Alpha). ΠΡΟΣ ΕΛΕΓΧΟ οι ακριβείς όροι· δεν μπαίνει στα σύνολα. */
     { id: 'vodafone-bf-nov26', title: 'Vodafone Black Friday: 20 πόντοι Bonus ανά €', partner: 'Vodafone · Alpha Bank Bonus', kind: 'alpha_points', alphaPartner: 'vodafone', pointsPerEuro: 20,
       short: 'Μόνο φυσικά καταστήματα Vodafone, προϊόντα αξίας 300–3.000 €, 06/11–27/11/2026.',
