@@ -86,3 +86,7 @@ a.linkbtn.go { color: var(--brand); font-weight: 700; }
   .aplane figcaption { bottom:-6px; font-size:11px; }
   .aplane-trail { left:-10%; bottom:30%; width:42%; height:40%; }
 }
+
+/* 26/11/2026: οι προσφορές πριν τον υπολογιστή */
+.sec.sec-top { margin-top:-34px; position:relative; z-index:2; }
+.hoffers + .qcard { margin-top:14px; }

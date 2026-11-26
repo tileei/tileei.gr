@@ -478,7 +478,9 @@
     D.banks.forEach((bk) => { const og = document.createElement('optgroup'); og.label = bk.name; D.cards.filter((c) => c.bank === bk.id).forEach((c) => og.appendChild(new Option(c.name, c.id))); if (og.children.length) gc.append(og); });
     gc.value = 'premium';
   }
-  function liveOffers() { return D.offers.map((o) => ({ o, st: C.offerStatus(o, today()) })).filter((x) => ['active', 'upcoming', 'recurring'].includes(x.st)); }
+  /* Νεότερη προσφορά πρώτη: ταξινόμηση με ημερομηνία έναρξης (μετά ημερομηνία ελέγχου), φθίνουσα. Οι «κατά διαστήματα» στο τέλος. */
+  const newestFirst = (a, b) => ((a.st === 'recurring') - (b.st === 'recurring')) || String(b.o.start || '').localeCompare(String(a.o.start || '')) || String(b.o.checked || '').localeCompare(String(a.o.checked || ''));
+  function liveOffers() { return D.offers.map((o) => ({ o, st: C.offerStatus(o, today()) })).filter((x) => ['active', 'upcoming', 'recurring'].includes(x.st)).sort(newestFirst); }
   function renderGoal() {
     if (!val('g_have') && !val('g_need')) { $('g_out').innerHTML = '<div class="empty">Συμπλήρωσε πόσα μίλια έχεις και πόσα χρειάζεσαι (τα βλέπεις στην AEGEAN).</div>'; return; }
     const card = D.cards.find((c) => c.id === val('g_card'));
@@ -554,7 +556,7 @@
     const grp = (st) => all.filter((x) => x.st === st);
     const sec = (title, list, empty) => `<h2>${title}</h2>` + (list.length ? list.map((x) => offerCard(x.o, x.st, x.mine)).join('') : `<div class="empty">${empty}</div>`);
     $('o_out').innerHTML = `<p class="hint" style="margin:0 0 6px">Σήμερα: ${dmy(t)}</p><div class="list">` +
-      sec('Ενεργές', grp('active').concat(grp('upcoming')), 'Δεν υπάρχει ενεργή επιβεβαιωμένη προσφορά.') +
+      sec('Ενεργές', grp('active').concat(grp('upcoming')).sort(newestFirst), 'Δεν υπάρχει ενεργή επιβεβαιωμένη προσφορά.') +
       (grp('recurring').length ? sec('Επαναλαμβανόμενες (έρχονται κατά διαστήματα)', grp('recurring'), '') : '') +
       (grp('to_verify').length ? sec('Προς επιβεβαίωση', grp('to_verify'), '') : '') +
       sec('Ιστορικό (ληγμένες)', grp('expired'), 'Καμία ληγμένη προσφορά ακόμη.') + '</div>';
