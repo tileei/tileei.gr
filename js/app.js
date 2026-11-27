@@ -24,7 +24,7 @@
   function srcLinks(ids) {
     return ids.map((id) => { const s = D.sources[id]; return s ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.t)}</a>` : ''; }).filter(Boolean).join(' · ');
   }
-  const checkedLine = (r) => `<span>Έλεγχος ${dmy(r.checked)}${r.check === 'reread' ? ' (ξαναδιαβάστηκε η επίσημη σελίδα)' : ' (από προηγούμενο έλεγχο)'}</span>`;
+  const checkedLine = (r) => `<span>Έλεγχος ${dmy(r.checked)}${r.check === 'reread' ? ' (ξαναδιαβάστηκε η επίσημη σελίδα)' : r.check === 'email' ? ' (από email του συνεργάτη)' : ' (από προηγούμενο έλεγχο)'}</span>`;
   const flow = (tag, cls, big, body, extra) => `<div class="card"><span class="flow-tag ${cls}">${tag}</span><div class="big">${big}</div>${body}${extra || ''}</div>`;
 
   /* ---- πλοήγηση: κύριο μενού + υπομενού εργαλείων ---- */
