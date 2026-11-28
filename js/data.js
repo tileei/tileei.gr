@@ -78,6 +78,7 @@
     'alpha-credit':  { t: 'Alpha Bank – Aegean Bonus Visa (πιστωτική)', url: 'https://www.alpha.gr/en/personal/cards/pistotikes-kartes/pistotiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
     'alpha-debit-gr': { t: 'Alpha Bank – Χρεωστική Aegean Bonus Visa (ελληνική σελίδα)', url: 'https://www.alpha.gr/el/idiotes/kartes/xreostikes-kartes/xreostiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
     'alpha-debit':   { t: 'Alpha Bank – Aegean Bonus Visa Debit', url: 'https://www.alpha.gr/en/personal/cards/xreostikes-kartes/xreostiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
+    'alpha-major-aegean-el': { t: 'Alpha Bank – Μεγάλος συνεργάτης AEGEAN: εισιτήρια Bonus και κουπόνια με πόντους (έλεγχος 28/11/2026)', url: 'https://www.alpha.gr/el/idiotes/bonus/megaloi-sunergates/aegean', pub: 'Alpha Bank' },
     'alpha-mp-aegean': { t: 'Alpha Bank – Μεγάλος συνεργάτης AEGEAN (αναλογίες μετατροπής)', url: 'https://www.alpha.gr/en/retail/bonus/MajorPartners/aegean', pub: 'Alpha Bank' },
     'ae-buy-miles': { t: 'Miles+Bonus – Αγορά μιλίων', url: 'https://en.aegeanair.com/milesandbonus/how-to-earn/purchase-award-miles/', pub: 'AEGEAN' },
     'ae-search-2026-10-23': { t: 'Αναζήτηση εξαργύρωσης στην εφαρμογή AEGEAN (στιγμιότυπα 23/10/2026)', url: 'https://el.aegeanair.com/', pub: 'AEGEAN' },
@@ -465,6 +466,29 @@
   /* Εξαργύρωση σε πτήσεις AEGEAN / Olympic Air: μίλια ανά πτήση (μονή διαδρομή), επίσημος κανόνας.
    * Εσωτερικού: σταθερά. Εξωτερικού: πολλαπλάσιο της απόστασης με ελάχιστο. Η μονάδα απόστασης δεν ορίζεται στη σελίδα·
    * το παράδειγμα Αθήνα–Μόναχο «944 miles» (upgradedpoints, 01/2026) αντιστοιχεί σε αγγλικά μίλια μεγάλου κύκλου. */
+  /* Εξαργύρωση πόντων Alpha Bonus ΑΠΕΥΘΕΙΑΣ σε πτήσεις AEGEAN, χωρίς μετατροπή σε μίλια (σελίδα «μεγάλος συνεργάτης AEGEAN» της Alpha, έλεγχος 28/11/2026, ΟΚ Νίκου).
+     Χρήσιμο για πόντους που δεν γίνονται μίλια (π.χ. χωρίς κάρτα Aegean Bonus Visa). Οι πόντοι αφορούν απλή μετάβαση· μετ' επιστροφής διπλάσιοι. */
+  const alphaAegeanRedeem = {
+    sources: ['alpha-major-aegean-el'], status: 'confirmed', check: 'reread', checked: '2026-11-28',
+    tickets: [
+      { pts: 10000, t: 'Εσωτερικού, Economy (όλο το δίκτυο)' },
+      { pts: 16000, t: 'Εξωτερικού, Economy, κοντινές αποστάσεις' },
+      { pts: 17500, t: 'Εσωτερικού, Business (όλο το δίκτυο)' },
+      { pts: 22500, t: 'Εξωτερικού, Economy, μακρινές αποστάσεις' },
+      { pts: 27500, t: 'Εξωτερικού, Business, κοντινές αποστάσεις' },
+      { pts: 35000, t: 'Εξωτερικού, Business, μακρινές αποστάσεις' }
+    ],
+    coupons: [{ pts: 5000, eur: 10 }, { pts: 15000, eur: 30 }, { pts: 30000, eur: 60 }],
+    couponDates: 'Κουπόνια από το Bonus app 01/10–31/12/2026 · κρατήσεις έως 31/12/2026 · πτήσεις έως 31/05/2027',
+    notes: [
+      'Οι πόντοι αφορούν απλή μετάβαση· για μετ’ επιστροφής ισχύει διπλάσιος αριθμός.',
+      'Περιλαμβάνεται αποσκευή έως 23 kg ανά επιβάτη.',
+      'Φόροι, τέλη αεροδρομίων και επιβαρύνσεις ΔΕΝ περιλαμβάνονται· χρεώνονται στην κάρτα της εξαργύρωσης.',
+      'Οι θέσεις Bonus είναι περιορισμένες ανά πτήση· γενική διαθεσιμότητα δεν σημαίνει θέση Bonus.',
+      'Για απευθείας εισιτήρια Bonus μετρούν όλοι οι διαθέσιμοι πόντοι του ενιαίου λογαριασμού myBonus, από οποιαδήποτε κάρτα Bonus.',
+      'Εξαργύρωση: el.aegeanair.com, alphabankbonusredemptionel.aegeanair.com (μόνο από Ελλάδα) ή τηλεφωνικά 801 11 20000 / 210 62 61 000 (το δεύτερο με επιπλέον χρέωση 23 €).'
+    ]
+  };
   const awardChart = {
     sources: ['ae-aegean-award', 'ae-terms'], status: 'confirmed', check: 'reread', checked: '2026-10-23',
     cabins: [['eco', 'Economy (Flex / Comfort)'], ['comfort', 'Economy (Comfort Flex / Comfort Plus)'], ['business', 'Business']],
@@ -600,6 +624,14 @@
       action: 'Ανεφοδιασμός σε συμμετέχον πρατήριο bp, με την κάρτα BPme (ψηφιακή ή φυσική).',
       limits: 'Οι όροι της προσφοράς δεν ορίζουν όριο συναλλαγών ή λίτρων. Δεν συνδυάζεται με άλλες προσφορές για το ίδιο προϊόν. Η ΕΚΟ μπορεί να εξαιρέσει πρατήρια ή να αλλάξει/διακόψει την προσφορά.',
       status: 'confirmed', check: 'reread', checked: '2026-11-27', sources: ['bp-diesel-promo-terms', 'bp-diesel-promo'] },
+    /* Προστέθηκε 28/11/2026 (ΟΚ Νίκου), από τη σελίδα «μεγάλος συνεργάτης AEGEAN» της Alpha. Εξαργύρωση πόντων Alpha, όχι μίλια. */
+    { id: 'alpha-aegean-coupons-26', title: 'Κουπόνια AEGEAN με πόντους Bonus: 5.000 πόντοι = 10 €', partner: 'AEGEAN · Alpha Bank Bonus', kind: 'redeem_deal',
+      short: 'Κουπόνια 10 / 30 / 60 € για πτήσεις AEGEAN και Olympic Air, με πόντους Alpha Bonus από το Bonus app.',
+      desc: 'Από το Bonus app ανταλλάσσεις πόντους Alpha Bonus με κουπόνι έκπτωσης για κράτηση στην AEGEAN: 5.000 πόντοι = 10 €, 15.000 = 30 €, 30.000 = 60 € (1 πόντος = 0,2 λεπτά). Σύγκριση: με Aegean Bonus Visa πιστωτική 1 πόντος γίνεται 1 μίλι· αν τα μίλιά σου αξίζουν πάνω από 2 € τα 1.000, η μετατροπή σε μίλια βγαίνει καλύτερα.',
+      start: '2026-10-01', end: '2026-12-31', endNote: 'Κουπόνια και κρατήσεις έως 31/12/2026 · πτήσεις έως 31/05/2027',
+      action: 'Bonus app → εξαργύρωση πόντων σε κουπόνι AEGEAN → κράτηση στο aegeanair.com με το κουπόνι.',
+      limits: 'Ισχύουν ξεχωριστοί όροι εξαργύρωσης κουπονιών στη σελίδα της Alpha. Οι συνεργάτες μπορούν να ανακαλέσουν ή να αλλάξουν τις προσφορές πριν λήξουν.',
+      status: 'confirmed', check: 'reread', checked: '2026-11-28', sources: ['alpha-major-aegean-el'] },
     { id: 'bp-98-100-weekend', title: 'bp: 8 πόντοι BPme ανά λίτρο σε 98 και 100', partner: 'bp', kind: 'fuel_points', calc: 'fuel:bp',
       desc: 'Κάθε Παρασκευή, Σάββατο και Κυριακή παίρνεις 8 πόντους BPme ανά λίτρο σε bp Super Unleaded 98 ή bp Ultimate Unleaded 100, αντί για 2 ή 3. Οι πόντοι BPme μετατρέπονται σε μίλια Miles+Bonus σε πακέτα.',
       start: '2026-10-16', end: '2026-12-27', endNote: 'Από 16/10 έως 27/12/2026, μόνο Παρ–Σαβ–Κυρ (η λήξη άλλαξε από 31/12)',
@@ -720,5 +752,5 @@
       status: 'confirmed', check: 'reread', checked: '2026-10-22', sources: ['ae-eko-promo'] }
   ];
 
-  return { schema: 1, rulesChecked: '2026-10-22', sources, programs, banks, cards, stacking, fuels, partners, partnerCats, hotelAreas, hotelRules, airlinePartners, alphaPartners, alphaNote, fuel, fuelPrices, awardChart, airports, destAirport, partnerDests, observedAwards, valueBands, conversions, offers, alphaRules };
+  return { schema: 1, rulesChecked: '2026-10-22', sources, programs, banks, cards, stacking, fuels, partners, partnerCats, hotelAreas, hotelRules, airlinePartners, alphaPartners, alphaNote, fuel, fuelPrices, awardChart, alphaAegeanRedeem, airports, destAirport, partnerDests, observedAwards, valueBands, conversions, offers, alphaRules };
 });

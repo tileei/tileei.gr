@@ -392,6 +392,18 @@
       (c.packages ? `<li>Πακέτα: ${c.packages.map((x) => fmt(x, 0)).join(' / ')} πόντοι</li>` : `<li>Πολλαπλάσια των ${c.multipleOf} πόντων</li>`) +
       `<li>Ετήσιο όριο: ${esc(c.annualCap)}</li><li>${esc(c.note)}</li></ul>` +
       `<div class="meta">${statusBadge(c.status)}${checkedLine(c)}</div><div class="meta"><span>Πηγή: ${srcLinks(c.sources)}</span></div></div>`;
+    const R = D.alphaAegeanRedeem, P = Math.max(0, Math.floor(Number(val('v_points')) || 0));
+    if (R) {
+      const rows = R.tickets.map((x) => `<tr><td>${esc(x.t)}</td><td style="text-align:right">${fmt(x.pts, 0)}</td><td style="text-align:right">${P >= x.pts ? fmt(Math.floor(P / x.pts), 0) : '–'}</td></tr>`).join('');
+      const cp = R.coupons.map((x) => `${fmt(x.pts, 0)} πόντοι = ${eur(x.eur)}`).join(' · ');
+      h += `<div class="card"><h3>Πόντοι που δεν γίνονται μίλια; Πέτα απευθείας</h3>` +
+        `<p>Με πόντους Alpha Bonus από <b>οποιαδήποτε</b> κάρτα Bonus μπορείς να βγάλεις <b>εισιτήριο Bonus</b> στην AEGEAN, χωρίς μετατροπή σε μίλια. Χρήσιμο αν δεν έχεις κάρτα Aegean Bonus Visa.</p>` +
+        `<div class="tblwrap"><table class="tiers"><thead><tr><th>Εισιτήριο Bonus (απλή μετάβαση)</th><th style="text-align:right">Πόντοι</th><th style="text-align:right">Με ${fmt(P, 0)} πόντους</th></tr></thead><tbody>${rows}</tbody></table></div>` +
+        `<p class="hint">Κουπόνια έκπτωσης: ${esc(cp)}. ${esc(R.couponDates)}.</p>` +
+        `<ul class="plain" style="overflow-wrap:anywhere">${R.notes.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` +
+        `<div class="formula">Σύγκριση: με Aegean Bonus Visa πιστωτική, 10.000 πόντοι γίνονται 10.000 μίλια. Ο επίσημος πίνακας της AEGEAN ζητά 5.000 μίλια για πτήση εσωτερικού Economy (Flex/Comfort), αλλά στην κράτηση οι τιμές συχνά είναι υψηλότερες. Δες την καρτέλα <a href="#value">Αξία μιλίων</a> με τα πραγματικά νούμερα.</div>` +
+        `<div class="meta">${statusBadge(R.status)}${checkedLine(R)}</div><div class="meta"><span>Πηγή: ${srcLinks(R.sources)}</span></div></div>`;
+    }
     $('v_out').innerHTML = h;
   }
   ['v_rule', 'v_points', 'v_bonus', 'v_bonusend'].forEach((id) => $(id).addEventListener('input', renderConvert));
