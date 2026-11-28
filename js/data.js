@@ -34,6 +34,7 @@
     'bp-promo-98-100-terms': { t: 'bp – Όροι προσφοράς «8 BPme πόντοι/λίτρο» (PDF, V3): 16/10/2026 – 27/12/2026', url: 'https://www.bp.com/content/dam/bp/country-sites/el_gr/greece/retail/documents/20261016-unleaded/Terms%20and%20Conditions%20(BPme%20October%20Promo)%20V3.pdf', pub: 'bp' },
     'bp-diesel-promo-terms': { t: 'bp – Όροι «Προσφορά σε bp Diesel & bp Ultimate Diesel» (PDF, Μαρούσι 24/11/2026): 24/11/2026 – 31/12/2026', url: 'https://www.bp.com/content/dam/bp/country-sites/el_gr/greece/retail/documents/20261124-ultimate-diesel/Terms%20and%20Conditions%20(BPme%20Diesel%20Promo).pdf', pub: 'bp' },
     'bp-diesel-promo': { t: 'bp – Προσφορά κάθε Τρίτη & Πέμπτη σε bp Diesel & bp Ultimate Diesel', url: 'https://www.bp.com/el_gr/greece/retail/latest-offers/bp-diesel-ultimate-diesel.html', pub: 'bp' },
+    'ae-wolt-bf26': { t: 'Miles+Bonus – «This Black Friday, Enjoy More with x3 Award Miles from Wolt+!» (ανακοίνωση 27/11/2026· χωρίς ημερομηνίες)', url: 'https://en.aegeanair.com/milesandbonus/news/2026/wolt_black_friday26/', pub: 'AEGEAN' },
     'wolt-bf-email-26': { t: 'Wolt – email «Black Friday με 3πλάσια Miles+Bonus μίλια» (27/11/2026, στιγμιότυπο Νίκου· δεν βρέθηκε ακόμα σε σελίδα της AEGEAN)', url: 'https://en.aegeanair.com/milesandbonus/partners/lifestyle/wolt/', pub: 'Wolt' },
     'bp-promo-98-100': { t: 'bp – Προσφορά 8 πόντων BPme/λίτρο σε 98 & 100', url: 'https://www.bp.com/el_gr/greece/retail/latest-offers/super-unleaded-98-ultimate-unleaded-100.html', pub: 'bp' },
     'alpha-kotsovolos': { t: 'Alpha Bank Bonus – Κωτσόβολος (προσφορές)', url: 'https://www.alpha.gr/el/idiotes/bonus/megaloi-sunergates/kotsovolos', pub: 'Alpha Bank' },
@@ -583,14 +584,14 @@
       action: 'Αγορά σε φυσικό κατάστημα INTERSPORT με κάρτα Bonus. Όχι online.',
       limits: 'Δεν συνδυάζεται με άλλες προσφορές· οι πόντοι δεν πολλαπλασιάζονται περαιτέρω.',
       status: 'confirmed', check: 'reread', checked: '2026-10-23', sources: ['alpha-intersport'] },
-    /* Προστέθηκε 27/11/2026 (ΟΚ Νίκου «Β»). Πηγή: email της Wolt (στιγμιότυπο Νίκου 27/11 10:45). Η σελίδα Wolt της AEGEAN γράφει ακόμα 1 μίλι/€. */
+    /* Προστέθηκε 27/11/2026 (ΟΚ Νίκου «Β»). Πηγή: email της Wolt (στιγμιότυπο Νίκου 27/11 10:45). 28/11: + ανακοίνωση AEGEAN wolt_black_friday26 (χωρίς ημερομηνίες), ΟΚ Νίκου. */
     { id: 'wolt-x3-bf26', title: 'Wolt: 3 μίλια Miles+Bonus ανά € (Black Friday)', partner: 'Wolt · AEGEAN Miles+Bonus', kind: 'earn_bonus',
       short: 'Μόνο με Wolt+ και συνδεδεμένο λογαριασμό Miles+Bonus, 27/11–30/11/2026.',
       desc: 'Από 27 έως 30/11/2026 κερδίζεις 3 μίλια εξαργύρωσης Miles+Bonus για κάθε 1 € σε επιλέξιμες παραγγελίες με Wolt+, αντί για το κανονικό 1 μίλι/€. Παράδειγμα: παραγγελία 30 € → 90 μίλια αντί για 30.',
       start: '2026-11-27', end: '2026-11-30', endNote: 'μόνο με Wolt+',
       action: 'Παραγγελία στη Wolt με ενεργό Wolt+ και αριθμό μέλους Miles+Bonus στο «Loyalty Cards».',
-      limits: 'Το email δεν εξηγεί ποιες παραγγελίες είναι «επιλέξιμες». Κανονικά μίλια κερδίζονται μόνο όταν εφαρμόζονται τα οφέλη Wolt+ στο checkout. Πηγή: email της Wolt· η σελίδα της AEGEAN δεν το αναφέρει ακόμα (έλεγχος 27/11/2026).',
-      status: 'confirmed', check: 'email', checked: '2026-11-27', sources: ['wolt-bf-email-26', 'ae:wolt'] },
+      limits: 'Το email δεν εξηγεί ποιες παραγγελίες είναι «επιλέξιμες». Κανονικά μίλια κερδίζονται μόνο όταν εφαρμόζονται τα οφέλη Wolt+ στο checkout. Το ×3 το επιβεβαιώνει και η AEGEAN (ανακοίνωση 27/11/2026), αλλά οι ημερομηνίες 27–30/11 υπάρχουν μόνο στο email της Wolt.',
+      status: 'confirmed', check: 'reread', checked: '2026-11-28', sources: ['ae-wolt-bf26', 'wolt-bf-email-26', 'ae:wolt'] },
     /* Προστέθηκε 27/11/2026 (ΟΚ Νίκου «Β»), από τους όρους της bp (PDF 24/11/2026). Δεν μπαίνει στον υπολογιστή καυσίμων (εκεί μόνο η προσφορά 98/100). */
     { id: 'bp-diesel-tue-thu', title: 'bp: πόντοι BPme στο Diesel κάθε Τρίτη και Πέμπτη', partner: 'bp', kind: 'fuel_points',
       short: 'Τρίτη: διπλάσιοι πόντοι σε bp Diesel · Πέμπτη: 8 πόντοι/λίτρο σε bp Ultimate Diesel · 24/11–31/12/2026.',
