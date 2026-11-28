@@ -79,6 +79,9 @@
     'alpha-debit-gr': { t: 'Alpha Bank – Χρεωστική Aegean Bonus Visa (ελληνική σελίδα)', url: 'https://www.alpha.gr/el/idiotes/kartes/xreostikes-kartes/xreostiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
     'alpha-debit':   { t: 'Alpha Bank – Aegean Bonus Visa Debit', url: 'https://www.alpha.gr/en/personal/cards/xreostikes-kartes/xreostiki-karta-aegean-bonus-visa', pub: 'Alpha Bank' },
     'alpha-major-aegean-el': { t: 'Alpha Bank – Μεγάλος συνεργάτης AEGEAN: εισιτήρια Bonus και κουπόνια με πόντους (έλεγχος 28/11/2026)', url: 'https://www.alpha.gr/el/idiotes/bonus/megaloi-sunergates/aegean', pub: 'Alpha Bank' },
+    'alpha-half-may26': { t: 'Alpha Bank – «Το Bonus φέρνει το καλοκαίρι κοντά!»: εξαργύρωση με τους μισούς πόντους σε 14 συνεργάτες μαζί με AEGEAN, έως 31/05/2026 (έληξε)', url: 'https://www.alpha.gr/en/retail/bonus/bonus-news/bonus-summer-promo-may-26', pub: 'Alpha Bank' },
+    'alpha-half-apr22': { t: 'Alpha Bank – Εξαργύρωση στην AEGEAN με τους μισούς Bonus πόντους, εισιτήρια εσωτερικού 1–15/4/2022 (έληξε)', url: 'https://www.alpha.gr/el/idiotes/Bonus/Bonus-News/aegean-prosfora-aprilios-2022', pub: 'Alpha Bank' },
+    'alpha-ecoupons': { t: 'Alpha Bank – Bonus e-Coupons: οι προσφορές «μισών πόντων» δεν ισχύουν για κουπόνια του Bonus app', url: 'https://www.alpha.gr/en/personal/bonus/bonus-ecoupons', pub: 'Alpha Bank' },
     'alpha-mp-aegean': { t: 'Alpha Bank – Μεγάλος συνεργάτης AEGEAN (αναλογίες μετατροπής)', url: 'https://www.alpha.gr/en/retail/bonus/MajorPartners/aegean', pub: 'Alpha Bank' },
     'ae-buy-miles': { t: 'Miles+Bonus – Αγορά μιλίων', url: 'https://en.aegeanair.com/milesandbonus/how-to-earn/purchase-award-miles/', pub: 'AEGEAN' },
     'ae-search-2026-10-23': { t: 'Αναζήτηση εξαργύρωσης στην εφαρμογή AEGEAN (στιγμιότυπα 23/10/2026)', url: 'https://el.aegeanair.com/', pub: 'AEGEAN' },
@@ -469,7 +472,7 @@
   /* Εξαργύρωση πόντων Alpha Bonus ΑΠΕΥΘΕΙΑΣ σε πτήσεις AEGEAN, χωρίς μετατροπή σε μίλια (σελίδα «μεγάλος συνεργάτης AEGEAN» της Alpha, έλεγχος 28/11/2026, ΟΚ Νίκου).
      Χρήσιμο για πόντους που δεν γίνονται μίλια (π.χ. χωρίς κάρτα Aegean Bonus Visa). Οι πόντοι αφορούν απλή μετάβαση· μετ' επιστροφής διπλάσιοι. */
   const alphaAegeanRedeem = {
-    sources: ['alpha-major-aegean-el'], status: 'confirmed', check: 'reread', checked: '2026-11-28',
+    sources: ['alpha-major-aegean-el', 'alpha-half-may26', 'alpha-half-apr22', 'alpha-ecoupons'], status: 'confirmed', check: 'reread', checked: '2026-11-28',
     tickets: [
       { pts: 10000, t: 'Εσωτερικού, Economy (όλο το δίκτυο)' },
       { pts: 16000, t: 'Εξωτερικού, Economy, κοντινές αποστάσεις' },
@@ -481,6 +484,7 @@
     coupons: [{ pts: 5000, eur: 10 }, { pts: 15000, eur: 30 }, { pts: 30000, eur: 60 }],
     couponDates: 'Κουπόνια από το Bonus app 01/10–31/12/2026 · κρατήσεις έως 31/12/2026 · πτήσεις έως 31/05/2027',
     notes: [
+      'Κατά διαστήματα η Alpha βγάζει εξαργύρωση με τους ΜΙΣΟΥΣ πόντους (π.χ. έως 31/05/2026 σε 14 συνεργάτες μαζί με AEGEAN· 1–15/04/2022 σε εισιτήρια εσωτερικού). Τότε π.χ. το εσωτερικό Economy θέλει 5.000 αντί για 10.000. Δεν ισχύει για κουπόνια του Bonus app. Όταν τρέχει, θα τη δεις στις Προσφορές.',
       'Οι πόντοι αφορούν απλή μετάβαση· για μετ’ επιστροφής ισχύει διπλάσιος αριθμός.',
       'Περιλαμβάνεται αποσκευή έως 23 kg ανά επιβάτη.',
       'Φόροι, τέλη αεροδρομίων και επιβαρύνσεις ΔΕΝ περιλαμβάνονται· χρεώνονται στην κάρτα της εξαργύρωσης.',
